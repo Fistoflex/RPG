@@ -21,4 +21,12 @@ typedef struct s_choice
     struct s_choice *prev;
 } choice_t;
 
+typedef struct s_list
+{
+    choice_t *iteme;
+    int state_link;
+    struct s_list *next;
+    struct s_list *prev;
+} list_t;
+
 #endif

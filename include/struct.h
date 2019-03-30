@@ -8,6 +8,7 @@
 #ifndef STRUCT_H_
 #define STRUCT_H_
 #include "key_board.h"
+#include "character.h"
 
 typedef struct sfIntRect_contains {
     sfTexture *txtr;
@@ -53,6 +54,7 @@ typedef struct mouse_s {
 
 typedef struct clck_s {
     sfClock *esc;
+    sfClock *anim;
 }clck_t;
 
 
@@ -64,6 +66,7 @@ typedef struct game_s {
     clck_t clock;
     key_board_t key;
     menu_t menu;
+    chara_t chara;
     settings_t set;
     pause_t pause;
     intro_t intro;

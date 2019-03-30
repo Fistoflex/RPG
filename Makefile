@@ -11,8 +11,13 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/all_scene/all_scene.c	\
 					src/intro/my_intro.c		\
 					src/manage_event/main_event.c	\
-					src/game/my_game.c	\
-					src/menu/my_menu.c	\
+					src/game/my_game.c		\
+					src/game/move_player/to_the_left.c	\
+					src/game/move_player/to_the_right.c	\
+					src/game/move_player/to_the_top.c	\
+					src/game/move_player/to_the_bot.c	\
+					src/game/move_player/all_cond_moves.c	\
+					src/menu/my_menu.c		\
 					src/menu/init_the_scn_menu.c	\
 					src/menu/color_txt_menu.c	\
 					src/pause/my_pause.c		\
@@ -27,7 +32,8 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_clock.c			\
 					src/biggest_txt.c		\
 					src/init_the_button_rectangle.c	\
-					src/init_struct_game.c
+					src/init_struct_game.c		\
+					src/my_create_rect.c
 
 MAIN		=			src/main.c
 

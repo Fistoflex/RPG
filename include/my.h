@@ -25,7 +25,15 @@ char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
 
-void all_scene(sfRenderWindow *window, game_t *gm);
+void    move_player(sfRenderWindow *wind, game_t *gm);
+void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
+void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);
+sfIntRect   my_create_rect(int h, int w, int t, int l);
+void	to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+void    to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+void    to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+void    to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+void    all_scene(sfRenderWindow *window, game_t *gm);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
 void resume_effect(game_t *gm);
@@ -66,6 +74,7 @@ sfVector2f set_shape_position(int, int);
 void clic_menu_exit(sfRenderWindow *, game_t *, sfVector2i);
 void clic_menu_settings(game_t *, sfVector2i);
 
-void malloc_my_link_list(choice_t **env, sfSprite *iteme, char *lol);
+void malloc_my_link_list(list_t **env, choice_t *choice);
+void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str);
 
 #endif
