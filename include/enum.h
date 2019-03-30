@@ -8,7 +8,7 @@
 #ifndef ENUM_H_
 #define ENUM_H_
 
-enum bool {
+enum {
     TRUE = 0,
     FALSE
 };

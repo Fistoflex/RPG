@@ -29,9 +29,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/init_the_button_rectangle.c	\
 					src/init_struct_game.c
 
-MAIN		=		src/main.c
+MAIN		=			src/main.c
 
-SRC_TEST	=
+SRC_TEST	=		tests/test_create_link_list.c
 
 OBJ		=		$(SRC:.c=.o) $(MAIN:.c=.o)
 
@@ -45,7 +45,7 @@ CFLAGS		=		-I./include -g
 
 LIB		=		-L./lib -lmy
 
-GRAPH		=	-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio
+GRAPH		=		-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio
 
 LDFLAGS		=		-lcriterion --coverage
 
