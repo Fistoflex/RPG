@@ -38,7 +38,7 @@ void malloc_my_link_list(list_t **env, choice_t *choice)
     list_t *new = NULL;
     list_t *first = (*env);
 
-    new = malloc(sizeof(*new));
+    new = malloc(sizeof((*new)));
     new->iteme = choice;
     new->next = (*env);
     new->prev = NULL;
