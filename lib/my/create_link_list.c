@@ -5,7 +5,7 @@
 ** create different link liste
 */
 
-#include "my.h"
+#include "../../include/my.h"
 
 void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str)
 {

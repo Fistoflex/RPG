@@ -5,7 +5,7 @@
 ## makefile lib
 ##
 
-SRC		=
+SRC		=		create_link_list.c
 
 OBJ		=		$(SRC:.c=.o)
 

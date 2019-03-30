@@ -77,4 +77,11 @@ void clic_menu_settings(game_t *, sfVector2i);
 void malloc_my_link_list(list_t **env, choice_t *choice);
 void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str);
 
+void press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
+void press_up(sfRenderWindow *wind, game_t *gm, list_t *list);
+void press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice);
+void press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
+list_t *init_my_custome(void);
+void make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
+
 #endif

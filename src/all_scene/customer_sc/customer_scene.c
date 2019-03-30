@@ -7,10 +7,11 @@
 
 #include "my.h"
 
-void make_your_choise(sfRenderWindow *wind, game_t *gm, list_t *list)
+void make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
     static sfIntRect rect;
 
+    printf("[%s]\n", list->iteme->str);
     if (gm->key.left == PUSHED) {
         press_left(wind, gm, list->iteme);
         gm->key.left = NOT_PUSHED;
@@ -20,27 +21,32 @@ void make_your_choise(sfRenderWindow *wind, game_t *gm, list_t *list)
         gm->key.right = NOT_PUSHED;
     }
     if (gm->key.up == PUSHED) {
-        press_top(wind, gm, list);
+        press_up(wind, gm, list);
         gm->key.up = NOT_PUSHED;
     }
     if (gm->key.down == PUSHED) {
-        press_bot(wind, gm, list);
+        press_down(wind, gm, list);
         gm->key.down = NOT_PUSHED;
     }
 }
 
 //fonction qui affiche en petit, grand, change les coord en fonction
-list_t **init_my_choice()
+list_t *init_my_custome(void)
 {
     int n = 0;
     list_t *list = NULL;
-    choice_t *hat = NULL;
     choice_t *hair = NULL;
     choice_t *top = NULL;
-    choice_t *bot = NULL;
 
-    for (n = 0; n != 3; n++)
-        hat = malloc_my_link_choice(hat, )
+    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/black.png", sfFalse), strdup("bla"));
+    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blue2.png", sfFalse), strdup("blue"));
+    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blonde2.png", sfFalse), strdup("blond"));
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/magenta.png", sfFalse), NULL);
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/teal.png", sfFalse), NULL);
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/red.png", sfFalse), NULL);    
+    malloc_my_link_list(&list, hair);
+    malloc_my_link_list(&list, top);
+    return (list);
 }
 //top choice , mid, bot
 //valider -> parcoure toute les listes, et check state_iteme*
