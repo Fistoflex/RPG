@@ -38,14 +38,16 @@ list_t *init_my_custome(void)
     choice_t *hair = NULL;
     choice_t *top = NULL;
 
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/black.png", sfFalse), strdup("bla"));
+    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/black.png", sfFalse), strdup("black"));
     malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blue2.png", sfFalse), strdup("blue"));
     malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blonde2.png", sfFalse), strdup("blond"));
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/magenta.png", sfFalse), NULL);
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/teal.png", sfFalse), NULL);
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/red.png", sfFalse), NULL);    
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/magenta.png", sfFalse), strdup("blond"));
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/teal.png", sfFalse), strdup("blond"));
+    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/red.png", sfFalse), strdup("blond"));
     malloc_my_link_list(&list, hair);
+    printf("%s\n", list->iteme->str);
     malloc_my_link_list(&list, top);
+    printf("%s\n", list->next->iteme->str);
     return (list);
 }
 //top choice , mid, bot
