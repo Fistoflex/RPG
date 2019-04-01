@@ -7,13 +7,12 @@
 
 #include <stdlib.h>
 
-char my_strlen(char const *str);
+int my_strlen(char *str);
 
-char *my_strdup(char const *src)
+char *my_strdup(char *src)
 {
-    int len = my_strlen(src);
-    char *dest = malloc(sizeof(char) * (len + 1));
     int i = 0;
+    char *dest = malloc(sizeof(char) * (my_strlen(src) + 1));
 
     while (src[i] != '\0') {
         dest[i] = src[i];

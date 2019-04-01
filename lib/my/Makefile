@@ -5,7 +5,13 @@
 ## makefile lib
 ##
 
-SRC		=		create_link_list.c
+SRC		=		create_link_list.c		\
+				my_putchar.c			\
+				my_putstr.c				\
+				my_putstr_error.c		\
+				my_str_to_word_array.c	\
+				my_strcat.c				\
+				my_strdup.c
 
 OBJ		=		$(SRC:.c=.o)
 
