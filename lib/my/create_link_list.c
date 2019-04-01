@@ -42,6 +42,7 @@ void malloc_my_link_list(list_t **env, choice_t *choice)
     new->iteme = choice;
     new->next = (*env);
     new->prev = NULL;
+    new->state_link = TRUE;
     if (tmp == NULL)
         (*env) = new;
     else {

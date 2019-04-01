@@ -19,7 +19,7 @@ int main(int ac, char **av)
     window = sfRenderWindow_create(video_mode, "My Defender",
                                     sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
-    is_open(window, gm);
+    is_open(window, gm, list);
     sfMusic_destroy(gm.sound);
     sfRenderWindow_destroy(window);
     return (0);

@@ -34,8 +34,11 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/init_the_button_rectangle.c	\
 					src/init_struct_game.c		\
 					src/my_create_rect.c		\
-					src/all_scene/customer_sc/customer_scene.c	\
-					src/all_scene/customer_sc/my_chose.c
+					src/customize/customer_scene.c	\
+					src/customize/my_chose.c	\
+					src/set_tab.c			\
+					src/customize/set_elem.c	\
+					src/get_next_line.c
 
 MAIN		=			src/main.c
 

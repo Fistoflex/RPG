@@ -11,8 +11,7 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
 {
     game_t gm;
 
-    gm.state = INTRO;
-    
+    gm.state = GAME;
     gm.sound = sfMusic_createFromFile("audio/sound.wav");
     gm.effect = FALSE;
     gm.mouse.moved.x = 0;
