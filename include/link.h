@@ -29,4 +29,10 @@ typedef struct s_list
     struct s_list *prev;
 } list_t;
 
+typedef struct s_step
+{
+    list_t *list;
+    struct s_step *next;
+    struct s_step *prev;
+} all_step_t;
 #endif

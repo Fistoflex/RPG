@@ -13,6 +13,13 @@ enum {
     FALSE
 };
 
+enum is_game {
+    MENU = 2,
+    PAUSE,
+    GAME,
+    INTRO
+};
+
 enum button_t {
     STAR = 6,
     SETG,
@@ -21,27 +28,18 @@ enum button_t {
     RESUME
 };
 
-enum exit_t {
-    EXIT = 84
-};
-
-enum is_game {
-    MENU = 2,
-    PAUSE,
-    GAME,
-    INTRO
-};
-
-enum key_direct {
-    LEFT = 30,
-    RIGHT,
-    BOT,
-    TOP
-};
-
 enum button {
     PUSHED = 11,
     NOT_PUSHED
+};
+
+enum command {
+    NEXT = 13,
+    PREV
+};
+
+enum exit_t {
+    EXIT = 84
 };
 
 #endif

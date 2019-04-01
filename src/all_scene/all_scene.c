@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list)
+void all_scene(sfRenderWindow *window, game_t *gm, list_t **list)
 {
     my_intro(window, gm);
     bt_esc_redirect(gm);
