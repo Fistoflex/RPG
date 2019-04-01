@@ -16,7 +16,7 @@ void    to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect)
 
     gm->chara.pos.y -= 5;
     (*rect) = my_create_rect(height, width, top, left);
-    if (my_clock(gm->clock.anim) > 0.05) {
+    if (my_clock(gm->clock.anim) > 0.03) {
         left += 64;
         if ((*rect).left >= 512)
             left = 0;

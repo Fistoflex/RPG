@@ -7,12 +7,12 @@
 
 #include "my.h"
 
-void press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice)
+choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice)
 {
-    sfVector2f principal = {40, 40};
-    sfVector2f second = {20, 20};
-    sfVector2f pos_m = {-300, 0};
-    sfVector2f pos_r = {600, 0};
+    sfVector2f principal = {40, 0};
+    sfVector2f second = {20, 0};
+    sfVector2f pos_m = {-100, 0};
+    sfVector2f pos_r = {100, 0};
 
     choice = choice->prev;
     sfSprite_setScale(choice->iteme_sprite, principal);
@@ -24,9 +24,10 @@ void press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice)
     sfRenderWindow_drawSprite(wind, choice->prev->iteme_sprite, NULL);
     sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
     sfRenderWindow_drawSprite(wind, choice->next->iteme_sprite, NULL);
+    return (choice);
 }
 
-void press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice)
+choice_t *press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice)
 {
     sfVector2f principal = {40, 40};
     sfVector2f second = {20, 20};
@@ -43,16 +44,19 @@ void press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice)
     sfRenderWindow_drawSprite(wind, choice->prev->iteme_sprite, NULL);
     sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
     sfRenderWindow_drawSprite(wind, choice->next->iteme_sprite, NULL);
+    return (choice);
 }
 
-void press_up(sfRenderWindow *wind, game_t *gm, list_t *list)
+list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
     list->iteme->state_iteme = FALSE;
     list = list->prev;
+    return (list);
 }
 
-void press_down(sfRenderWindow *wind, game_t *gm, list_t *list)
+list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
     list->iteme->state_iteme = TRUE;
     list = list->next;
+    return (list);
 }

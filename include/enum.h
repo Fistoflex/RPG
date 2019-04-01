@@ -32,6 +32,13 @@ enum is_game {
     INTRO
 };
 
+enum key_direct {
+    LEFT = 30,
+    RIGHT,
+    BOT,
+    TOP
+};
+
 enum button {
     PUSHED = 11,
     NOT_PUSHED
