@@ -13,7 +13,7 @@
 typedef struct key_s {
     int flag;
     int *button;
-    void    (*fct)(int *);
+    void (*fct)(int *);
 }key_s;
 
 typedef struct stat_scn {

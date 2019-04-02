@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-char *prompt(sfRenderWindow *win, sfEvent event)
+void prompt(sfRenderWindow *win, game_t *gm, sfEvent *event)
 {
     char *str = NULL;
     sfIntRect rectangle;
@@ -16,11 +16,13 @@ char *prompt(sfRenderWindow *win, sfEvent event)
     rectangle.left = 0;
     rectangle.width = 150;
     rectangle.height = 550;
-    sfTexture_createFromFile("./picture/prompt.png", rectangle);
+    sfTexture_createFromFile("./picture/prompt.png", &rectangle);
 
     while (gm->key->enter != PUSHED) {
-        if(event.type == sfEvtTextEntered)
-            printf("%c\n", event.unicode);
+        if (str != NULL)
+            printf("%s\n", str);
+        if(event->type == sfEvtTextEntered)
+            str = add_char(str, event->text.unicode);
     {
-    return (str);
+    gm->chara.name = str;
 }

@@ -10,6 +10,10 @@
 
 typedef struct key_board_s {
     int esc;
+    int left;
+    int right;
+    int up;
+    int down;
 }key_board_t;
 
 #endif

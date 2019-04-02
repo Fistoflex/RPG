@@ -8,9 +8,16 @@
 #ifndef ENUM_H_
 #define ENUM_H_
 
-enum bool {
+enum {
     TRUE = 0,
     FALSE
+};
+
+enum is_game {
+    MENU = 2,
+    PAUSE,
+    GAME,
+    INTRO
 };
 
 enum button_t {
@@ -21,20 +28,18 @@ enum button_t {
     RESUME
 };
 
-enum exit_t {
-    EXIT = 84
-};
-
-enum is_game {
-    MENU = 2,
-    PAUSE,
-    GAME,
-    INTRO
-};
-
 enum button {
     PUSHED = 11,
     NOT_PUSHED
+};
+
+enum command {
+    NEXT = 13,
+    PREV
+};
+
+enum exit_t {
+    EXIT = 84
 };
 
 #endif
