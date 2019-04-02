@@ -16,6 +16,7 @@
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
+#include "get_next_line.h"
 
 
 void my_putchar(char);
@@ -25,6 +26,9 @@ char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
 
+char    *get_next_line(int fd);
+char **set_tab(char *path);
+void    set_list(choice_t **elem, char **tab);
 void    move_player(sfRenderWindow *wind, game_t *gm);
 void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
 void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);

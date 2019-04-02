@@ -5,7 +5,8 @@
 ## makefile lib
 ##
 
-SRC		=		create_link_list.c
+SRC		=		create_link_list.c	\
+				my_str_to_word_array.c
 
 OBJ		=		$(SRC:.c=.o)
 

@@ -23,6 +23,22 @@ void draw_my_p_choice(sfRenderWindow *wind, choice_t *choice)
     sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
 }
 
+void draw_my_perso(sfRenderWindow *wind, choice_t *choice)
+{
+    sfVector2f pos_p = {660, 340};
+    sfVector2f size_p = {10, 10};
+    sfIntRect rect;
+
+    rect.height = 49;
+    rect.left = 0;
+    rect.width = 64;
+    rect.top = 654;
+    sfSprite_setTextureRect(choice->iteme_sprite, rect);
+    sfSprite_setPosition(choice->iteme_sprite, pos_p);
+    sfSprite_setScale(choice->iteme_sprite, size_p);
+    sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
+}
+
 void draw_my_s_choice(sfRenderWindow *wind, choice_t *choice)
 {
     sfVector2f pos_s = {500, 440};
@@ -57,10 +73,7 @@ void draw_all_choice(sfRenderWindow *wind, list_t *list)
 
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
-    if (list->iteme->str != NULL) {
-        printf("yes\n");
-        draw_all_choice(wind, list);
-    }
+    draw_all_choice(wind, list);
     if (gm->key.left == PUSHED) {
         list->iteme = list->iteme->next;
         gm->key.left = NOT_PUSHED;
@@ -82,25 +95,27 @@ list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
 
 list_t *init_my_custome(void)
 {
-    int n = 0;
     list_t *list = NULL;
-    choice_t *hair = NULL;
-    choice_t *top = NULL;
+    char **tab_hair = set_tab("config/character/hair");
+    char **tab_pants = set_tab("config/character/pants");
+    char **tab_body = set_tab("config/character/body");
+    char **tab_feet = set_tab("config/character/feet");
+    char **tab_t_shirts = set_tab("config/character/t_shirts");
     choice_t *body = NULL;
+    choice_t *hair = NULL;
+    choice_t *feet = NULL;
+    choice_t *t_shirts = NULL;
+    choice_t *pants = NULL;
 
-
-    malloc_my_link_choice(&body, NULL, NULL);
-    malloc_my_link_choice(&body, my_create_sprite("picture/Character_assets/MALE/Male - Body/dark.png", sfFalse), "black");
-    malloc_my_link_choice(&body, my_create_sprite("picture/Character_assets/MALE/Male - Body/light.png", sfFalse), "black");
-    malloc_my_link_choice(&body, my_create_sprite("picture/Character_assets/MALE/Male - Body/tanned.png", sfFalse), "black");
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/black-longhawk.png", sfFalse), "black");
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/redhead2-bangs.png", sfFalse), "blue");
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blonde2-plain.png", sfFalse), "blond");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/magenta.png", sfFalse), "magenta_p");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/teal.png", sfFalse), "teal_p");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/red.png", sfFalse), "red_p");
+    set_list(&body, tab_body);
+    set_list(&hair, tab_hair);
+    set_list(&pants, tab_pants);
+    set_list(&feet, tab_feet);
+    set_list(&t_shirts, tab_t_shirts);
     malloc_my_link_list(&list, hair);
     malloc_my_link_list(&list, body);
-    malloc_my_link_list(&list, top);
+    malloc_my_link_list(&list, t_shirts);
+    malloc_my_link_list(&list, pants);
+    malloc_my_link_list(&list, feet);
     return (list);
 }
