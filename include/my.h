@@ -87,5 +87,6 @@ choice_t *press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
+void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
 
 #endif

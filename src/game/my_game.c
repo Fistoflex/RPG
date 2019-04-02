@@ -33,10 +33,14 @@ void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
     if (gm->custom_step == CHOICE) {
         (*list) = make_your_choice(wind, gm, (*list));
         step = 0;
-    } else if (gm->custom_step == NAME)
-        save_my_choice(wind, list);
+    } else if (gm->custom_step == NAME) {
+        if (gm->key.enter == PUSHED) {
+            gm->custom_step = GAME;
+            gm->key.enter = NOT_PUSHED;
+        }
+        save_my_choice(wind, (*list), gm);
         /* prompt function*/
-    else if (gm->custom_step == GAME)
+    } else if (gm->custom_step == GAME)
         printf("GAME\n");
         /* scene_game */
     // if (gm->state != GAME && destroy == 1) {

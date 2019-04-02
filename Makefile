@@ -38,6 +38,7 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/customize/my_chose.c	\
 					src/set_tab.c			\
 					src/customize/set_elem.c	\
+					src/customize/save_my_choice.c	\
 					src/get_next_line.c
 
 MAIN		=			src/main.c
