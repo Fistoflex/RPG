@@ -14,7 +14,7 @@ int main(int ac, char **av)
     game_t gm;
 
     gm = init_struct_game(window, video_mode);
-    window = sfRenderWindow_create(video_mode, "My Defender",
+    window = sfRenderWindow_create(video_mode, "My RPG",
                                     sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     is_open(window, gm);
