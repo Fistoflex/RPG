@@ -13,6 +13,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/manage_event/main_event.c	\
 					src/game/my_game.c	\
 					src/menu/my_menu.c	\
+					src/prompt/add_char.c	\
+					src/prompt/remove_char.c	\
+					src/prompt/testo.c	\
 					src/menu/init_the_scn_menu.c	\
 					src/menu/color_txt_menu.c	\
 					src/pause/my_pause.c		\

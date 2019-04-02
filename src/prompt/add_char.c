@@ -12,7 +12,7 @@
 #include <stdio.h>
 //#include "my.h"
 
-char *add_char(char *str, char c)
+char *add_char(char *str, unsigned char c)
 {
     int i = 0;
     char *res = NULL;

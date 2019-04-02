@@ -24,6 +24,7 @@ char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
 
+char *prompt(sfRenderWindow *win, sfEvent event);
 void    all_scene(sfRenderWindow *window, game_t *gm);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
