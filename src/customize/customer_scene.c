@@ -90,6 +90,10 @@ list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
         list = list->next;
         gm->key.down = NOT_PUSHED;
     }
+    if (gm->key.enter == PUSHED) {
+        gm->custom_step = NAME;
+        gm->key.enter = NOT_PUSHED;
+    }
     return (list);
 }
 

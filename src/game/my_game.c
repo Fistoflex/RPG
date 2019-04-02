@@ -10,6 +10,7 @@
 void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
 {
     static int destroy = 0;
+    static int step = 0;
 
     // if (gm->state == GAME && destroy == 0) {
     //     gm->chara.pos.x = 0;
@@ -29,7 +30,15 @@ void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
     //     move_player(wind, gm);
     //     destroy = 1;
     // }
-    (*list) = make_your_choice(wind, gm, (*list));
+    if (gm->custom_step == CHOICE) {
+        (*list) = make_your_choice(wind, gm, (*list));
+        step = 0;
+    } else if (gm->custom_step == NAME)
+        save_my_choice(wind, list);
+        /* prompt function*/
+    else if (gm->custom_step == GAME)
+        printf("GAME\n");
+        /* scene_game */
     // if (gm->state != GAME && destroy == 1) {
     //     sfClock_destroy(gm->clock.anim);
     //     sfSprite_destroy(gm->chara.body);

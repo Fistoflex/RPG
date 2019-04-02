@@ -57,8 +57,8 @@ typedef struct clck_s {
     sfClock *anim;
 }clck_t;
 
-
 typedef struct game_s {
+    int custom_step;
     int state;
     int effect;
     sfSprite *game;
