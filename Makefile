@@ -36,7 +36,8 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_create_rect.c		\
 					src/all_scene/customer_sc/customer_scene.c	\
 					src/all_scene/customer_sc/my_chose.c	\
-					src/config.c
+					src/config.c		\
+					src/all_scene/customer_sc/prompt.c
 
 MAIN		=			src/main.c
 
