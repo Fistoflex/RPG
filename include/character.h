@@ -21,4 +21,4 @@ typedef struct char_s {
     sfSprite *feet;
 } chara_t;
 
-#endif 
+#endif

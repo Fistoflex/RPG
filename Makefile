@@ -41,6 +41,7 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/customize/save_my_choice.c	\
 					src/get_next_line.c			\
 					src/customize/init_my_custome.c		\
+					src/customize/my_customize.c
 
 MAIN		=			src/main.c
 
