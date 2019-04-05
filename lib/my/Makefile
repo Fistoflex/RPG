@@ -11,6 +11,8 @@ SRC		=		create_link_list.c		\
 				my_putstr_error.c		\
 				my_str_to_word_array.c	\
 				my_strcat.c				\
+				my_strdup.c				\
+				my_strlen.c				\
 				my_strdup.c
 
 OBJ		=		$(SRC:.c=.o)

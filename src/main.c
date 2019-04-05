@@ -16,7 +16,8 @@ int main(int ac, char **av)
 
     list = init_my_custome();
     gm = init_struct_game(window, video_mode);
-    window = sfRenderWindow_create(video_mode, "My Defender",
+    gm.custom_step = CHOICE;/*in the save scene*/
+    window = sfRenderWindow_create(video_mode, "My RPG",
                                     sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     is_open(window, gm, list);

@@ -23,6 +23,22 @@ void draw_my_p_choice(sfRenderWindow *wind, choice_t *choice)
     sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
 }
 
+void draw_my_perso(sfRenderWindow *wind, choice_t *choice)
+{
+    sfVector2f pos_p = {660, 340};
+    sfVector2f size_p = {10, 10};
+    sfIntRect rect;
+
+    rect.height = 49;
+    rect.left = 0;
+    rect.width = 64;
+    rect.top = 654;
+    sfSprite_setTextureRect(choice->iteme_sprite, rect);
+    sfSprite_setPosition(choice->iteme_sprite, pos_p);
+    sfSprite_setScale(choice->iteme_sprite, size_p);
+    sfRenderWindow_drawSprite(wind, choice->iteme_sprite, NULL);
+}
+
 void draw_my_s_choice(sfRenderWindow *wind, choice_t *choice)
 {
     sfVector2f pos_s = {500, 440};
@@ -57,6 +73,7 @@ void draw_all_choice(sfRenderWindow *wind, list_t *list)
 
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
+    draw_all_choice(wind, list);
     if (gm->key.left == PUSHED) {
         list->iteme = list->iteme->next;
         gm->key.left = NOT_PUSHED;
@@ -73,24 +90,9 @@ list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
         list = list->next;
         gm->key.down = NOT_PUSHED;
     }
-    draw_all_choice(wind, list);
-    return (list);
-}
-
-list_t *init_my_custome(void)
-{
-    int n = 0;
-    list_t *list = NULL;
-    choice_t *hair = NULL;
-    choice_t *top = NULL;
-
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/black.png", sfFalse), "black");
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blue2.png", sfFalse), "blue");
-    malloc_my_link_choice(&hair, my_create_sprite("picture/Character_assets/MALE/Male - Hair/blonde2.png", sfFalse), "blond");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/magenta.png", sfFalse), "magenta_p");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/teal.png", sfFalse), "teal_p");
-    malloc_my_link_choice(&top, my_create_sprite("picture/Character_assets/MALE/Male - Pants/red.png", sfFalse), "red_p");
-    malloc_my_link_list(&list, hair);
-    malloc_my_link_list(&list, top);
+    if (gm->key.enter == PUSHED) {
+        gm->custom_step = NAME;
+        gm->key.enter = NOT_PUSHED;
+    }
     return (list);
 }

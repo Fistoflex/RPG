@@ -16,6 +16,7 @@
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
+#include "get_next_line.h"
 
 
 void my_putchar(char);
@@ -24,7 +25,12 @@ int my_putstr_error(char *);
 char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
+int my_strlen(char *);
+char *my_strdup(char *);
 
+char    *get_next_line(int fd);
+char **set_tab(char *path);
+void    set_list(choice_t **elem, char **tab);
 void    move_player(sfRenderWindow *wind, game_t *gm);
 void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
 void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);
@@ -83,7 +89,10 @@ choice_t *press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
+void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
 
 void prompt(sfEvent, game_t *);
+char *add_char(char *, char);
+char *remove_char(char *);
 
 #endif
