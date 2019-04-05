@@ -18,6 +18,6 @@ void is_open(sfRenderWindow *window, game_t gm, list_t *list)
         if (gm.state == EXIT)
             sfRenderWindow_close(window);
         sfRenderWindow_display(window);
-        sfRenderWindow_clear(window, sfWhite);
+        sfRenderWindow_clear(window, sfBlack);
     }
 }
