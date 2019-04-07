@@ -14,6 +14,7 @@ typedef struct key_board_s {
     int right;
     int up;
     int down;
-}key_board_t;
+    int enter;
+} key_board_t;
 
 #endif

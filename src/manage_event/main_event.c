@@ -13,4 +13,6 @@ void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm)
         sfRenderWindow_close(window);
     get_mouse_pos(gm, evt);
     find_the_bt_which_is_press(gm, evt);
+    if (gm->custom_step == NAME)
+        prompt(window, gm, evt);
 }

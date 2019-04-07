@@ -21,12 +21,13 @@
 
 void my_putchar(char);
 int my_putstr(char *);
+int my_strlen(char *);
 int my_putstr_error(char *);
 char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
 
-void prompt(sfRenderWindow *win, game_t *gm, sfEvent *event);
+void prompt(sfRenderWindow *win, game_t *gm, sfEvent event);
 char    *get_next_line(int fd);
 char **set_tab(char *path);
 void    set_list(choice_t **elem, char **tab);

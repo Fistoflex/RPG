@@ -7,7 +7,6 @@
 
 #include "my.h"
 
-
 char *remove_char(char *str)
 {
     int x = 0;
