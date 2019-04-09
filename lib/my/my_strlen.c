@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** m'enfiche
+** my_strlen
 ** File description:
-** mon gars
+** count the characters in a string
 */
 
 #include <stddef.h>
