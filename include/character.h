@@ -9,6 +9,7 @@
 #define CHARACTER_H_
 
 typedef struct char_s {
+    char *name;
     sfVector2f pos;
     sfSprite *body;
     sfSprite *hair;
@@ -18,6 +19,6 @@ typedef struct char_s {
     sfSprite *hands;
     sfSprite *legs;
     sfSprite *feet;
-}chara_t;
+} chara_t;
 
 #endif 

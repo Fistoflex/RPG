@@ -38,6 +38,11 @@ enum command {
     PREV
 };
 
+enum custom_step {
+    CHOICE = 15,
+    NAME
+};
+
 enum exit_t {
     EXIT = 84
 };

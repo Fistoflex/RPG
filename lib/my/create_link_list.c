@@ -14,8 +14,8 @@ void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str)
     choice_t *first = (*env);
 
     new = malloc(sizeof(*new));
-    new->iteme_sprite = iteme;
-    new->str = str;
+    new->iteme_sprite = iteme == NULL ? NULL: iteme;
+    new->str = str == NULL ? NULL: str;
     new->state_iteme = FALSE;
     new->state_link = TRUE;
     new->next = (*env);
