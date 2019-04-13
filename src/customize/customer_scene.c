@@ -16,7 +16,7 @@ void draw_my_p_choice(sfRenderWindow *wind, choice_t *choice)
     rect.height = 49;
     rect.left = 0;
     rect.width = 64;
-    rect.top = 654;
+    rect.top = 650;
     sfSprite_setTextureRect(choice->iteme_sprite, rect);
     sfSprite_setPosition(choice->iteme_sprite, pos_p);
     sfSprite_setScale(choice->iteme_sprite, size_p);
@@ -32,7 +32,7 @@ void draw_my_perso(sfRenderWindow *wind, choice_t *choice)
     rect.height = 49;
     rect.left = 0;
     rect.width = 64;
-    rect.top = 654;
+    rect.top = 650;
     sfSprite_setTextureRect(choice->iteme_sprite, rect);
     sfSprite_setPosition(choice->iteme_sprite, pos_p);
     sfSprite_setScale(choice->iteme_sprite, size_p);
@@ -49,7 +49,7 @@ void draw_my_s_choice(sfRenderWindow *wind, choice_t *choice)
     rect.height = 49;
     rect.left = 0;
     rect.width = 64;
-    rect.top = 654;
+    rect.top = 650;
     sfSprite_setTextureRect(choice->next->iteme_sprite, rect);
     sfSprite_setPosition(choice->next->iteme_sprite, pos_p);
     sfSprite_setScale(choice->next->iteme_sprite, size_s);
@@ -89,10 +89,6 @@ list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
     if (gm->key.down == PUSHED) {
         list = list->next;
         gm->key.down = NOT_PUSHED;
-    }
-    if (gm->key.enter == PUSHED) {
-        gm->custom_step = NAME;
-        gm->key.enter = NOT_PUSHED;
     }
     return (list);
 }

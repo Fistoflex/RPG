@@ -26,6 +26,7 @@ char **my_str_to_word_array(char *, char);
 char *my_strcat(char *, char *);
 char *my_strdup(char *);
 
+void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list);
 char    *get_next_line(int fd);
 char **set_tab(char *path);
 void    set_list(choice_t **elem, char **tab);

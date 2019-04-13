@@ -7,11 +7,14 @@
 
 #include "my.h"
 
-void    my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind)
+void my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *win)
 {
+    sfVector2f scale = {1, 1};
+
+    sfSprite_setScale(sp, scale);
     sfSprite_setPosition(sp, pos);
     sfSprite_setTextureRect(sp, rect);
-    sfRenderWindow_drawSprite(wind, sp, NULL);
+    sfRenderWindow_drawSprite(win, sp, NULL);
 }
 
 void    set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect)
@@ -21,11 +24,11 @@ void    set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect)
     if (gm->chara.hair != NULL)
         my_stuff(gm->chara.hair, gm->chara.pos, rect, wind);
     if (gm->chara.hat != NULL)
-	my_stuff(gm->chara.hat, gm->chara.pos, rect, wind);
+        my_stuff(gm->chara.hat, gm->chara.pos, rect, wind);
     if (gm->chara.torso != NULL)
         my_stuff(gm->chara.torso, gm->chara.pos, rect, wind);
     if (gm->chara.shoulder != NULL)
-	my_stuff(gm->chara.shoulder, gm->chara.pos, rect, wind);
+        my_stuff(gm->chara.shoulder, gm->chara.pos, rect, wind);
     if (gm->chara.hands != NULL)
         my_stuff(gm->chara.hands, gm->chara.pos, rect, wind);
     if (gm->chara.legs != NULL)
