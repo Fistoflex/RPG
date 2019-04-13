@@ -73,6 +73,7 @@ void draw_all_choice(sfRenderWindow *wind, list_t *list)
 
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
+    save_my_choice(wind, list, gm);
     draw_all_choice(wind, list);
     if (gm->key.left == PUSHED) {
         list->iteme = list->iteme->next;
