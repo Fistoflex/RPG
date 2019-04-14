@@ -1,10 +1,10 @@
 none
-0 0
+235 255
+picture/Character_assets/MALE/Male - Body/darkelf.png
+picture/Character_assets/MALE/Male - Hair/redhead2-messy.png
+none
+picture/Character_assets/MALE/Male T-Shirts/teal_longsleeve.png
 none
 none
-none
-none
-none
-none
-none
-none
+picture/Character_assets/MALE/Male - Pants/white_pants_male.png
+picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

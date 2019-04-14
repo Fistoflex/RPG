@@ -45,7 +45,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/read_file.c				\
 					src/my_new_strcat.c			\
 					src/slot/my_slot.c			\
-					src/slot/init_slot.c
+					src/slot/init_slot.c			\
+					src/slot/save_game.c			\
+					src/my_itoa.c
 
 MAIN		=			src/main.c
 

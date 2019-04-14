@@ -15,6 +15,7 @@ typedef struct s_choice {
     int state_iteme;
     int state_link;
     char *str;
+    char *path;
     sfSprite *iteme_sprite;
     struct s_choice *next;
     struct s_choice *prev;

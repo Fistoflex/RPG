@@ -10,9 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <SFML/Graphics.h>
 #include <SFML/System/Export.h>
 #include <SFML/Audio.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
@@ -28,6 +32,8 @@ char *my_strdup(char *, int);
 int my_strlen(char *);
 int    my_strcmp(char *s1, char *s2);
 
+char    *my_itoa(int nb);
+void    save_game(game_t *gm);
 char    *my_new_strcat(char *dest, char *src, int x, int fre);
 void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list);
 char    *get_next_line(int fd);
@@ -83,7 +89,7 @@ void clic_menu_exit(sfRenderWindow *, game_t *, sfVector2i);
 void clic_menu_settings(game_t *, sfVector2i);
 
 void malloc_my_link_list(list_t **env, choice_t *choice);
-void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str);
+void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str, char *path);
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list);

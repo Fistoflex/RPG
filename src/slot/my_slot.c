@@ -70,16 +70,25 @@ sfSprite   *insert_stuff(sfSprite *sp, char *str)
     return (sp);
 }
 
-void    init_the_struct_chara(elem_char_t *ch, game_t *gm)
+void    init_the_struct_chara(elem_char_t *ch, game_t *gm, char **tab, char *path)
 {
     gm->chara.body = ch[0].sp;
+    gm->chara.path.body = my_strdup(tab[2], KEEP);
     gm->chara.hair = ch[1].sp;
+    gm->chara.path.hair = my_strdup(tab[3], KEEP);
     gm->chara.hat = ch[2].sp;
+    gm->chara.path.hat = my_strdup(tab[4], KEEP);
     gm->chara.torso = ch[3].sp;
+    gm->chara.path.torso = my_strdup(tab[5], KEEP);
     gm->chara.shoulder = ch[4].sp;
+    gm->chara.path.shoulder = my_strdup(tab[6], KEEP);
     gm->chara.hands = ch[5].sp;
+    gm->chara.path.hands = my_strdup(tab[7], KEEP);
     gm->chara.legs = ch[6].sp;
+    gm->chara.path.legs = my_strdup(tab[8], KEEP);
     gm->chara.feet = ch[7].sp;
+    gm->chara.path.feet = my_strdup(tab[9], KEEP);
+    gm->chara.path.slot = my_strdup(path, KEEP);
     gm->state = GAME;
 }
 
@@ -94,7 +103,7 @@ void    init_stuff(game_t *gm, char *path, char **file)
                         chara.shoulder, chara.hands, chara.legs, chara.feet, NULL};
     int i = 2;
     int x = 0;
-
+    
     chara.name = my_strdup(tab[0], KEEP);
     chara.pos = pos;
     while (tab[i] != NULL) {
@@ -102,7 +111,7 @@ void    init_stuff(game_t *gm, char *path, char **file)
         x++;
         i++;
     }
-    init_the_struct_chara(ch, gm);
+    init_the_struct_chara(ch, gm, tab, path);
 }
 
 void set_game_player(game_t *gm, char *path, char **file)
@@ -118,8 +127,10 @@ void    set_slot_elem(char *path, game_t *gm)
 
     if (my_strcmp(tab[0], "activate") == 0)
         set_game_player(gm, path, file);
-    else
+    else {
+        gm->chara.path.slot = path;
         gm->state = CHOICE;
+    }
 }
 
 void    my_slot(sfRenderWindow *wind, game_t *gm)

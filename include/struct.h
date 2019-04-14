@@ -69,6 +69,7 @@ typedef struct game_s {
     int custom_step;
     int state;
     int effect;
+    char *stuff;
     sfSprite *game;
     sfSprite *setting;
     slot_t *slot;
