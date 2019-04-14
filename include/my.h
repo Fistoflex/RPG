@@ -23,9 +23,11 @@ void my_putchar(char);
 int my_putstr(char *);
 int my_putstr_error(char *);
 char **my_str_to_word_array(char *, char);
-char *my_strcat(char *, char *);
-char *my_strdup(char *);
+char *my_strcat(char *, char *, int, int);
+char *my_strdup(char *, int);
+int my_strlen(char *);
 
+char    *my_new_strcat(char *dest, char *src, int x, int fre);
 void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list);
 char    *get_next_line(int fd);
 char **set_tab(char *path);
@@ -68,7 +70,7 @@ void get_mouse_pos(game_t *gm, sfEvent evt);
 void find_the_bt_which_is_press(game_t *gm, sfEvent evt);
 void bt_esc_redirect(game_t *gm);
 sfSprite *my_create_sprite(char *name, sfBool);
-void my_game(sfRenderWindow *wind, game_t *gm, list_t **list);
+void my_game(sfRenderWindow *wind, game_t *gm);
 void my_setting(sfRenderWindow *wind, game_t *gm);
 float my_clock(sfClock *clock);
 void my_setting(sfRenderWindow *, game_t *);
@@ -89,5 +91,9 @@ choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
+char **read_file(char *path);
+void    init_slot(game_t *gm);
+char    *my_epurstr(char *str, char *format, int fre);
+void    my_slot(sfRenderWindow *wind, game_t *gm);
 
 #endif

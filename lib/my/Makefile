@@ -6,9 +6,15 @@
 ##
 
 SRC		=		create_link_list.c	\
-				my_str_to_word_array.c
+				my_str_to_word_array.c	\
+				my_strdup.c		\
+				my_strlen.c		\
+				rb_epurstr.c		\
+				my_strcat.c
 
 OBJ		=		$(SRC:.c=.o)
+
+CFLAGS		=		-I../../include
 
 NAME		=		libmy.a
 

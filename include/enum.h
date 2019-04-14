@@ -17,11 +17,12 @@ enum is_game {
     MENU = 2,
     PAUSE,
     GAME,
-    INTRO
+    INTRO,
+    SLOT
 };
 
 enum button_t {
-    STAR = 6,
+    STAR = 7,
     SETG,
     HOME,
     RESTAR,
@@ -29,22 +30,33 @@ enum button_t {
 };
 
 enum button {
-    PUSHED = 11,
+    PUSHED = 12,
     NOT_PUSHED
 };
 
 enum command {
-    NEXT = 13,
+    NEXT = 14,
     PREV
 };
 
 enum custom_step {
-    CHOICE = 15,
+    CHOICE = 16,
     NAME
+};
+
+enum free_s {
+    FREE = 18,
+    KEEP
 };
 
 enum exit_t {
     EXIT = 84
+};
+
+enum clean_s {
+    REPLACE = 200,
+    SKIP,
+    SPACE
 };
 
 #endif

@@ -2,23 +2,27 @@
 ** EPITECH PROJECT, 2018
 ** my_strdup
 ** File description:
-** do_the_strdup
+** malloc_new_array
 */
 
-#include <stdlib.h>
+#include "my.h"
 
-char my_strlen(char const *str);
-
-char *my_strdup(char const *src)
+char    *my_strdup(char *src, int fre)
 {
-    int len = my_strlen(src);
-    char *dest = malloc(sizeof(char) * (len + 1));
-    int i = 0;
+    int    size;
+    char    *ptr;
+    int    i = 0;
 
+    if (src == NULL)
+        return (NULL);
+    size = my_strlen(src);
+    ptr = malloc(sizeof(char) * (size + 1));
     while (src[i] != '\0') {
-        dest[i] = src[i];
+        ptr[i] = src[i];
         i++;
     }
-    dest[i] = '\0';
-    return (dest);
+    ptr[i] = '\0';
+    if (fre == FREE)
+        free(src);
+    return (ptr);
 }

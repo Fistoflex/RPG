@@ -48,5 +48,5 @@ void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *gm)
     gm->chara.hands = NULL;
     sfRenderWindow_drawSprite(wind, gm->chara.feet, NULL);
     sfRenderWindow_drawSprite(wind, gm->chara.legs, NULL);
-    //free_my_list(list);
+    free_my_list(list);
 }

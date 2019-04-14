@@ -7,10 +7,9 @@
 
 #include "my.h"
 
-void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
+void    my_game(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
-    static int step = 0;
 
     if (gm->state == GAME && destroy == 0) {
         gm->chara.pos.x = 0; //pos chara
