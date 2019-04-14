@@ -105,12 +105,12 @@ void    init_stuff(game_t *gm, char *path, char **file)
     int x = 0;
     
     chara.name = my_strdup(tab[0], KEEP);
-    chara.pos = pos;
     while (tab[i] != NULL) {
         ch[x].sp = insert_stuff(ch[x].sp, tab[i]);
         x++;
         i++;
     }
+    gm->chara.pos = pos;
     init_the_struct_chara(ch, gm, tab, path);
 }
 

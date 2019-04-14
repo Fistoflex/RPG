@@ -1,5 +1,5 @@
 none
-235 255
+105 480
 picture/Character_assets/MALE/Male - Body/darkelf.png
 picture/Character_assets/MALE/Male - Hair/redhead2-messy.png
 none
