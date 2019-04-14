@@ -1,10 +1,10 @@
 none
-0 0
+200 400
+picture/Character_assets/MALE/Male - Body/dark.png
+picture/Character_assets/MALE/Male - Hair/black-bangs.png
+none
+picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
 none
 none
-none
-none
-none
-none
-none
-none
+picture/Character_assets/MALE/Male - Pants/magenta.png
+picture/Character_assets/MALE/Male - Feet/brown_shoes_male.png

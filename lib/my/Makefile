@@ -10,7 +10,8 @@ SRC		=		create_link_list.c	\
 				my_strdup.c		\
 				my_strlen.c		\
 				rb_epurstr.c		\
-				my_strcat.c
+				my_strcat.c		\
+				my_strcmp.c
 
 OBJ		=		$(SRC:.c=.o)
 

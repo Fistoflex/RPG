@@ -8,6 +8,10 @@
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
 
+typedef struct elem_char {
+    sfSprite *sp;
+}elem_char_t;
+
 typedef struct char_s {
     char *name;
     sfVector2f pos;
