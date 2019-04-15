@@ -1,10 +1,10 @@
 none
-195 485
+1200 165
 picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/black-bangs.png
+picture/Character_assets/MALE/Male - Hair/blue2-messy.png
 none
-picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
+picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/magenta.png
-picture/Character_assets/MALE/Male - Feet/brown_shoes_male.png
+picture/Character_assets/MALE/Male - Pants/red.png
+picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
