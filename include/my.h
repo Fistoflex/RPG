@@ -21,10 +21,12 @@
 
 void my_putchar(char);
 int my_putstr(char *);
+int my_strlen(char *);
 int my_putstr_error(char *);
 char **my_str_to_word_array(char *, char);
-char *my_strcat(char *, char *);
-char *my_strdup(char *);
+char    *my_strcat(char *dest, char *src, int d, int s);
+char *my_strdup(char *, int);
+int my_strlen(char *);
 
 void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list);
 char    *get_next_line(int fd);
@@ -89,5 +91,8 @@ choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
+char  *prompt(sfRenderWindow *, game_t *, sfEvent);
+char *add_char(char *, char);
+char *remove_char(char *);
 
 #endif

@@ -43,6 +43,11 @@ enum custom_step {
     NAME
 };
 
+enum free_s {
+    FREE = 17,
+    KEEP
+};
+
 enum exit_t {
     EXIT = 84
 };

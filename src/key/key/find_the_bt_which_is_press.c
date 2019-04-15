@@ -28,6 +28,7 @@ void    find_the_bt(game_t *gm, sfEvent evt)
                     {sfKeyUp, &gm->key.up, &set_stat},
                     {sfKeyDown, &gm->key.down, &set_stat},
                     {sfKeyReturn, &gm->key.enter, &set_stat},
+                    {sfKeyBack, &gm->key.back, &set_stat},
                     {'\0', '\0', NULL}};
 
     while (key[i].flag != '\0') {

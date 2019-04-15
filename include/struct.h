@@ -55,6 +55,7 @@ typedef struct mouse_s {
 typedef struct clck_s {
     sfClock *esc;
     sfClock *anim;
+    sfClock *enter;
 }clck_t;
 
 typedef struct game_s {
