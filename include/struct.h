@@ -45,6 +45,7 @@ typedef struct settings_s
     sfVector2f size;
     sfVector2f pos;
     sfIntRect rectangle;
+    sfText *txt;
 }settings_t;
 
 typedef struct mouse_s {
@@ -57,6 +58,18 @@ typedef struct clck_s {
     sfClock *anim;
 }clck_t;
 
+typedef struct guide {
+    settings_t k_esc;
+    settings_t k_tab;
+    settings_t k_spell_o;
+    settings_t k_spell_tw;
+    settings_t k_spell_tr;
+    settings_t k_e;
+    settings_t k_i;
+    settings_t k_m;
+    settings_t k_dir;
+} k_guide_t;
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -68,6 +81,7 @@ typedef struct game_s {
     menu_t menu;
     chara_t chara;
     settings_t set;
+    k_guide_t k_guide;
     pause_t pause;
     intro_t intro;
     mouse_t mouse;

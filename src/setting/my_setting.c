@@ -25,8 +25,7 @@ void mouse_settings_button(game_t *gm)
         pos = set_shape_position(pos.x - 8, pos.y - 8);
         sfRectangleShape_setSize(gm->set.rect, size);
         sfRectangleShape_setPosition(gm->set.rect, pos);
-    }
-    else
+    } else
         reset_bt_settings(gm);
 }
 

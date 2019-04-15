@@ -90,4 +90,6 @@ list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
 
+void keyboard_guide(sfRenderWindow *wind, game_t *gm);
+int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 #endif

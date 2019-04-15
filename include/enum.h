@@ -23,23 +23,24 @@ enum is_game {
 enum button_t {
     STAR = 6,
     SETG,
+    GUI,
     HOME,
     RESTAR,
     RESUME
 };
 
 enum button {
-    PUSHED = 11,
+    PUSHED = 12,
     NOT_PUSHED
 };
 
 enum command {
-    NEXT = 13,
+    NEXT = 14,
     PREV
 };
 
 enum custom_step {
-    CHOICE = 15,
+    CHOICE = 16,
     NAME
 };
 
