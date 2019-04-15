@@ -18,8 +18,6 @@ void is_open(sfRenderWindow *window, game_t gm, list_t *list)
     //    all_scene(window, &gm, &list);
         if (gm.state == EXIT)
             sfRenderWindow_close(window);
-        if (gm.chara.name != NULL)
-            printf("name = %s\n", gm.chara.name);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfWhite);
     }

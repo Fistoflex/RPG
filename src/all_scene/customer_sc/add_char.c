@@ -5,20 +5,15 @@
 ** add char at end of a str
 */
 
-#include <unistd.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-//#include "my.h"
+#include "my.h"
 
-char *add_char(char *str, unsigned char c)
+char *add_char(char *str, char c)
 {
     int i = 0;
     char *res = NULL;
 
     if (str != NULL && str[0] != '\0') {
-        res = malloc(sizeof(char) * (strlen(str) + 2));
+        res = malloc(sizeof(char) * (my_strlen(str) + 2));
         while (str[i] != '\0') {
             res[i] = str[i];
             i++;

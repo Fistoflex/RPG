@@ -11,9 +11,6 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/all_scene/all_scene.c	\
 					src/intro/my_intro.c		\
 					src/manage_event/main_event.c	\
-					src/prompt/add_char.c	\
-					src/prompt/remove_char.c	\
-					src/prompt/testo.c	\
 					src/game/my_game.c		\
 					src/game/move_player/to_the_left.c	\
 					src/game/move_player/to_the_right.c	\
