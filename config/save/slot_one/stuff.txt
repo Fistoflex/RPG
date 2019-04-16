@@ -1,10 +1,10 @@
-ABDILLAH
-1315 200
-picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/black-plain.png
+ABD
+515 455
+picture/Character_assets/MALE/Male - Body/light.png
+picture/Character_assets/MALE/Male - Hair/black-longhawk.png
 none
-picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
+picture/Character_assets/MALE/Male T-Shirts/teal_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/magenta.png
-picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
+picture/Character_assets/MALE/Male - Pants/white_pants_male.png
+picture/Character_assets/MALE/Male - Feet/brown_shoes_male.png

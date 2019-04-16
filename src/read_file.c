@@ -31,5 +31,6 @@ char **read_file(char *path)
     for (x = 0; tab[x] != NULL; x++);
     if (x - 1 > 0 && tab[x - 1][0] == 0)
         tab[x] = NULL;
+    fclose(fd);
     return (tab);
 }

@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-sfFont  *my_font_(char *path)
+sfFont  *my_font(char *path)
 {
     return (sfFont_createFromFile(path));
 }
@@ -30,7 +30,7 @@ void    display_prompt(char *tmp, sfRenderWindow *wind, char *str, game_t *gm)
     static int i = 0;
     sfVector2f pos = {800, 900};
     sfVector2f ps = {720, 850};
-    sfFont  *font = my_font_("font/a.ttf");
+    sfFont  *font = my_font("font/a.ttf");
 
     if (i == 0 && tmp != NULL) {
         tmp = upper_case(tmp);

@@ -22,7 +22,7 @@
 #include "enum.h"
 #include "get_next_line.h"
 
-
+sfSprite   *insert_stuff(sfSprite *sp, char *str);
 void my_putchar(char);
 int my_putstr(char *);
 int my_strlen(char *);
@@ -100,7 +100,9 @@ list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
 char **read_file(char *path);
-void    init_slot(game_t *gm);
+slot_t    set_one_slot(slot_t one, int i);
+void    init_slot(slot_t *, slot_t *, slot_t *);
+sfFont  *my_font(char *path);
 char    *my_epurstr(char *str, char *format, int fre);
 void    my_slot(sfRenderWindow *wind, game_t *gm);
 char  *prompt(game_t *, sfEvent *);
