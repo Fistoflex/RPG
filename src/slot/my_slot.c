@@ -104,7 +104,7 @@ void    init_stuff(game_t *gm, char *path, char **file)
     int i = 2;
     int x = 0;
     
-    chara.name = my_strdup(tab[0], KEEP);
+    gm->chara.name = my_strdup(tab[0], KEEP);
     while (tab[i] != NULL) {
         ch[x].sp = insert_stuff(ch[x].sp, tab[i]);
         x++;

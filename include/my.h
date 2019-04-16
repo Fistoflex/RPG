@@ -36,7 +36,7 @@ int    my_strcmp(char *s1, char *s2);
 char    *my_itoa(int nb);
 void    save_game(game_t *gm);
 char    *my_new_strcat(char *dest, char *src, int x, int fre);
-void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list, sfEvent);
+void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list, sfEvent *);
 char    *get_next_line(int fd);
 char **set_tab(char *path);
 void    set_list(choice_t **elem, char **tab);
@@ -48,7 +48,7 @@ void	to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 void    to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 void    to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 void    to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent evt);
+void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent *evt);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
 void resume_effect(game_t *gm);
@@ -103,6 +103,6 @@ char **read_file(char *path);
 void    init_slot(game_t *gm);
 char    *my_epurstr(char *str, char *format, int fre);
 void    my_slot(sfRenderWindow *wind, game_t *gm);
-char  *prompt(game_t *, sfEvent);
+char  *prompt(game_t *, sfEvent *);
 
 #endif
