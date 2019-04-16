@@ -16,13 +16,16 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
     gm.effect = FALSE;
     gm.mouse.moved.x = 0;
     gm.mouse.moved.y = 0;
+    gm.chara.name = NULL;
     gm.key.esc = NOT_PUSHED;
     gm.key.left = NOT_PUSHED;
     gm.key.right = NOT_PUSHED;
     gm.key.up = NOT_PUSHED;
     gm.key.down = NOT_PUSHED;
     gm.key.enter = NOT_PUSHED;
+    gm.key.back = NOT_PUSHED;
     gm.clock.esc = sfClock_create();
+    gm.clock.enter = sfClock_create();
     gm.game = my_create_sprite("picture/game.png", sfFalse);
     gm.setting = my_create_sprite("picture/setting.png", sfFalse);
     return (gm);

@@ -26,6 +26,7 @@ typedef struct path_s {
 
 typedef struct char_s {
     char *name;
+    sfText  *nm;
     sfVector2f pos;
     sfSprite *body;
     sfSprite *hair;

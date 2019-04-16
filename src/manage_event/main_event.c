@@ -10,7 +10,7 @@
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm)
 {
     if (evt.type == sfEvtClosed) {
-        save_game(gm);
+        //save_game(gm);
         sfRenderWindow_close(window);
     }
     get_mouse_pos(gm, evt);
