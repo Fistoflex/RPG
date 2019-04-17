@@ -32,7 +32,7 @@ sfText *create_the_txt(char *str, int x, int y)
 void init_my_guide(game_t *gm)
 {
     gm->k_guide.k_esc = init_my_rect_guide(150, 210, 90, 50);
-    gm->k_guide.k_esc.txt = create_the_txt("Escape", 700, 100);
+    gm->k_guide.k_esc.txt = create_the_txt("Menu/Prev", 700, 100);
     gm->k_guide.k_tab = init_my_rect_guide(151, 398, 140, 90);
     gm->k_guide.k_tab.txt = create_the_txt("Change companion", 500, 100);
     gm->k_guide.k_spell_o = init_my_rect_guide(266, 288, 83, 83);
@@ -73,15 +73,14 @@ void keyboard_guide(sfRenderWindow *wind, game_t *gm)
     sfVector2f scale = {0.5, 0.5};
     sfVector2f pos = {130, 200};
 
-    gm->state = GUI;
     if (gm->state == GUI && destroy == FALSE) {
         key = my_create_sprite("picture/key_guide.png", sfFalse);
         sfSprite_setScale(key, scale);
         sfSprite_setPosition(key, pos);
         init_my_guide(gm);
     }
-    sfRenderWindow_drawSprite(wind, key, NULL);
     if (gm->state == GUI) {
+        sfRenderWindow_drawSprite(wind, key, NULL);
         my_action(wind, gm);
         destroy = TRUE;
     }
