@@ -1,7 +1,7 @@
-COUILLES-MAN
-710 350
+
+0 0
 picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
+picture/Character_assets/MALE/Male - Hair/black-bangs.png
 none
 picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
 none

@@ -1,5 +1,5 @@
 ILL
-585 720
+730 720
 picture/Character_assets/MALE/Male - Body/tanned.png
 picture/Character_assets/MALE/Male - Hair/blue2-messy.png
 none
