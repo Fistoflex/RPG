@@ -44,7 +44,13 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/customize/init_my_custome.c		\
 					src/customize/my_customize.c		\
 					src/setting/contain.c	\
-					src/setting/keyboard_guide.c
+					src/setting/keyboard_guide.c	\
+					src/read_file.c				\
+					src/my_new_strcat.c			\
+					src/slot/my_slot.c			\
+					src/slot/init_slot.c			\
+					src/slot/save_game.c			\
+					src/my_itoa.c
 
 MAIN		=			src/main.c
 
