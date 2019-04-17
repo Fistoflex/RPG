@@ -11,11 +11,13 @@
 #include "character.h"
 
 typedef	struct slot_s {
-    sfVector2f pos;
-    sfSprite *sp1;
-    sfSprite *sp2;
+    chara_t chara;
+    int stat;
+    sfVector2f pos_s;
+    sfVector2f pos_p;
+    sfVector2f pos_n;
+    sfSprite *slot;
     char *path;
-    struct slot_s *next;
 }slot_t;
 
 typedef struct sfIntRect_contains {
@@ -64,6 +66,7 @@ typedef struct mouse_s {
 typedef struct clck_s {
     sfClock *esc;
     sfClock *anim;
+    sfClock *enter;
 }clck_t;
 
 typedef struct guide {
@@ -83,9 +86,11 @@ typedef struct game_s {
     int state;
     int effect;
     char *stuff;
+    slot_t one;
+    slot_t two;
+    slot_t three;
     sfSprite *game;
     sfSprite *setting;
-    slot_t *slot;
     clck_t clock;
     key_board_t key;
     menu_t menu;

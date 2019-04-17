@@ -1,0 +1,10 @@
+AH
+1390 90
+picture/Character_assets/MALE/Male - Body/dark.png
+picture/Character_assets/MALE/Male - Hair/blonde2-pixie.png
+none
+picture/Character_assets/MALE/Male T-Shirts/chest_male.png
+none
+none
+picture/Character_assets/MALE/Male - Pants/white_pants_male.png
+picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

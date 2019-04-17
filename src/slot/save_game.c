@@ -50,7 +50,8 @@ char **init_str_save(char *coord, game_t *gm)
     char *str = NULL;
     char **tab = NULL;
 
-    str = my_strcat(str, "none;", KEEP, KEEP);
+    str = my_strcat(str, gm->chara.name, KEEP, KEEP);
+    str = my_strcat(str, ";", FREE, KEEP);
     str = my_strcat(str, coord, FREE, FREE);
     str = my_strcat(str, ";", FREE, KEEP);
     str = cat_path(str, gm);

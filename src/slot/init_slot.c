@@ -7,26 +7,63 @@
 
 #include "my.h"
 
-void    set_link_slot(slot_t **slot, char **tab)
+chara_t set_chara_elem(char *tmp)
 {
-    slot_t *tmp = (*slot);
-    slot_t *new = malloc(sizeof((*new)));
-    sfVector2f pos;
+    char *path = my_strcat(tmp, "stuff.txt", KEEP, KEEP);
+    char **tab = read_file(path);
+    sfVector2f pos = {800, 900};
+    sfFont  *font = my_font("font/a.ttf");
+    chara_t chara;
 
-    pos.x = atoi(tab[2]);
-    pos.y = atoi(tab[3]);
-    new->pos = pos;
-    new->sp1 = my_create_sprite(tab[0], sfFalse);
-    new->sp2 = my_create_sprite(tab[1], sfFalse);
-    new->path = my_strdup(tab[4], KEEP);
-    new->next = NULL;
-    if ((*slot) == NULL)
-        (*slot) = new;
-    else {
-        while (tmp->next != NULL)
-            tmp = tmp->next;
-        tmp->next = new;
+    chara.nm = create_txt(tab[0], font, 33, pos);
+    chara.body = insert_stuff(chara.body, tab[2]);
+    chara.hair = insert_stuff(chara.hair, tab[3]);
+    chara.hat = insert_stuff(chara.hat, tab[4]);
+    chara.torso = insert_stuff(chara.torso, tab[5]);
+    chara.shoulder = insert_stuff(chara.shoulder, tab[6]);
+    chara.hands = insert_stuff(chara.hands, tab[7]);
+    chara.legs = insert_stuff(chara.legs, tab[8]);
+    chara.feet = insert_stuff(chara.feet, tab[9]);
+    return (chara);
+}
+
+int slot_activate(char *tmp)
+{
+    char *path = my_strcat(tmp, "stat_slot.txt", KEEP, KEEP);
+    char **tab = read_file(path);
+
+    if (my_strcmp(tab[0], "activate") != 0)
+        return (1);
+    return (0);
+}
+
+sfVector2f the_pos(char *str)
+{
+    char **tab = my_str_to_word_array(str, ' ');
+    sfVector2f pos = {atoi(tab[0]), atoi(tab[1])};
+
+    return (pos);
+}
+
+slot_t    set_link_slot(slot_t slot, char **tab)
+{
+    sfVector2f pos_s = the_pos(tab[1]);
+    sfVector2f pos_p = the_pos(tab[3]);
+    sfVector2f pos_n = the_pos(tab[4]);
+
+    slot.pos_s = pos_s;
+    slot.pos_p = pos_p;
+    slot.pos_n = pos_n;
+    slot.slot = my_create_sprite(tab[0], sfFalse);
+    slot.path = my_strdup(tab[2], KEEP);
+    if (slot_activate(slot.path) == 1) {
+        slot.stat = 1;
     }
+    else {
+        slot.stat = 0;
+        slot.chara = set_chara_elem(slot.path);
+    }
+    return (slot);
 }
 
 void    the_free(char **tab)
@@ -40,19 +77,13 @@ void    the_free(char **tab)
     free(tab);
 }
 
-void    init_slot(game_t *gm)
+slot_t    set_one_slot(slot_t one, int i)
 {
     char **slot = read_file("config/save/slot.txt");
-    int i = 0;
     char **tab = NULL;
 
-    gm->slot = NULL;
-    while (slot[i] != NULL) {
-        tab = my_str_to_word_array(slot[i], ';');
-        set_link_slot(&gm->slot, tab);
-        the_free(tab);
-        tab = NULL;
-        i++;
-    }
-    the_free(slot);
+    tab = my_str_to_word_array(slot[i], ';');
+    one = set_link_slot(one, tab);
+    the_free(tab);
+    return (one);
 }

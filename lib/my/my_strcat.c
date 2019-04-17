@@ -27,7 +27,9 @@ char    *my_strcat(char *dest, char *src, int d, int s)
     int    x = 0;
     char    *str = NULL;
 
-    if (dest == NULL)
+    if (src == NULL)
+        return (NULL);
+    else if (dest == NULL)
         return (my_strdup(src, s));
     x = my_strlen(dest);
     x += my_strlen(src);

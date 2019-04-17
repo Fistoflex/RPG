@@ -19,44 +19,57 @@ int my_over_slot(sfSprite *sp1, sfSprite *sp2, game_t *gm)
     return (0);
 }
 
-void    display_slots(sfRenderWindow *wind, game_t *gm)
+void    disp(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
 {
-    slot_t *slot = gm->slot;
+    sfVector2f scale = {4, 4};
 
-    while (slot != NULL) {
-        if (my_over_slot(slot->sp1, slot->sp2, gm) == 1) {
-            sfSprite_setPosition(slot->sp2, slot->pos);
-            sfRenderWindow_drawSprite(wind, slot->sp2, NULL);
-        } else {
-            sfSprite_setPosition(slot->sp1, slot->pos);
-            sfRenderWindow_drawSprite(wind, slot->sp1, NULL);
-        }
-        slot = slot->next;
+    if (sp != NULL) {
+        sfSprite_setScale(sp, scale);
+        sfSprite_setPosition(sp, pos);
+        sfSprite_setTextureRect(sp, rect);
+        sfRenderWindow_drawSprite(wind, sp, NULL);
     }
 }
 
-int slot_is_select(sfSprite *sp1, sfSprite *sp2, game_t *gm)
+void    display_slots(sfRenderWindow *wind, slot_t slot)
+{
+    sfIntRect rect = {0, 654, 64, 50};
+
+    sfSprite_setPosition(slot.slot, slot.pos_s);
+    if (slot.stat == 1)
+        sfRenderWindow_drawSprite(wind, slot.slot, NULL);
+    else {
+        disp(wind, slot.chara.body, rect, slot.pos_p);
+        disp(wind, slot.chara.hair, rect, slot.pos_p);
+        disp(wind, slot.chara.hat, rect, slot.pos_p);
+        disp(wind, slot.chara.torso, rect, slot.pos_p);
+        disp(wind, slot.chara.shoulder, rect, slot.pos_p);
+        disp(wind, slot.chara.hands, rect, slot.pos_p);
+        disp(wind, slot.chara.legs, rect, slot.pos_p);
+        disp(wind, slot.chara.feet, rect, slot.pos_p);
+        sfText_setPosition(slot.chara.nm, slot.pos_n);
+        sfRenderWindow_drawText(wind, slot.chara.nm, NULL);
+    }
+}
+
+int slot_is_select(sfSprite *sp1, game_t *gm)
 {
     sfFloatRect rect1 = sfSprite_getGlobalBounds(sp1);
-    sfFloatRect rect2 = sfSprite_getGlobalBounds(sp2);
 
     if (sfFloatRect_contains(&rect1, gm->mouse.button.x, gm->mouse.button.y))
-        return (1);
-    else if (sfFloatRect_contains(&rect2, gm->mouse.button.x, gm->mouse.button.y))
         return (1);
     return (0);
 }
 
-char    *slot_select(game_t *gm, int *select)
+char    *slot_select(slot_t one, int *select, char *path, game_t *gm)
 {
-    slot_t *slot = gm->slot;
+    slot_t slot = one;
 
-    while (slot != NULL) {
-        if (slot_is_select(slot->sp1, slot->sp2, gm) == 1) {
-            (*select) = 1;
-            return (slot->path);
-        }
-        slot = slot->next;
+    if (path != NULL)
+        return (path);
+    if (slot_is_select(slot.slot, gm) == 1) {
+        (*select) = 1;
+        return (slot.path);
     }
     return (NULL);
 }
@@ -104,7 +117,7 @@ void    init_stuff(game_t *gm, char *path, char **file)
     int i = 2;
     int x = 0;
     
-    chara.name = my_strdup(tab[0], KEEP);
+    gm->chara.name = my_strdup(tab[0], KEEP);
     while (tab[i] != NULL) {
         ch[x].sp = insert_stuff(ch[x].sp, tab[i]);
         x++;
@@ -139,11 +152,18 @@ void    my_slot(sfRenderWindow *wind, game_t *gm)
     char *path = NULL;
     int select = 0;
 
-    if (gm->state == SLOT && destroy == 0)
-        init_slot(gm);
+    if (gm->state == SLOT && destroy == 0) {
+        gm->one = set_one_slot(gm->one, 0);
+        gm->two = set_one_slot(gm->two, 1);
+        gm->three = set_one_slot(gm->three, 2);
+    }
     if (gm->state == SLOT) {
-        display_slots(wind, gm);
-        path = slot_select(gm, &select);
+        display_slots(wind, gm->one);
+        display_slots(wind, gm->two);
+        display_slots(wind, gm->three);
+        path = slot_select(gm->one, &select, path, gm);
+        path = slot_select(gm->two, &select, path, gm);
+        path = slot_select(gm->three, &select, path, gm);
         if (select == 1)
             set_slot_elem(path, gm);
         destroy = 1;

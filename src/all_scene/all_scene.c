@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void all_scene(sfRenderWindow *window, game_t *gm, list_t **list)
+void all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent *evt)
 {
     my_intro(window, gm);
     bt_esc_redirect(gm);
@@ -17,6 +17,6 @@ void all_scene(sfRenderWindow *window, game_t *gm, list_t **list)
     my_pause(window, gm);
     my_game(window, gm);
     my_setting(window, gm);
-    my_customize(window, gm, list);
+    my_customize(window, gm, list, evt);
     my_slot(window, gm);
 }
