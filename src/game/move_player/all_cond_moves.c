@@ -9,7 +9,7 @@
 
 void my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *win)
 {
-    sfVector2f scale = {3, 3};
+    sfVector2f scale = {1, 1};
 
     sfSprite_setScale(sp, scale);
     sfSprite_setPosition(sp, pos);

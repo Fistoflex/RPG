@@ -7,7 +7,7 @@
 
 #include "../../include/my.h"
 
-void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str)
+void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str, char *path)
 {
     choice_t *tmp = (*env);
     choice_t *new = NULL;
@@ -17,6 +17,7 @@ void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str)
     new->iteme_sprite = iteme == NULL ? NULL: iteme;
     new->str = str == NULL ? NULL: str;
     new->state_iteme = FALSE;
+    new->path = my_strdup(path, KEEP);
     new->state_link = TRUE;
     new->next = (*env);
     new->prev = NULL;

@@ -10,6 +10,14 @@
 #include "key_board.h"
 #include "character.h"
 
+typedef	struct slot_s {
+    sfVector2f pos;
+    sfSprite *sp1;
+    sfSprite *sp2;
+    char *path;
+    struct slot_s *next;
+}slot_t;
+
 typedef struct sfIntRect_contains {
     sfTexture *txtr;
     sfSprite *sp;
@@ -74,8 +82,10 @@ typedef struct game_s {
     int custom_step;
     int state;
     int effect;
+    char *stuff;
     sfSprite *game;
     sfSprite *setting;
+    slot_t *slot;
     clck_t clock;
     key_board_t key;
     menu_t menu;

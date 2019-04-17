@@ -17,11 +17,12 @@ enum is_game {
     MENU = 2,
     PAUSE,
     GAME,
-    INTRO
+    INTRO,
+    SLOT
 };
 
 enum button_t {
-    STAR = 6,
+    STAR = 7,
     SETG,
     GUI,
     HOME,
@@ -44,8 +45,19 @@ enum custom_step {
     NAME
 };
 
+enum free_s {
+    FREE = 18,
+    KEEP
+};
+
 enum exit_t {
     EXIT = 84
+};
+
+enum clean_s {
+    REPLACE = 200,
+    SKIP,
+    SPACE
 };
 
 #endif

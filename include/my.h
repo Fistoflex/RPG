@@ -10,9 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <SFML/Graphics.h>
 #include <SFML/System/Export.h>
 #include <SFML/Audio.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
@@ -23,9 +27,14 @@ void my_putchar(char);
 int my_putstr(char *);
 int my_putstr_error(char *);
 char **my_str_to_word_array(char *, char);
-char *my_strcat(char *, char *);
-char *my_strdup(char *);
+char *my_strcat(char *, char *, int, int);
+char *my_strdup(char *, int);
+int my_strlen(char *);
+int    my_strcmp(char *s1, char *s2);
 
+char    *my_itoa(int nb);
+void    save_game(game_t *gm);
+char    *my_new_strcat(char *dest, char *src, int x, int fre);
 void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list);
 char    *get_next_line(int fd);
 char **set_tab(char *path);
@@ -68,7 +77,7 @@ void get_mouse_pos(game_t *gm, sfEvent evt);
 void find_the_bt_which_is_press(game_t *gm, sfEvent evt);
 void bt_esc_redirect(game_t *gm);
 sfSprite *my_create_sprite(char *name, sfBool);
-void my_game(sfRenderWindow *wind, game_t *gm, list_t **list);
+void my_game(sfRenderWindow *wind, game_t *gm);
 void my_setting(sfRenderWindow *wind, game_t *gm);
 float my_clock(sfClock *clock);
 void my_setting(sfRenderWindow *, game_t *);
@@ -80,7 +89,7 @@ void clic_menu_exit(sfRenderWindow *, game_t *, sfVector2i);
 void clic_menu_settings(game_t *, sfVector2i);
 
 void malloc_my_link_list(list_t **env, choice_t *choice);
-void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str);
+void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str, char *path);
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list);
@@ -89,6 +98,10 @@ choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice);
 list_t *init_my_custome(void);
 list_t *make_your_choice(sfRenderWindow *wind, game_t *gm, list_t *list);
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *game);
+char **read_file(char *path);
+void    init_slot(game_t *gm);
+char    *my_epurstr(char *str, char *format, int fre);
+void    my_slot(sfRenderWindow *wind, game_t *gm);
 
 void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);

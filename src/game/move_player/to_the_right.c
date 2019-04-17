@@ -10,9 +10,9 @@
 void	to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect)
 {
     static int left = 0;
-    int top = 719;
+    int top = 717;
     int width = 64;
-    int height = 48;
+    int height = 50;
 
     gm->chara.pos.x += 5;
     (*rect) = my_create_rect(height, width, top, left);

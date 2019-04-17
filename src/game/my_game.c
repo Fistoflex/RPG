@@ -7,16 +7,12 @@
 
 #include "my.h"
 
-void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
+void    my_game(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
-    static int step = 0;
 
-    if (gm->state == GAME && destroy == 0) {
-        gm->chara.pos.x = 0; //pos chara
-        gm->chara.pos.y = 0;
+    if (gm->state == GAME && destroy == 0)
         gm->clock.anim = sfClock_create();
-    }
     if (gm->state == GAME) {
         sfRenderWindow_drawSprite(wind, gm->game, NULL);
         move_player(wind, gm);
@@ -24,6 +20,7 @@ void    my_game(sfRenderWindow *wind, game_t *gm, list_t **list)
     }
     if (gm->state != GAME && destroy == 1) {
         sfClock_destroy(gm->clock.anim);
-        sfSprite_destroy(gm->chara.body);
+        gm->clock.anim = NULL;
+        destroy = 0;
     }
 }

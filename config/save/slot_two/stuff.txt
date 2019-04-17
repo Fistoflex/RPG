@@ -1,0 +1,10 @@
+none
+0 0
+picture/Character_assets/MALE/Male - Body/dark2.png
+picture/Character_assets/MALE/Male - Hair/redhead2-pixie.png
+none
+picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
+none
+none
+picture/Character_assets/MALE/Male - Pants/magenta.png
+picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

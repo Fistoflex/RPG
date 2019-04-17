@@ -1,0 +1,2 @@
+picture/slot/slot1.png;picture/slot/slot1_select.png;400;200;config/save/slot_one/
+picture/slot/slot2.png;picture/slot/slot2_select.png;1000;200;config/save/slot_two/
