@@ -17,6 +17,10 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     if (gm->state == GAME) {
         sfRenderWindow_drawSprite(wind, gm->game, NULL);
         move_player(wind, gm);
+        if (gm->key.i == PUSHED) {
+            gm->state = INV;
+            gm->key.i = NOT_PUSHED;
+        }
         destroy = 1;
     }
     if (gm->state != GAME && destroy == 1) {
