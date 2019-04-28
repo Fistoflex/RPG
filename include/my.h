@@ -106,5 +106,8 @@ sfFont  *my_font(char *path);
 char    *my_epurstr(char *str, char *format, int fre);
 void    my_slot(sfRenderWindow *wind, game_t *gm);
 char  *prompt(game_t *, sfEvent *);
+void    the_free(char **tab);
+void    destroy_bt(button_t bt);
+sfView *set_view(sfView *, float zoom);
 
 #endif

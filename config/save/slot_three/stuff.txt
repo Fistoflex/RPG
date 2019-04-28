@@ -1,5 +1,5 @@
 AH
-1390 90
+762 402
 picture/Character_assets/MALE/Male - Body/dark.png
 picture/Character_assets/MALE/Male - Hair/blonde2-pixie.png
 none

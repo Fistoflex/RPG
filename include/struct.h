@@ -68,16 +68,26 @@ typedef struct clck_s {
     sfClock *enter;
 }clck_t;
 
+typedef struct view_s {
+    sfView *game;
+    sfView *pause;
+    sfView *menu;
+}view_t;
+ 
+
 typedef struct game_s {
     int custom_step;
     int state;
     int effect;
     char *stuff;
+
     slot_t one;
     slot_t two;
     slot_t three;
+
     sfSprite *game;
     sfSprite *setting;
+
     clck_t clock;
     key_board_t key;
     menu_t menu;
@@ -86,6 +96,7 @@ typedef struct game_s {
     pause_t pause;
     intro_t intro;
     mouse_t mouse;
+    view_t view;
     sfMusic *sound;
 }game_t;
 

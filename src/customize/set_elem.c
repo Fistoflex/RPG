@@ -29,4 +29,5 @@ void    set_list(choice_t **elem, char **tab)
         my_free(tmp);
         i++;
     }
+    the_free(tab);
 }
