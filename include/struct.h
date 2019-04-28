@@ -18,7 +18,7 @@ typedef	struct slot_s {
     sfVector2f pos_n;
     sfSprite *slot;
     char *path;
-}slot_t;
+} slot_t;
 
 typedef struct sfIntRect_contains {
     sfTexture *txtr;
@@ -26,13 +26,13 @@ typedef struct sfIntRect_contains {
     sfTexture *txtr2;
     sfSprite *sp2;
     sfMusic *msc;
-}intro_t;
+} intro_t;
 
 typedef struct button_s {
     sfText *txt;
     sfVector2f pos;
     int size;
-}button_t;
+} button_t;
 
 typedef struct menu_s {
     sfSprite *sprite;
@@ -40,14 +40,14 @@ typedef struct menu_s {
     button_t start;
     button_t setg;
     button_t exit;
-}menu_t;
+} menu_t;
 
 typedef struct pause_s {
     button_t resume;
     button_t restart;
     button_t home;
     button_t exit;
-}pause_t;
+} pause_t;
 
 typedef struct settings_s
 {
@@ -56,18 +56,18 @@ typedef struct settings_s
     sfVector2f pos;
     sfIntRect rectangle;
     sfText *txt;
-}settings_t;
+} settings_t;
 
 typedef struct mouse_s {
     sfVector2f moved;
     sfVector2i button;
-}mouse_t;
+} mouse_t;
 
 typedef struct clck_s {
     sfClock *esc;
     sfClock *anim;
     sfClock *enter;
-}clck_t;
+} clck_t;
 
 typedef struct guide {
     settings_t k_esc;

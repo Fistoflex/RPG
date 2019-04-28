@@ -7,6 +7,7 @@
 
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
+#include "item.h"
 
 typedef struct elem_char {
     sfSprite *sp;
@@ -26,6 +27,8 @@ typedef struct path_s {
 
 typedef struct char_s {
     char *name;
+    statistics_t *stat;
+    bag_t *bag;
     sfText  *nm;
     sfVector2f pos;
     sfSprite *body;

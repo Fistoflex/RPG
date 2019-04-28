@@ -90,7 +90,7 @@ void clic_menu_exit(sfRenderWindow *, game_t *, sfVector2i);
 void clic_menu_settings(game_t *, sfVector2i);
 
 void malloc_my_link_list(list_t **env, choice_t *choice);
-void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str, char *path);
+void malloc_my_link_choice(choice_t **, sfSprite *, char *, char *);
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list);
