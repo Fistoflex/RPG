@@ -50,7 +50,8 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/my_slot.c			\
 					src/slot/init_slot.c			\
 					src/slot/save_game.c			\
-					src/my_itoa.c
+					src/my_itoa.c					\
+					src/inventory/init_inventory.c
 
 MAIN		=			src/main.c
 

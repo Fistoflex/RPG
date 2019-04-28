@@ -23,8 +23,7 @@ typedef struct s_item
     int pos;
 } item_t;
 
-typedef struct s_bag
-{
+typedef struct s_bag {
     int pos;
     int state;
     item_t item;

@@ -109,4 +109,6 @@ char  *prompt(game_t *, sfEvent *);
 
 void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
+void init_inventory(game_t *gm);
+
 #endif
