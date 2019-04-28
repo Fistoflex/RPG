@@ -63,7 +63,7 @@ void my_customize(sfRenderWindow *wind, game_t *gm, list_t **list, sfEvent *evt)
         (*list) = make_your_choice(wind, gm, (*list));
     } else if (gm->state == NAME) {
         if (gm->key.enter == PUSHED) {
-            gm->chara.name = my_strdup(tmp, FREE);
+            gm->chara.name = my_strdup(tmp, KEEP);
             gm->state = GAME;
             gm->key.enter = NOT_PUSHED;
         }

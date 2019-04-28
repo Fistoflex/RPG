@@ -53,6 +53,11 @@ void mouse_on_button(game_t *gm, sfVector2f mouse)
     reset_bt_menu(gm);
 }
 
+void    destroy_bt(button_t bt)
+{
+    sfText_destroy(bt.txt);
+}
+
 void my_menu(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
@@ -64,12 +69,13 @@ void my_menu(sfRenderWindow *wind, game_t *gm)
         sfRenderWindow_drawText(wind, gm->menu.start.txt, NULL);
         sfRenderWindow_drawText(wind, gm->menu.setg.txt, NULL);
         sfRenderWindow_drawText(wind, gm->menu.exit.txt, NULL);
+        sfRenderWindow_setView(wind, gm->view.menu);
         destroy = 1;
     }
     if (gm->state != MENU && destroy == 1) {
-        sfText_destroy(gm->menu.start.txt);
-        sfText_destroy(gm->menu.setg.txt);
-        sfText_destroy(gm->menu.exit.txt);
+        destroy_bt(gm->menu.start);
+        destroy_bt(gm->menu.setg);
+        destroy_bt(gm->menu.exit);
         destroy = 0;
     }
 }

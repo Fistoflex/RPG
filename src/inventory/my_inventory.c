@@ -20,6 +20,7 @@ void    my_inventory(sfRenderWindow *wind, game_t *gm)
             gm->state = GAME;
             gm->key.i = NOT_PUSHED;
         }
+        sfRenderWindow_setView(wind, gm->view.inv);
         destroy = 1;
     }
     if (gm->state != INV && destroy == 1) {

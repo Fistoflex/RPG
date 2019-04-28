@@ -53,21 +53,23 @@ void    my_pause(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
 
-    if (gm->state == PAUSE && destroy == 0)
+    if (gm->state == PAUSE && destroy == 0) {
         gm->pause = init_the_scene_pause();
+    }
     if (gm->state == PAUSE) {
         over_flow(gm->pause, gm->mouse.moved, gm);
         sfRenderWindow_drawText(wind, gm->pause.resume.txt, NULL);
         sfRenderWindow_drawText(wind, gm->pause.home.txt, NULL);
         sfRenderWindow_drawText(wind, gm->pause.restart.txt, NULL);
         sfRenderWindow_drawText(wind, gm->pause.exit.txt, NULL);
+        sfRenderWindow_setView(wind, gm->view.pause);
         destroy = 1;
     }
     if (gm->state != PAUSE && destroy == 1) {
-        sfText_destroy(gm->pause.resume.txt);
-        sfText_destroy(gm->pause.home.txt);
-        sfText_destroy(gm->pause.exit.txt);
-        sfText_destroy(gm->pause.restart.txt);
+        destroy_bt(gm->pause.resume);
+        destroy_bt(gm->pause.home);
+        destroy_bt(gm->pause.exit);
+        destroy_bt(gm->pause.restart);
         destroy = 0;
     }
 }

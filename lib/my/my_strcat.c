@@ -29,8 +29,11 @@ char    *my_strcat(char *dest, char *src, int d, int s)
 
     if (src == NULL)
         return (NULL);
-    else if (dest == NULL)
+    else if (dest == NULL) {
+        if (s == FREE)
+            free(src);
         return (my_strdup(src, s));
+    }
     x = my_strlen(dest);
     x += my_strlen(src);
     str = malloc(sizeof(char) * (x + 1));

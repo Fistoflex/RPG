@@ -81,6 +81,14 @@ typedef struct guide {
     settings_t k_dir;
 } k_guide_t;
 
+typedef struct view_s {
+    sfView *game;
+    sfView *pause;
+    sfView *menu;
+    sfView *inv;
+}view_t;
+ 
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -100,6 +108,7 @@ typedef struct game_s {
     pause_t pause;
     intro_t intro;
     mouse_t mouse;
+    view_t view;
     sfMusic *sound;
 }game_t;
 
