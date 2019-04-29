@@ -10,6 +10,7 @@
 
 typedef struct s_stat
 {
+    sfShape *range;
     char *name;
     int hp;
     int lvl;
