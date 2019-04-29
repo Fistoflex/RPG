@@ -7,24 +7,47 @@
 
 #include "my.h"
 
-void draw_map(sfRenderWindow *wind, info_map_t info,
-            sfRenderStates *states, char *path)
+sfVector2f set_2f(int x, int y)
 {
-    load_map(&info, path);
-    sfRenderWindow_drawVertexArray(wind, info.vertices, states);
+    sfVector2f vec;
+
+    vec.x = x;
+    vec.y = y;
+    return vec;
 }
 
-void init_map(tiled_t *info)
+void init_my_map(tiled_t *tiles)
 {
-    info->info = init_info_map("src/tiled/map/1");
+    tiles->layer1.width = 20;
+    tiles->layer1.height = 20;
+    tiles->layer1.tiles = NULL;
+    tiles->layer1.tileset = NULL;
+    tiles->layer1.vertices = NULL;
 }
 
-void destroy_map(tiled_t *tiled)
+void init_layer(tiles_t *tiles, char *tiles_path)
 {
-    free(tiled);
+    tiles->tiles = get_tiles(tiles_path);
+    tiles->tileSize.x = 32;
+    tiles->tileSize.y = 32;
+    tiles->vertices = sfVertexArray_create();
+    tiles->states = init_states(tiles);
+}
+
+void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path)
+{
+    if (load_map(&gm->tiles.layer1, asset_path) == FALSE) {
+        my_putstr_error("Failed to load map.\n");
+        return;
+    }
+    sfRenderWindow_drawVertexArray(wind, gm->tiles.layer1.vertices,
+                                gm->tiles.layer1.states);
 }
 
 void my_map(sfRenderWindow *wind, game_t *gm)
 {
-    draw_map(wind, gm->tiled.info, gm->tiled.info.states, "picture/grass.png");
+    if (gm->state != GAME)
+        return;
+    init_layer(&gm->tiles.layer1, "src/tiled/map/ground1");
+    draw_map(wind, gm, "picture/env/dungeons/rtp.png");
 }

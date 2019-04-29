@@ -16,7 +16,8 @@ SRC		=		create_link_list.c	\
 				array_len.c			\
 				getnbr.c			\
 				isnum.c				\
-				free_array.c
+				free_array.c		\
+				my_putstr_error.c
 
 OBJ		=		$(SRC:.c=.o)
 

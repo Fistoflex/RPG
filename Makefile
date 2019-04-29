@@ -55,9 +55,7 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/inventory/my_inventory.c	\
 					src/tiled/get_tiles.c			\
 					src/tiled/load_map.c			\
-					src/tiled/make_map.c			\
-					src/tiled/put_in_tiled.c		\
-					src/tiled/set_up_vertex.c
+					src/tiled/make_map.c
 
 MAIN		=			src/main.c
 

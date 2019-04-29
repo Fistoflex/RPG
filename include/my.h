@@ -120,14 +120,15 @@ int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 void init_inventory(game_t *gm);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
 
-sfVector2f set_2f(int x, int y);
-sfVertex *set_up_quad_pos(info_map_t *info, int i, int j, sfVertex *quad);
-sfVertex *set_up_quad_tex(info_map_t *info, int tv, int tu, sfVertex *quad);
-int load_map(info_map_t *info, char *filename);
+void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path);
+sfRenderStates *init_states(tiles_t *tiles);
+int load_map(tiles_t *tiles, char *filename);
+sfVertex *set_up_quad_tex(tiles_t *tiles, int tv, int tu, sfVertex *quad);
+sfVertex *set_up_quad_pos(tiles_t *tiles, int i, int j, sfVertex *quad);
 void my_map(sfRenderWindow *wind, game_t *gm);
+void init_layer(tiles_t *tiles, char *tiles_path);
+void init_my_map(tiled_t *tiles);
+sfVector2f set_2f(int x, int y);
 int *get_tiles(char *filepath);
-info_map_t init_info_map(char *tiles);
-sfRenderStates *init_states(info_map_t info);
-void init_map(tiled_t *info);
 
 #endif

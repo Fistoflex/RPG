@@ -88,7 +88,7 @@ typedef struct view_s {
     sfView *inv;
 }view_t;
 
-typedef struct s_info_map {
+typedef struct s_info_tiles {
     sfVector2u tileSize;
     int *tiles;
     sfTexture *tileset;
@@ -96,10 +96,10 @@ typedef struct s_info_map {
     int height;
     sfVertexArray *vertices;
     sfRenderStates *states;
-}info_map_t;
+}tiles_t;
 
 typedef struct s_tiled_map {
-    info_map_t info;
+    tiles_t layer1;
 }tiled_t;
 
 typedef struct game_s {
@@ -123,7 +123,7 @@ typedef struct game_s {
     mouse_t mouse;
     view_t view;
     sfMusic *sound;
-    tiled_t tiled;
+    tiled_t tiles;
 }game_t;
 
 #endif
