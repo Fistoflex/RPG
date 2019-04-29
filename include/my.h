@@ -32,6 +32,11 @@ char *my_strcat(char *, char *, int, int);
 char *my_strdup(char *, int);
 int my_strlen(char *);
 int    my_strcmp(char *s1, char *s2);
+char **word_array(char *, char);
+int array_len(char **);
+int getnbr(char *);
+int isnum(char *);
+void free_array(char **);
 
 char    *my_itoa(int nb);
 void    save_game(game_t *gm);
@@ -114,5 +119,15 @@ void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 void init_inventory(game_t *gm);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
+
+sfVector2f set_2f(int x, int y);
+sfVertex *set_up_quad_pos(info_map_t *info, int i, int j, sfVertex *quad);
+sfVertex *set_up_quad_tex(info_map_t *info, int tv, int tu, sfVertex *quad);
+int load_map(info_map_t *info, char *filename);
+void my_map(sfRenderWindow *wind, game_t *gm);
+int *get_tiles(char *filepath);
+info_map_t init_info_map(char *tiles);
+sfRenderStates *init_states(info_map_t info);
+void init_map(tiled_t *info);
 
 #endif

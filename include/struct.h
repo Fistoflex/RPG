@@ -87,7 +87,20 @@ typedef struct view_s {
     sfView *menu;
     sfView *inv;
 }view_t;
- 
+
+typedef struct s_info_map {
+    sfVector2u tileSize;
+    int *tiles;
+    sfTexture *tileset;
+    int width;
+    int height;
+    sfVertexArray *vertices;
+    sfRenderStates *states;
+}info_map_t;
+
+typedef struct s_tiled_map {
+    info_map_t info;
+}tiled_t;
 
 typedef struct game_s {
     int custom_step;
@@ -110,6 +123,7 @@ typedef struct game_s {
     mouse_t mouse;
     view_t view;
     sfMusic *sound;
+    tiled_t tiled;
 }game_t;
 
 #endif

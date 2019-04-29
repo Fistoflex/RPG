@@ -52,7 +52,12 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/save_game.c			\
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
-					src/inventory/my_inventory.c
+					src/inventory/my_inventory.c	\
+					src/tiled/get_tiles.c			\
+					src/tiled/load_map.c			\
+					src/tiled/make_map.c			\
+					src/tiled/put_in_tiled.c		\
+					src/tiled/set_up_vertex.c
 
 MAIN		=			src/main.c
 
