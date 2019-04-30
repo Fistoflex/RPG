@@ -134,6 +134,8 @@ sfColor set_color(char **tab);
 sfVector2f set_coord(char *str);
 void init_inv_elem(game_t *gm);
 char **all_path(void);
-
+void draw_shape(bag_t *bag, sfRenderWindow *wind);
+void disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect, sfVector2f);
+void disp_player(sfRenderWindow *wind, game_t *gm);
 
 #endif

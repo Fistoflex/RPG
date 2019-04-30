@@ -7,42 +7,7 @@
 
 #include "my.h"
 
-void    draw_shape(bag_t *bag, sfRenderWindow *wind)
-{
-    while (bag != NULL) {
-        sfRenderWindow_drawRectangleShape(wind, bag->shape, NULL);
-        bag = bag->next;
-    }
-}
-
-void    disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
-{
-    sfVector2f scale = {7, 7};
-
-    if (sp != NULL) {
-        sfSprite_setScale(sp, scale);
-        sfSprite_setPosition(sp, pos);
-        sfSprite_setTextureRect(sp, rect);
-        sfRenderWindow_drawSprite(wind, sp, NULL);
-    }
-}
-
-void    disp_player(sfRenderWindow *wind, game_t *gm)
-{
-    sfIntRect rect = {0, 654, 64, 50};
-    sfVector2f pos = {490, 74};
-
-    disp_pl(wind, gm->chara.body, rect, pos);
-    disp_pl(wind, gm->chara.hair, rect, pos);
-    disp_pl(wind, gm->chara.hat, rect, pos);
-    disp_pl(wind, gm->chara.torso, rect, pos);
-    disp_pl(wind, gm->chara.shoulder, rect, pos);
-    disp_pl(wind, gm->chara.hands, rect, pos);
-    disp_pl(wind, gm->chara.legs, rect, pos);
-    disp_pl(wind, gm->chara.feet, rect, pos);
-}
-
-int    disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
+int disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
 {
     sfVector2f scale = {3, 3};
 
@@ -66,7 +31,7 @@ void draw_txt(sfRenderWindow *wind, text_t txt)
     sfRenderWindow_drawText(wind, txt.dfs, NULL);
 }
 
-void    elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
+void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
 {
     sfIntRect rect = {0, 654, 64, 50};
     sfFloatRect rec;
@@ -74,16 +39,17 @@ void    elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm
     if (sp != NULL)
         rec = sfRectangleShape_getGlobalBounds((*bag)->shape);
     if (disp_elm(wind, sp, rect, (*bag)->ps) == TRUE) {
-        if (sp != NULL && sfFloatRect_contains(&rec, gm->mouse.moved.x, gm->mouse.moved.y))
+        if (sp != NULL && sfFloatRect_contains(&rec, gm->mouse.moved.x,
+        gm->mouse.moved.y))
             draw_txt(wind, (*bag)->txt);
         (*bag) = (*bag)->next;
     }
 }
 
-void    dis_elem(sfRenderWindow *wind, game_t *gm)
+void dis_elem(sfRenderWindow *wind, game_t *gm)
 {
     bag_t *bag = gm->chara.bag.bag;
- 
+
     elem_to_disp(wind, &bag, gm->chara.hair, gm);
     elem_to_disp(wind, &bag, gm->chara.hat, gm);
     elem_to_disp(wind, &bag, gm->chara.torso, gm);
@@ -92,7 +58,7 @@ void    dis_elem(sfRenderWindow *wind, game_t *gm)
     elem_to_disp(wind, &bag, gm->chara.hands, gm);
 }
 
-void    my_inventory(sfRenderWindow *wind, game_t *gm)
+void my_inventory(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
 
