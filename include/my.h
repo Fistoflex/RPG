@@ -123,7 +123,6 @@ void draw_hp(sfRenderWindow *win, heal_t *hp);
 void    redirec_out(char **tab, char *path);
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
-int check_cooldown(game_t *gm, int lim);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
 sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f, sfColor color);
 statistics_t init_statistique(char *file);
