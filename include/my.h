@@ -136,5 +136,7 @@ char **all_path(void);
 void draw_shape(bag_t *bag, sfRenderWindow *wind);
 void disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect, sfVector2f);
 void disp_player(sfRenderWindow *wind, game_t *gm);
+void dis_elem(sfRenderWindow *wind, game_t *gm);
+void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
 
 #endif

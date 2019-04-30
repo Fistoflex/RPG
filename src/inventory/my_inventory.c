@@ -46,31 +46,6 @@ void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
     }
 }
 
-sfVector2f position(char *str)
-{
-    char **tab = my_str_to_word_array(str, ' ');
-    sfVector2f pos = {atoi(tab[0]), atoi(tab[1])};
-
-    return (pos);
-}
-
-void dis_elem(sfRenderWindow *wind, game_t *gm)
-{
-    bag_t *bag = gm->chara.bag.bag;
-
-    bag->ps = position(gm->chara.bag.coord[0]);
-    elem_to_disp(wind, &bag, gm->chara.hair, gm);
-    elem_to_disp(wind, &bag, gm->chara.hat, gm);
-    bag->ps = position(gm->chara.bag.coord[1]);
-    elem_to_disp(wind, &bag, gm->chara.torso, gm);
-    bag->ps = position(gm->chara.bag.coord[2]);
-    elem_to_disp(wind, &bag, gm->chara.legs, gm);
-    bag->ps = position(gm->chara.bag.coord[3]);
-    elem_to_disp(wind, &bag, gm->chara.feet, gm);
-    bag->ps = position(gm->chara.bag.coord[4]);
-    elem_to_disp(wind, &bag, gm->chara.hands, gm);
-}
-
 void my_inventory(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
