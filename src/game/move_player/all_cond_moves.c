@@ -42,7 +42,7 @@ void spell_player(sfRenderWindow *wind, game_t *gm, sfIntRect rect, int old)
     if (gm->key.s_s == PUSHED)
         do_slash(wind, gm, &rect, old);
     if (gm->key.s_d == PUSHED)
-            do_dash(wind, gm, &rect, old);
+        do_dash(wind, gm, &rect, old);
     if (gm->key.down == PUSHED || gm->key.up == PUSHED ||
         gm->key.right == PUSHED || gm->key.left == PUSHED ||
         gm->key.s_d == PUSHED)
