@@ -8,12 +8,22 @@
 #ifndef ITEM_H_
 #define ITEM_H_
 
-typedef struct s_stat {
+typedef struct s_heal {
+    int state;
+    sfVector2f old_pos;
+    sfVector2f pos;
+    struct s_heal *next;
+} heal_t;
+
+typedef struct s_stat
+{
+    sfShape *range;
+    sfShape *wap_range;
     char *name;
-    int hp;
+    heal_t *hp;
     int lvl;
     int dmg;
-    int shield;
+    int shield;//le shield doit etre un int, plus il est grand moins il est efficace
 } statistics_t;
 
 typedef struct s_item {
