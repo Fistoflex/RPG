@@ -44,14 +44,14 @@ char    *get_next_line(int fd);
 char **set_tab(char *path);
 void    set_list(choice_t **elem, char **tab);
 void    move_player(sfRenderWindow *wind, game_t *gm);
-void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
+void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect, sfRenderWindow *);
 void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);
 sfIntRect   my_create_rect(int h, int w, int t, int l);
 int to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 int to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 int to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 int to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent *evt);
+void    all_scene(sfRenderWindow *window, game_t *gm, list_t **, sfEvent *evt);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
 void resume_effect(game_t *gm);
@@ -116,14 +116,24 @@ sfView *set_view(sfView *, float zoom);
 
 void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
-void init_inventory(game_t *gm);
-void my_inventory(sfRenderWindow *wind, game_t *gm);
 
+void init_inventory(game_t *gm);
 heal_t *init_normal_hp(int);
 void draw_hp(sfRenderWindow *win, heal_t *hp);
 void    redirec_out(char **tab, char *path);
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 int check_cooldown(game_t *gm, int lim);
+void    my_inventory(sfRenderWindow *wind, game_t *gm);
+sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f, sfColor color);
+statistics_t init_statistique(char *file);
+
+text_t init_text(char **tab);
+void create_link_bag(bag_t **bag, char *str, char **tp);
+sfColor set_color(char **tab);
+sfVector2f set_coord(char *str);
+void init_inv_elem(game_t *gm);
+char **all_path(void);
+
 
 #endif

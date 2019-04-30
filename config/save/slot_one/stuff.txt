@@ -1,7 +1,7 @@
-A
-840 404
-picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/black-bangs.png
+ABD
+452 586
+picture/Character_assets/MALE/Male - Body/light.png
+picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none
 picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
 none

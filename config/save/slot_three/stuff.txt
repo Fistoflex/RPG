@@ -1,10 +1,10 @@
 AH
-1155 290
-picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/blonde2-pixie.png
+518 392
+picture/Character_assets/MALE/Male - Body/dark2.png
+picture/Character_assets/MALE/Male - Hair/black-messy.png
 none
-picture/Character_assets/MALE/Male T-Shirts/chest_male.png
+picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/white_pants_male.png
+picture/Character_assets/MALE/Male - Pants/red.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

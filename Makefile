@@ -53,11 +53,15 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
 					src/inventory/my_inventory.c	\
+					src/inventory/init_my_text.c	\
+					src/inventory/create_link_bag.c	\
 					src/my_random.c					\
 					src/game/fight/draw_hp.c		\
 					src/game/fight/init_hp.c		\
 					src/game/fight/fight.c			\
 					src/game/move_player/do_spell.c	\
+					src/my_create_shape.c			\
+					src/init_statistique_slot.c
 
 MAIN		=			src/main.c
 

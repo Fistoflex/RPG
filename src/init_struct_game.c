@@ -26,6 +26,7 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
     gm.key.back = NOT_PUSHED;
     gm.key.s_s = NOT_PUSHED;
     gm.key.s_d = NOT_PUSHED;
+    gm.key.i = NOT_PUSHED;
     gm.view.menu = set_view(gm.view.menu, 1.05);
     gm.view.game = set_view(gm.view.game, 0.6);
     gm.view.pause = set_view(gm.view.pause, 0.989);
