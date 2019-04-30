@@ -52,7 +52,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/save_game.c			\
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
-					src/inventory/my_inventory.c
+					src/inventory/my_inventory.c	\
+					src/my_create_shape.c			\
+					src/init_statistique_slot.c
 
 MAIN		=			src/main.c
 

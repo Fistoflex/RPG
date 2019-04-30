@@ -114,5 +114,7 @@ void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 void init_inventory(game_t *gm);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
+sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f pos, sfColor color);
+statistics_t init_statistique(char *file);
 
 #endif
