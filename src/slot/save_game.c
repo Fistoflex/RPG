@@ -9,8 +9,8 @@
 
 void    redirec_out(char **tab, char *path)
 {
-    int     fd;
-    pid_t   pid;
+    int fd;
+    pid_t pid;
     int i = 0;
     int tmp = 0;
 

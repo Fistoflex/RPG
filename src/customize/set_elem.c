@@ -25,7 +25,8 @@ void    set_list(choice_t **elem, char **tab)
 
     while (tab[i] != NULL) {
         tmp = my_str_to_word_array(tab[i], ';');
-        malloc_my_link_choice(elem, my_create_sprite(tmp[0], sfFalse), tmp[1], tmp[0]);
+        malloc_my_link_choice(elem, my_create_sprite(tmp[0], sfFalse),
+        tmp[1], tmp[0]);
         my_free(tmp);
         i++;
     }

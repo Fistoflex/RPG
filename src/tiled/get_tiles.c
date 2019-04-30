@@ -13,18 +13,16 @@ char **get_file(char *filepath)
     char *line = NULL;
     size_t size = 0;
     FILE *fd = fopen(filepath, "r");
-    char **dest = NULL;
-    char *tmp = strdup("");
+    char *tmp = my_strdup("", KEEP);
 
     if (fd == NULL)
         return (NULL);
     while (getline(&line, &size, fd) != -1) {
         line[my_strlen(line) - 1] = '\0';
-        tmp = strcat(tmp, line);
+        tmp = my_strcat(tmp, line, KEEP, KEEP);
     }
     fclose(fd);
-    dest = word_array(tmp, ',');
-    return (dest);
+    return(word_array(tmp, ','));
 }
 
 int *get_tiles(char *filepath)
@@ -34,7 +32,7 @@ int *get_tiles(char *filepath)
     int i = 0;
 
     while (tmp[i] != NULL) {
-        dest[i] = (getnbr(tmp[i]) - 1);
+        dest[i] = getnbr(tmp[i]) - 1;
         if (dest[i] < 0)
             dest[i] = 0;
         i++;

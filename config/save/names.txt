@@ -1,0 +1,5 @@
+Name:    
+Hp:      
+Rank:    
+Damage:  
+Defense: 

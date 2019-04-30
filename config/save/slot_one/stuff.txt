@@ -1,10 +1,10 @@
 ABD
-170 194
+1300 648
 picture/Character_assets/MALE/Male - Body/light.png
 picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none
-picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
+picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/red.png
+picture/Character_assets/MALE/Male - Pants/magenta.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

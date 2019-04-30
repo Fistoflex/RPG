@@ -17,11 +17,14 @@
 #include <fcntl.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <time.h>
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
 #include "get_next_line.h"
+#include "item.h"
 
+int my_random(int max);
 sfSprite   *insert_stuff(sfSprite *sp, char *str);
 void my_putchar(char);
 int my_putstr(char *);
@@ -46,14 +49,14 @@ char    *get_next_line(int fd);
 char **set_tab(char *path);
 void    set_list(choice_t **elem, char **tab);
 void    move_player(sfRenderWindow *wind, game_t *gm);
-void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
+void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect, sfRenderWindow *);
 void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);
 sfIntRect   my_create_rect(int h, int w, int t, int l);
-void	to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent *evt);
+int to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+void    all_scene(sfRenderWindow *window, game_t *gm, list_t **, sfEvent *evt);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
 void resume_effect(game_t *gm);
@@ -96,6 +99,7 @@ void clic_menu_settings(game_t *, sfVector2i);
 
 void malloc_my_link_list(list_t **env, choice_t *choice);
 void malloc_my_link_choice(choice_t **, sfSprite *, char *, char *);
+void init_my_link_hp(heal_t **hp, sfVector2f pos);
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list);
@@ -117,8 +121,28 @@ sfView *set_view(sfView *, float zoom);
 
 void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
+
 void init_inventory(game_t *gm);
+heal_t *init_normal_hp(int);
+void draw_hp(sfRenderWindow *win, heal_t *hp);
+void    redirec_out(char **tab, char *path);
+void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
+void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
+sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f, sfColor color);
+statistics_t init_statistique(char *file);
+
+text_t init_text(char **tab);
+void create_link_bag(bag_t **bag, char *str, char **tp);
+sfColor set_color(char **tab);
+sfVector2f set_coord(char *str);
+void init_inv_elem(game_t *gm);
+char **all_path(void);
+void draw_shape(bag_t *bag, sfRenderWindow *wind);
+void disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect, sfVector2f);
+void disp_player(sfRenderWindow *wind, game_t *gm);
+void dis_elem(sfRenderWindow *wind, game_t *gm);
+void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
 
 void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path);
 sfRenderStates *init_states(tiles_t *tiles);

@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void    to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect)
+int to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect)
 {
     static int left = 0;
     int top = 589;
@@ -23,4 +23,5 @@ void    to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect)
         sfClock_restart(gm->clock.anim);
     }
     set_rect_stuff(wind, gm, (*rect));
+    return (top);
 }
