@@ -27,6 +27,7 @@ void init_inventory(game_t *gm)
 
     if (i == 0) {
         init_inv_elem(gm);
+        gm->chara.bag.coord = read_file("config/elem_coord");
         i++;
     }
     gm->chara.bag.inv = my_create_sprite("picture/item/MicrosoftTeams-image.png"

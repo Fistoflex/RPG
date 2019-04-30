@@ -13,7 +13,7 @@ statistics_t init_statistique(char *file)
     statistics_t stat;
 
     stat.name = my_strdup(tab[0], KEEP);
-    stat.hp = atoi(tab[1]);//init_normal_hp(atoi(tab[1]));
+    stat.hp = init_normal_hp(atoi(tab[1]));
     stat.lvl = atoi(tab[2]);
     stat.dmg = atoi(tab[3]);
     stat.shield = atoi(tab[4]);

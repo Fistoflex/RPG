@@ -7,13 +7,6 @@
 
 #include "my.h"
 
-int check_cooldown(game_t *gm, int lim)
-{
-    if (gm->clock.anim < lim)
-        return (FALSE);
-    return (TRUE);
-}
-
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
 {
     static int left = 0;

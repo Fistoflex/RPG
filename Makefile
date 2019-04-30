@@ -55,6 +55,7 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/inventory/my_inventory.c	\
 					src/inventory/init_my_text.c	\
 					src/inventory/create_link_bag.c	\
+					src/inventory/annex_inventory.c	\
 					src/my_random.c					\
 					src/game/fight/draw_hp.c		\
 					src/game/fight/init_hp.c		\

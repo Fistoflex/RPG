@@ -27,6 +27,7 @@ typedef struct path_s {
 
 typedef struct bagg_s {
     sfSprite *inv;
+    char **coord;
     bag_t *bag;
 }bagg_t;
 

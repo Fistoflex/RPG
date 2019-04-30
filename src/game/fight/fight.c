@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-
+/*
 void receive_dmg(statistics_t *play, int dmg)
 {
     heal_t *tmp = play->hp;
@@ -34,13 +34,13 @@ int my_base(statistics_t *play, statistics_t *en)
         if (check_hit(play->shield) == FALSE)
             receive_dmg(play, en->dmg);
         //else
-            /*write BLOCK*/
+            write BLOCK
     if (sfFloatRect_intersects(&en_r, &wap_r, NULL) == sfTrue) {
         en->hp -= play->dmg;
         ret = TRUE;
     }
     return (ret);
-}
+}*/
 
 void my_fight(statistics_t *play, statistics_t *en)
 {
