@@ -18,11 +18,15 @@ sfVector2f set_2f(int x, int y)
 
 void init_my_map(tiled_t *tiles)
 {
-    tiles->layer1.width = 20;
-    tiles->layer1.height = 20;
-    tiles->layer1.tiles = NULL;
-    tiles->layer1.tileset = NULL;
-    tiles->layer1.vertices = NULL;
+    tiles->layer1 = malloc(sizeof(tiles_t));
+    tiles->layer1->width = 100; // number of the tile on the map
+    tiles->layer1->height = 100;
+    tiles->layer1->tiles = NULL;
+    tiles->layer1->tileset = NULL;
+    tiles->layer1->vertices = NULL;
+    init_layer(tiles->layer1, "src/tiled/map/colision");
+    if (load_map(tiles->layer1, "picture/env/colision.jpg") == FALSE)
+        my_putstr_error("Failed to load map.\n");
 }
 
 void init_layer(tiles_t *tiles, char *tiles_path)
@@ -36,18 +40,13 @@ void init_layer(tiles_t *tiles, char *tiles_path)
 
 void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path)
 {
-    if (load_map(&gm->tiles.layer1, asset_path) == FALSE) {
-        my_putstr_error("Failed to load map.\n");
-        return;
-    }
-    sfRenderWindow_drawVertexArray(wind, gm->tiles.layer1.vertices,
-                                gm->tiles.layer1.states);
+    sfRenderWindow_drawVertexArray(wind, gm->tiles.layer1->vertices,
+                                init_states(gm->tiles.layer1));
 }
 
 void my_map(sfRenderWindow *wind, game_t *gm)
 {
     if (gm->state != GAME)
         return;
-    init_layer(&gm->tiles.layer1, "src/tiled/map/ground1");
-    draw_map(wind, gm, "picture/env/dungeons/rtp.png");
+    draw_map(wind, gm, NULL);
 }

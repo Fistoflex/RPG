@@ -40,8 +40,8 @@ void set_up_quad(tiles_t *tiles)
     int tv = 0;
     sfVertex *quad = NULL;
 
-    for (int i = 0; i != tiles->width; ++i) {
-        for (int j = 0; j != tiles->height; ++j) {
+    for (int i = 0; i != tiles->width; i++) {
+        for (int j = 0; j != tiles->height; j++) {
             tileNumber = tiles->tiles[i + j * tiles->width];
             tu = tileNumber %
                 (sfTexture_getSize(tiles->tileset).x / tiles->tileSize.x);

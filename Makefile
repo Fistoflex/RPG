@@ -69,7 +69,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -lm
+CFLAGS		=		-I./include -g -lm -g3 -g -ggdb
 
 LIB		=		-L./lib -lmy
 

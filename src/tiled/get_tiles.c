@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <string.h>
 
 char **get_file(char *filepath)
 {
@@ -13,14 +14,16 @@ char **get_file(char *filepath)
     size_t size = 0;
     FILE *fd = fopen(filepath, "r");
     char **dest = NULL;
+    char *tmp = strdup("");
 
     if (fd == NULL)
         return (NULL);
-    getline(&line, &size, fd);
-    line[my_strlen(line) - 1] = '\0';
+    while (getline(&line, &size, fd) != -1) {
+        line[my_strlen(line) - 1] = '\0';
+        tmp = strcat(tmp, line);
+    }
     fclose(fd);
-    dest = word_array(line, ',');
-    free(line);
+    dest = word_array(tmp, ',');
     return (dest);
 }
 
@@ -31,7 +34,9 @@ int *get_tiles(char *filepath)
     int i = 0;
 
     while (tmp[i] != NULL) {
-        dest[i] = getnbr(tmp[i]) - 1;
+        dest[i] = (getnbr(tmp[i]) - 1);
+        if (dest[i] < 0)
+            dest[i] = 0;
         i++;
     }
     free_array(tmp);

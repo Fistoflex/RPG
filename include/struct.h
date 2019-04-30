@@ -99,7 +99,7 @@ typedef struct s_info_tiles {
 }tiles_t;
 
 typedef struct s_tiled_map {
-    tiles_t layer1;
+    tiles_t *layer1;
 }tiled_t;
 
 typedef struct game_s {
