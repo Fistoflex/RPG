@@ -1,5 +1,5 @@
-
-435 205
+A
+840 404
 picture/Character_assets/MALE/Male - Body/dark.png
 picture/Character_assets/MALE/Male - Hair/black-bangs.png
 none

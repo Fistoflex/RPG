@@ -37,25 +37,45 @@ void    set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect)
         my_stuff(gm->chara.feet, gm->chara.pos, rect, wind);
 }
 
-void	move_player(sfRenderWindow *wind, game_t *gm)
+void spell_player(sfRenderWindow *wind, game_t *gm, sfIntRect rect, int old)
 {
+    if (gm->key.s_s == PUSHED)
+        do_slash(wind, gm, &rect, old);
+    if (gm->key.s_d == PUSHED)
+            do_dash(wind, gm, &rect, old);
+    if (gm->key.down == PUSHED || gm->key.up == PUSHED ||
+        gm->key.right == PUSHED || gm->key.left == PUSHED ||
+        gm->key.s_d == PUSHED)
+        gm->key.s_s = NOT_PUSHED;
+    if (gm->key.down == PUSHED || gm->key.up == PUSHED ||
+        gm->key.right == PUSHED || gm->key.left == PUSHED)
+        gm->key.s_d = NOT_PUSHED;
+    if (my_clock(gm->clock.anim) > 0.3) {
+        gm->key.s_d = NOT_PUSHED;
+        sfClock_restart(gm->clock.anim);
+    }
+}
+
+void move_player(sfRenderWindow *wind, game_t *gm)
+{
+    static int old = 654;
     static sfIntRect rect;
 
-    if (gm->key.left == PUSHED) {
-        to_the_left(wind, gm, &rect);
-        gm->key.left = NOT_PUSHED;
-    }
-    if (gm->key.right == PUSHED) {
-        to_the_right(wind, gm, &rect);
-        gm->key.right = NOT_PUSHED;
-    }
-    if (gm->key.up == PUSHED) {
-        to_the_top(wind, gm, &rect);
-        gm->key.up = NOT_PUSHED;
-    }
-    if (gm->key.down == PUSHED) {
-        to_the_bot(wind, gm, &rect);
-        gm->key.down = NOT_PUSHED;
-    }
-    set_rect_stuff(wind, gm, rect);
+    if (gm->key.left == PUSHED)
+        old = to_the_left(wind, gm, &rect);
+    if (gm->key.right == PUSHED)
+        old = to_the_right(wind, gm, &rect);
+    if (gm->key.up == PUSHED)
+        old = to_the_top(wind, gm, &rect);
+    if (gm->key.down == PUSHED)
+        old = to_the_bot(wind, gm, &rect);
+    if (gm->key.down == NOT_PUSHED && gm->key.up == NOT_PUSHED &&
+        gm->key.right == NOT_PUSHED && gm->key.left == NOT_PUSHED &&
+        gm->key.s_s == NOT_PUSHED && gm->key.s_d == NOT_PUSHED)
+        set_rect_stuff(wind, gm, rect);
+    spell_player(wind, gm, rect, old);
+    gm->key.down = NOT_PUSHED;
+    gm->key.up = NOT_PUSHED;
+    gm->key.right = NOT_PUSHED;
+    gm->key.left = NOT_PUSHED;
 }

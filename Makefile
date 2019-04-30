@@ -50,7 +50,14 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/my_slot.c			\
 					src/slot/init_slot.c			\
 					src/slot/save_game.c			\
-					src/my_itoa.c
+					src/my_itoa.c					\
+					src/inventory/init_inventory.c	\
+					src/inventory/my_inventory.c	\
+					src/my_random.c					\
+					src/game/fight/draw_hp.c		\
+					src/game/fight/init_hp.c		\
+					src/game/fight/fight.c			\
+					src/game/move_player/do_spell.c	\
 
 MAIN		=			src/main.c
 
@@ -64,7 +71,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g
+CFLAGS		=		-I./include -g -lm
 
 LIB		=		-L./lib -lmy
 

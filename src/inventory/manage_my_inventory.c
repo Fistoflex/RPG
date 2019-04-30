@@ -9,7 +9,7 @@
 
 int manage_my_inventory(game_t *gm)
 {
-    /*button pour skill/inventory*/
-    /*click, drop*/
-    /*change state(structs), change allies, change skill*/
+    //! button pour skill/inventory
+    //? click, drop
+    // TODO change state(structs), change allies, change skill
 }

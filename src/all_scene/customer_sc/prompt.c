@@ -45,6 +45,8 @@ char *prompt(game_t *gm, sfEvent *evt)
         return (tmp);
     } else if (gm->key.back == PUSHED)
         return (the_cond_to_delete(&tmp, gm));
+    if (tmp != NULL && my_strlen(tmp) > 10)
+        return (tmp);
     if (evt->type == sfEvtTextEntered && evt->text.unicode < 128 &&
         my_no_disp(evt->text.unicode) != 1) {
         buf[0] = evt->text.unicode;

@@ -25,10 +25,15 @@ typedef struct path_s {
     char *feet;
 }path_t;
 
+typedef struct bagg_s {
+    sfSprite *inv;
+    bag_t bag;
+}bagg_t;
+
 typedef struct char_s {
     char *name;
     statistics_t *stat;
-    bag_t *bag;
+    bagg_t bag;
     sfText  *nm;
     sfVector2f pos;
     sfSprite *body;

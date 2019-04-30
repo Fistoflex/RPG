@@ -7,14 +7,46 @@
 
 #include "my.h"
 
-void my_base(statistics_t *play, statistics_t *en)
+void receive_dmg(statistics_t *play, int dmg)
 {
-/* check le pourcentage de shield pour voir si missed*/
-/*pour la vie faire un list chainé simple, avec des statesempty full, parcourir toutes la liste (empty)pour voir si mort*/
+    heal_t *tmp = play->hp;
+
+    while (tmp->next != NULL && tmp->next->state != FALSE)
+        tmp = tmp->next;
+    tmp->state = FALSE;
+}
+
+int check_hit(int shield)
+{
+    if (my_random(shield) == 1)
+        return (TRUE);
+    return (FALSE);
+}
+
+int my_base(statistics_t *play, statistics_t *en)
+{
+    int ret = FALSE;
+    sfFloatRect play_r = sfCircleShape_getGlobalBounds(play->range);
+    sfFloatRect wap_r = sfCircleShape_getGlobalBounds(play->wap_range);
+    sfFloatRect en_r = sfCircleShape_getGlobalBounds(en->range);
+
+    if (sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue)
+        if (check_hit(play->shield) == FALSE)
+            receive_dmg(play, en->dmg);
+        //else
+            /*write BLOCK*/
+    if (sfFloatRect_intersects(&en_r, &wap_r, NULL) == sfTrue) {
+        en->hp -= play->dmg;
+        ret = TRUE;
+    }
+    return (ret);
 }
 
 void my_fight(statistics_t *play, statistics_t *en)
 {
-    /*faire un clock pour timé des attacks (si le play att, l'en doit attendre la clock)*/
+    /*faire un clock pour timé des attacks (si le play att,
+    l'en doit attendre la clock, une case du tableau doit attendre une clock), faire l'animation de l'attack */
     /*weapon, shape en collision = auto attack*/
+    /*les ennemies sont en tableau de structure*/
+    /*si la fonction my_base renvoie TRUE, L'ENNEMI DOIT ETRE REPONSSER*/
 }

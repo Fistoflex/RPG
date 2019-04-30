@@ -17,11 +17,14 @@
 #include <fcntl.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <time.h>
 #include "struct.h"
 #include "link.h"
 #include "enum.h"
 #include "get_next_line.h"
+#include "item.h"
 
+int my_random(int max);
 sfSprite   *insert_stuff(sfSprite *sp, char *str);
 void my_putchar(char);
 int my_putstr(char *);
@@ -44,10 +47,10 @@ void    move_player(sfRenderWindow *wind, game_t *gm);
 void	my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *wind);
 void	set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect);
 sfIntRect   my_create_rect(int h, int w, int t, int l);
-void	to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
-void    to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_left(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_right(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_top(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
+int to_the_bot(sfRenderWindow *wind, game_t *gm, sfIntRect *rect);
 void    all_scene(sfRenderWindow *window, game_t *gm, list_t **list, sfEvent *evt);
 void manage_event(sfRenderWindow *window, sfEvent evt, game_t *gm);
 void my_intro(sfRenderWindow *wind, game_t *gm);
@@ -91,6 +94,7 @@ void clic_menu_settings(game_t *, sfVector2i);
 
 void malloc_my_link_list(list_t **env, choice_t *choice);
 void malloc_my_link_choice(choice_t **, sfSprite *, char *, char *);
+void init_my_link_hp(heal_t **hp, sfVector2f pos);
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list);
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list);
@@ -106,7 +110,20 @@ sfFont  *my_font(char *path);
 char    *my_epurstr(char *str, char *format, int fre);
 void    my_slot(sfRenderWindow *wind, game_t *gm);
 char  *prompt(game_t *, sfEvent *);
+void    the_free(char **tab);
+void    destroy_bt(button_t bt);
+sfView *set_view(sfView *, float zoom);
 
 void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
+void init_inventory(game_t *gm);
+void my_inventory(sfRenderWindow *wind, game_t *gm);
+
+heal_t *init_normal_hp(int);
+void draw_hp(sfRenderWindow *win, heal_t *hp);
+void    redirec_out(char **tab, char *path);
+void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
+void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
+int check_cooldown(game_t *gm, int lim);
+
 #endif
