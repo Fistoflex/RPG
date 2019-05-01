@@ -133,6 +133,15 @@ sfColor set_color(char **tab);
 sfVector2f set_coord(char *str);
 void init_inv_elem(game_t *gm);
 char **all_path(void);
-
+bag_t *set_enum(bag_t *tmp);
+void init_bag(game_t *gm);
+void disp_bag(sfRenderWindow *wind, game_t *gm);
+sfVector2f position(char *str);
+void draw_txt(sfRenderWindow *wind, text_t txt);
+int    disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos);
+void    disp_player(sfRenderWindow *wind, game_t *gm);
+void    elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
+void    disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos);
+void    dis_elem(sfRenderWindow *wind, game_t *gm);
 
 #endif

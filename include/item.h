@@ -40,12 +40,21 @@ typedef struct text_s {
     sfRectangleShape *shape;
 }text_t;
 
+typedef struct itm_s {
+    sfVector2f pos;
+    sfSprite *sp;
+    char *path;
+    char **tab;
+    text_t txt;
+}itm_t;
+
+
 typedef struct s_bag {
-    int pos;
     int state;
     sfVector2f ps;
     item_t item;
     text_t txt;
+    itm_t itm;
     sfRectangleShape *shape;
     struct s_bag *next;
 } bag_t;
