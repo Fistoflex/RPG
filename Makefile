@@ -65,7 +65,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/game/fight/fight.c			\
 					src/game/move_player/do_spell.c	\
 					src/my_create_shape.c			\
-					src/init_statistique_slot.c
+					src/init_statistique_slot.c		\
+					src/tiled/collision.c			\
+					src/tiled/get_way.c
 
 MAIN		=			src/main.c
 

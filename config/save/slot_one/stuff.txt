@@ -1,5 +1,5 @@
 ABD
-1300 648
+192 288
 picture/Character_assets/MALE/Male - Body/light.png
 picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none

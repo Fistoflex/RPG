@@ -61,4 +61,11 @@ enum clean_s {
     SPACE
 };
 
+enum ways {
+    NORTH = 1,
+    SOUTH,
+    EST,
+    WEST
+};
+
 #endif

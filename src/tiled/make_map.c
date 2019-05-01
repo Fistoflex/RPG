@@ -19,7 +19,7 @@ sfVector2f set_2f(int x, int y)
 void init_my_map(tiled_t *tiles)
 {
     tiles->layer1 = malloc(sizeof(tiles_t));
-    tiles->layer1->width = 100; // number of the tile on the map
+    tiles->layer1->width = 100;
     tiles->layer1->height = 100;
     tiles->layer1->tiles = NULL;
     tiles->layer1->tileset = NULL;

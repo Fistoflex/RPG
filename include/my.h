@@ -155,4 +155,11 @@ void init_my_map(tiled_t *tiles);
 sfVector2f set_2f(int x, int y);
 int *get_tiles(char *filepath);
 
+void collision(game_t *gm);
+void init_collision(colli_t *colli);
+int get_north(int, int);
+int get_south(int, int);
+int get_est(int, int);
+int get_west(int, int);
+
 #endif

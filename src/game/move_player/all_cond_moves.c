@@ -61,13 +61,13 @@ void move_player(sfRenderWindow *wind, game_t *gm)
     static int old = 654;
     static sfIntRect rect;
 
-    if (gm->key.left == PUSHED)
+    if (gm->key.left == PUSHED && gm->colli.west == FALSE)
         old = to_the_left(wind, gm, &rect);
-    if (gm->key.right == PUSHED)
+    if (gm->key.right == PUSHED && gm->colli.est == FALSE)
         old = to_the_right(wind, gm, &rect);
-    if (gm->key.up == PUSHED)
+    if (gm->key.up == PUSHED && gm->colli.north == FALSE)
         old = to_the_top(wind, gm, &rect);
-    if (gm->key.down == PUSHED)
+    if (gm->key.down == PUSHED && gm->colli.south == FALSE)
         old = to_the_bot(wind, gm, &rect);
     if (gm->key.down == NOT_PUSHED && gm->key.up == NOT_PUSHED &&
         gm->key.right == NOT_PUSHED && gm->key.left == NOT_PUSHED &&

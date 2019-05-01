@@ -102,6 +102,13 @@ typedef struct s_tiled_map {
     tiles_t *layer1;
 }tiled_t;
 
+typedef struct s_collision {
+    int north;
+    int south;
+    int est;
+    int west;
+}colli_t;
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -124,6 +131,7 @@ typedef struct game_s {
     view_t view;
     sfMusic *sound;
     tiled_t tiles;
+    colli_t colli;
 }game_t;
 
 #endif

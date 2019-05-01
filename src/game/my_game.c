@@ -26,9 +26,11 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     if (gm->state == GAME && destroy == 0) {
         gm->clock.anim = sfClock_create();
         init_my_map(&gm->tiles);
+        init_collision(&gm->colli);
     }
     if (gm->state == GAME) {
         my_map(wind, gm);
+        collision(gm);
         move_player(wind, gm);
         if (gm->key.i == PUSHED) {
             gm->state = INV;
