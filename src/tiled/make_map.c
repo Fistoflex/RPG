@@ -7,23 +7,21 @@
 
 #include "my.h"
 
-sfVector2f set_2f(int x, int y)
+tiles_t *set_up_layer(void)
 {
-    sfVector2f vec;
+    tiles_t *layer = malloc(sizeof(tiles_t));
 
-    vec.x = x;
-    vec.y = y;
-    return vec;
+    layer->width = 100;
+    layer->height = 100;
+    layer->tiles = NULL;
+    layer->tileset = NULL;
+    layer->vertices = NULL;
+    return (layer);
 }
 
 void init_my_map(tiled_t *tiles)
 {
-    tiles->layer1 = malloc(sizeof(tiles_t));
-    tiles->layer1->width = 100;
-    tiles->layer1->height = 100;
-    tiles->layer1->tiles = NULL;
-    tiles->layer1->tileset = NULL;
-    tiles->layer1->vertices = NULL;
+    tiles->layer1 = set_up_layer();
     init_layer(tiles->layer1, "src/tiled/map/colision");
     if (load_map(tiles->layer1, "picture/env/colision.jpg") == FALSE)
         my_putstr_error("Failed to load map.\n");
@@ -38,15 +36,15 @@ void init_layer(tiles_t *tiles, char *tiles_path)
     tiles->states = init_states(tiles);
 }
 
-void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path)
+void draw_map(sfRenderWindow *wind, tiled_t tiles, char *asset_path)
 {
-    sfRenderWindow_drawVertexArray(wind, gm->tiles.layer1->vertices,
-                                init_states(gm->tiles.layer1));
+    sfRenderWindow_drawVertexArray(wind, tiles.layer1->vertices,
+                                init_states(tiles.layer1));
 }
 
 void my_map(sfRenderWindow *wind, game_t *gm)
 {
     if (gm->state != GAME)
         return;
-    draw_map(wind, gm, NULL);
+    draw_map(wind, gm->tiles, NULL);
 }

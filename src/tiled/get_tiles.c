@@ -40,3 +40,12 @@ int *get_tiles(char *filepath)
     free_array(tmp);
     return (dest);
 }
+
+sfVector2f set_2f(int x, int y)
+{
+    sfVector2f vec;
+
+    vec.x = x;
+    vec.y = y;
+    return vec;
+}

@@ -144,7 +144,7 @@ void disp_player(sfRenderWindow *wind, game_t *gm);
 void dis_elem(sfRenderWindow *wind, game_t *gm);
 void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
 
-void draw_map(sfRenderWindow *wind, game_t *gm, char *asset_path);
+void draw_map(sfRenderWindow *wind, tiled_t tiles, char *asset_path);
 sfRenderStates *init_states(tiles_t *tiles);
 int load_map(tiles_t *tiles, char *filename);
 sfVertex *set_up_quad_tex(tiles_t *tiles, int tv, int tu, sfVertex *quad);
