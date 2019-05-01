@@ -7,14 +7,14 @@
 
 #include "my.h"
 
-char **all_path(void)
+char **all_path(game_t *gm)
 {
     char **tab = malloc(sizeof(char *) * 5);
 
-    tab[0] = "config/save/hair.txt";
-    tab[1] = "config/save/torso.txt";
-    tab[2] = "config/save/legs.txt";
-    tab[3] = "config/save/feet.txt";
+    tab[0] = my_strcat(gm->chara.path.slot, "hair.txt", KEEP, KEEP);
+    tab[1] = my_strcat(gm->chara.path.slot, "torso.txt", KEEP, KEEP);
+    tab[2] = my_strcat(gm->chara.path.slot, "legs.txt", KEEP, KEEP);
+    tab[3] = my_strcat(gm->chara.path.slot, "feet.txt", KEEP, KEEP);
     tab[4] = NULL;
     return (tab);
 }
@@ -51,8 +51,7 @@ void init_inventory(game_t *gm)
         gm->chara.bag.bag = set_enum(gm->chara.bag.bag);
         i++;
     }
-    gm->chara.bag.inv = my_create_sprite("picture/item/MicrosoftTeams-image.png"
-    , sfFalse);
+    gm->chara.bag.inv = my_create_sprite("picture/item/MicrosoftTeams-image.png", sfFalse);
     sfSprite_setPosition(gm->chara.bag.inv, pos);
     sfSprite_scale(gm->chara.bag.inv, size);
 }

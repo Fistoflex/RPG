@@ -132,7 +132,7 @@ void create_link_bag(bag_t **bag, char *str, char **tp);
 sfColor set_color(char **tab);
 sfVector2f set_coord(char *str);
 void init_inv_elem(game_t *gm);
-char **all_path(void);
+char **all_path(game_t *gm);
 bag_t *set_enum(bag_t *tmp);
 void init_bag(game_t *gm);
 void disp_bag(sfRenderWindow *wind, game_t *gm);
