@@ -86,7 +86,7 @@ typedef struct view_s {
     sfView *pause;
     sfView *menu;
     sfView *inv;
-}view_t;
+} view_t;
 
 typedef struct game_s {
     int custom_step;

@@ -138,5 +138,6 @@ void disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect, sfVector2f);
 void disp_player(sfRenderWindow *wind, game_t *gm);
 void dis_elem(sfRenderWindow *wind, game_t *gm);
 void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
+void disp_my_wp(sfSprite *, sfVector2f, sfIntRect, sfRenderWindow *);
 
 #endif

@@ -17,7 +17,18 @@ void my_stuff(sfSprite *sp, sfVector2f pos, sfIntRect rect, sfRenderWindow *win)
     sfRenderWindow_drawSprite(win, sp, NULL);
 }
 
-void    set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect)
+void disp_my_wp(sfSprite *sp, sfVector2f pos, sfIntRect rect,
+sfRenderWindow *win)
+{
+    sfVector2f scale = {1, 1};
+
+    sfSprite_setScale(sp, scale);
+    sfSprite_setPosition(sp, pos);
+    sfSprite_setTextureRect(sp, rect);
+    sfRenderWindow_drawSprite(win, sp, NULL);
+}
+
+void set_rect_stuff(sfRenderWindow *wind, game_t *gm, sfIntRect rect)
 {
     if (gm->chara.body != NULL)
         my_stuff(gm->chara.body, gm->chara.pos, rect, wind);
