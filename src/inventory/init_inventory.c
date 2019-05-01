@@ -19,6 +19,25 @@ char **all_path(void)
     return (tab);
 }
 
+bag_t *set_enum(bag_t *tmp)
+{
+    int tab[] = {HEAD, TORSO, PANTS, FEET, WP, HAND, SUPP, 0};
+    int i = 0;
+    bag_t *bag = tmp;
+
+    while (i != 6) {
+        bag->state = tab[i];
+        i++;
+        bag = bag->next;
+    }
+    bag = bag->next;
+    bag->state = tab[i];
+    bag = bag->next;
+    bag = bag->next;
+    bag->state = tab[i];
+    return (tmp);
+}
+
 void init_inventory(game_t *gm)
 {
     sfVector2f pos = {410, 0};
@@ -27,7 +46,9 @@ void init_inventory(game_t *gm)
 
     if (i == 0) {
         init_inv_elem(gm);
+        init_bag(gm);
         gm->chara.bag.coord = read_file("config/elem_coord");
+        gm->chara.bag.bag = set_enum(gm->chara.bag.bag);
         i++;
     }
     gm->chara.bag.inv = my_create_sprite("picture/item/MicrosoftTeams-image.png"

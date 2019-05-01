@@ -1,11 +1,11 @@
-OUIDeux
-962 428
-picture/Character_assets/MALE/Male - Body/dark.png
-picture/Character_assets/MALE/Male - Hair/redhead2-pixie.png
+ABDILLAH
+928 412
+picture/Character_assets/MALE/Male - Body/dark2.png
+picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none
-picture/Character_assets/MALE/Male T-Shirts/brown_longsleeve.png
+picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/magenta.png
+picture/Character_assets/MALE/Male - Pants/red.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
-picture/item/weapon/rapier_male.png
+picture/item/weapon/longsword_male.png

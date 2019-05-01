@@ -7,28 +7,12 @@
 
 #include "my.h"
 
-int disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
+void    draw_shape(bag_t *bag, sfRenderWindow *wind)
 {
-    sfVector2f scale = {3, 3};
-
-    if (sp != NULL) {
-        sfSprite_setScale(sp, scale);
-        sfSprite_setPosition(sp, pos);
-        sfSprite_setTextureRect(sp, rect);
-        sfRenderWindow_drawSprite(wind, sp, NULL);
-        return (TRUE);
+    while (bag != NULL) {
+        sfRenderWindow_drawRectangleShape(wind, bag->shape, NULL);
+        bag = bag->next;
     }
-    return (FALSE);
-}
-
-void draw_txt(sfRenderWindow *wind, text_t txt)
-{
-    sfRenderWindow_drawRectangleShape(wind, txt.shape, NULL);
-    sfRenderWindow_drawText(wind, txt.name, NULL);
-    sfRenderWindow_drawText(wind, txt.hp, NULL);
-    sfRenderWindow_drawText(wind, txt.rank, NULL);
-    sfRenderWindow_drawText(wind, txt.dmg, NULL);
-    sfRenderWindow_drawText(wind, txt.dfs, NULL);
 }
 
 void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
@@ -46,7 +30,7 @@ void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
     }
 }
 
-void my_inventory(sfRenderWindow *wind, game_t *gm)
+void    my_inventory(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
 
@@ -58,6 +42,7 @@ void my_inventory(sfRenderWindow *wind, game_t *gm)
         draw_shape(gm->chara.bag.bag, wind);
         disp_player(wind, gm);
         dis_elem(wind, gm);
+        disp_bag(wind, gm);
         if (gm->key.i == PUSHED) {
             gm->state = GAME;
             gm->key.i = NOT_PUSHED;
