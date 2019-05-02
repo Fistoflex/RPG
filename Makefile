@@ -67,7 +67,10 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_create_shape.c			\
 					src/init_statistique_slot.c		\
 					src/tiled/collision.c			\
-					src/tiled/get_way.c
+					src/tiled/get_way.c				\
+					src/inventory/init_bag_slot.c	\
+					src/inventory/disp_bag.c		\
+					src/inventory/draw_state.c
 
 MAIN		=			src/main.c
 

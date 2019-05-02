@@ -86,7 +86,7 @@ typedef struct view_s {
     sfView *pause;
     sfView *menu;
     sfView *inv;
-}view_t;
+} view_t;
 
 typedef struct s_info_tiles {
     sfVector2u tileSize;

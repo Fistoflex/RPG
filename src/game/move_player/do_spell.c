@@ -7,6 +7,25 @@
 
 #include "my.h"
 
+void rect_wp(sfRenderWindow *wind, game_t *gm, int top_a, float clock)
+{
+    sfVector2f pos_s = {gm->chara.pos.x - 10, gm->chara.pos.y - 15};
+    static int left_s = 0;
+    int top_s = 0;
+    int width_s = 100;
+    int height_s = 100;
+    sfIntRect wp;
+
+    wp = my_create_rect(height_s, width_s, top_s, left_s);
+    if (clock > 0.09) {
+        left_s += 100;
+        if (wp.left > 500)
+            left_s = 0;
+    }
+    if (gm->chara.wp != NULL)
+        disp_my_wp(gm->chara.wp, pos_s, wp, wind);
+}
+
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
 {
     static int left = 0;
@@ -15,7 +34,8 @@ void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
     int height = 50;
 
     (*rect) = my_create_rect(height, width, top, left);
-    if (my_clock(gm->clock.anim) > 0.1) {
+    rect_wp(wind, gm, top_a, my_clock(gm->clock.anim));
+    if (my_clock(gm->clock.anim) > 0.06) {
         left += 64;
         if ((*rect).left >= 280) {
             left = 0;

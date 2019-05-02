@@ -23,6 +23,7 @@ typedef struct path_s {
     char *hands;
     char *legs;
     char *feet;
+    char *wp;
 }path_t;
 
 typedef struct bagg_s {
@@ -35,8 +36,9 @@ typedef struct char_s {
     char *name;
     statistics_t *stat;
     bagg_t bag;
-    sfText  *nm;
+    sfText *nm;
     sfVector2f pos;
+    sfSprite *wp;
     sfSprite *body;
     sfSprite *hair;
     sfSprite *hat;

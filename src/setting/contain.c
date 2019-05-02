@@ -18,6 +18,6 @@ int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set)
             sfRenderWindow_drawText(win, set.txt, NULL);
             pressed = TRUE;
         }
-    }//faire en survole.
+    }
     return (pressed);
 }

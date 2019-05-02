@@ -51,6 +51,17 @@ enum free_s {
     KEEP
 };
 
+enum item_s {
+    HEAD = 21,
+    TORSO,
+    PANTS,
+    FEET,
+    WP,
+    HAND,
+    SUPP,
+    NONE
+};
+
 enum exit_t {
     EXIT = 84
 };

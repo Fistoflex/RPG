@@ -83,7 +83,7 @@ sfSprite   *insert_stuff(sfSprite *sp, char *str)
     return (sp);
 }
 
-void    init_the_struct_chara(elem_char_t *ch, game_t *gm, char **tab, char *path)
+void init_the_struct_chara(elem_char_t *ch, game_t *gm, char **tab, char *path)
 {
     gm->chara.body = ch[0].sp;
     gm->chara.path.body = my_strdup(tab[2], FREE);
@@ -101,11 +101,13 @@ void    init_the_struct_chara(elem_char_t *ch, game_t *gm, char **tab, char *pat
     gm->chara.path.legs = my_strdup(tab[8], FREE);
     gm->chara.feet = ch[7].sp;
     gm->chara.path.feet = my_strdup(tab[9], FREE);
+    gm->chara.wp = ch[8].sp;
+    gm->chara.path.wp = my_strdup(tab[10], FREE);
     gm->chara.path.slot = my_strdup(path, FREE);
     gm->state = GAME;
 }
 
-void    init_stuff(game_t *gm, char *path, char **file)
+void init_stuff(game_t *gm, char *path, char **file)
 {
     char *comp = my_strcat(path, file[1], KEEP, KEEP);
     char **tab = read_file(comp);
@@ -113,10 +115,10 @@ void    init_stuff(game_t *gm, char *path, char **file)
     sfVector2f pos = {atoi(tmp[0]), atoi(tmp[1])};
     chara_t chara;
     elem_char_t ch[] = {chara.body, chara.hair, chara.hat, chara.torso,
-                        chara.shoulder, chara.hands, chara.legs, chara.feet, NULL};
+    chara.shoulder, chara.hands, chara.legs, chara.feet, chara.wp, NULL};
     int i = 2;
     int x = 0;
-    
+
     gm->chara.name = my_strdup(tab[0], FREE);
     while (tab[i] != NULL) {
         ch[x].sp = insert_stuff(ch[x].sp, tab[i]);
@@ -134,7 +136,7 @@ void set_game_player(game_t *gm, char *path, char **file)
     init_stuff(gm, path, file);
 }
 
-void    set_slot_elem(char *path, game_t *gm)
+void set_slot_elem(char *path, game_t *gm)
 {
     char *file[] = {"stat_slot.txt", "stuff.txt", NULL};
     char *comp = my_strcat(path, file[0], KEEP, KEEP);
@@ -149,7 +151,7 @@ void    set_slot_elem(char *path, game_t *gm)
     the_free(tab);
 }
 
-void    my_slot(sfRenderWindow *wind, game_t *gm)
+void my_slot(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
     char *path = NULL;
