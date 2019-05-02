@@ -29,16 +29,30 @@ int give_top_dash(game_t *gm, int top_a, int top)
     return (top);
 }
 
-int good_top_wp(int top_a)
+int good_top_wp(int top_a, game_t *gm)
 {
     int top = 0;
+    float rt = 0;
 
-    if (top_a == 717)
+    if (top_a == 717) {
         top += 200;
-    if (top_a == 654)
+        rt += 90;
+        sfRectangleShape_setPosition(gm->hitbox.wp.s,
+        set_2f(gm->chara.pos.x + 90, gm->chara.pos.y));
+    }
+    if (top_a == 654) {
         top += 400;
-    if (top_a == 589)
+        rt += 180;
+        sfRectangleShape_setPosition(gm->hitbox.wp.s,
+        set_2f(gm->chara.pos.x + 70, gm->chara.pos.y + 70));
+    }
+    if (top_a == 589) {
         top += 600;
+        rt -= 90;
+        sfRectangleShape_setPosition(gm->hitbox.wp.s,
+        set_2f(gm->chara.pos.x - 20, gm->chara.pos.y + 80));
+    }
+    sfRectangleShape_setRotation(gm->hitbox.wp.s, rt);
     return (top);
 }
 
@@ -46,12 +60,12 @@ void rect_wp(sfRenderWindow *wind, game_t *gm, int top_a)
 {
     sfVector2f pos_s = {gm->chara.pos.x - 10, gm->chara.pos.y - 15};
     static int left_s = 0;
-    int top_s = good_top_wp(top_a);
+    int top_s = good_top_wp(top_a, gm);
     int width_s = 200;
     int height_s = 200;
     sfIntRect wp;
 
-    sfRenderWindow_drawShape(wind, &gm->hitbox.wp, sfFalse);
+    sfRenderWindow_drawShape(wind, gm->hitbox.wp.s, NULL);
     wp = my_create_rect(height_s, width_s, top_s, left_s);
     if (my_clock(gm->clock.enter) > 0.1) {
         left_s += 200;
