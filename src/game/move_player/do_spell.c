@@ -46,6 +46,28 @@ void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
     set_rect_stuff(wind, gm, (*rect));
 }
 
+int give_top(game_t *gm, int top_a, int top)
+{
+    if (top_a == 717) {
+        top += 192;
+        if (gm->colli.est == FALSE)
+            gm->chara.pos.x += 20;
+    }
+    if (top_a == 654) {
+        top += 128;
+        if (gm->colli.south == FALSE)
+            gm->chara.pos.y += 20;
+    }
+    if (top_a == 589) {
+        top += 64;
+        if (gm->colli.west == FALSE)
+            gm->chara.pos.x -= 20;
+    } else if (top == 1034)
+        if (gm->colli.north == FALSE)
+            gm->chara.pos.y -= 20;
+    return (top);
+}
+
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
 {
     int left = 197;
@@ -53,19 +75,7 @@ void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
     int width = 64;
     int height = 50;
 
-    if (top_a == 717) {
-        top += 192;
-        gm->chara.pos.x += 20;
-    }
-    if (top_a == 654) {
-        top += 128;
-        gm->chara.pos.y += 20;
-    }
-    if (top_a == 589) {
-        top += 64;
-        gm->chara.pos.x -= 20;
-    } else if (top == 1034)
-        gm->chara.pos.y -= 20;
+    top = give_top(gm, top_a, top);
     (*rect) = my_create_rect(height, width, top, left);
     set_rect_stuff(wind, gm, (*rect));
 }

@@ -169,4 +169,8 @@ int get_south(int, int);
 int get_est(int, int);
 int get_west(int, int);
 
+void init_enemies(emi_t *emi);
+void draw_enemies(sfRenderWindow *wind, emi_t *emi);
+void destroy_enemies(emi_t emi);
+
 #endif

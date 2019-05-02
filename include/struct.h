@@ -109,6 +109,17 @@ typedef struct s_collision {
     int west;
 }colli_t;
 
+typedef struct s_rectangle_shape {
+    sfRectangleShape *s;
+    sfVector2f pos;
+    sfVector2f size;
+    sfColor color;
+}rect_shape_t;
+
+typedef struct s_emi {
+    rect_shape_t shape;
+}emi_t;
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -132,6 +143,7 @@ typedef struct game_s {
     sfMusic *sound;
     tiled_t tiles;
     colli_t colli;
+    emi_t emi;
 }game_t;
 
 #endif

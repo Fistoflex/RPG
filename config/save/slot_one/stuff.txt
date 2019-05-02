@@ -1,6 +1,6 @@
-ABD
-2302 318
-picture/Character_assets/MALE/Male - Body/light.png
+ABDILLAH
+926 330
+picture/Character_assets/MALE/Male - Body/dark2.png
 picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none
 picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
