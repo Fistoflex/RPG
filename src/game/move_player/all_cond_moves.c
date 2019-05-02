@@ -80,9 +80,7 @@ void move_player(sfRenderWindow *wind, game_t *gm)
         old = to_the_top(wind, gm, &rect);
     if (gm->key.down == PUSHED && gm->colli.south == FALSE)
         old = to_the_bot(wind, gm, &rect);
-    if (gm->key.down == NOT_PUSHED && gm->key.up == NOT_PUSHED &&
-        gm->key.right == NOT_PUSHED && gm->key.left == NOT_PUSHED &&
-        gm->key.s_s == NOT_PUSHED && gm->key.s_d == NOT_PUSHED)
+    if (gm->key.s_s != PUSHED && gm->key.s_d != PUSHED)
         set_rect_stuff(wind, gm, rect);
     spell_player(wind, gm, rect, old);
     gm->key.down = NOT_PUSHED;
