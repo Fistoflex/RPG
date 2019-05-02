@@ -53,6 +53,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
 					src/inventory/my_inventory.c	\
+					src/tiled/get_tiles.c			\
+					src/tiled/load_map.c			\
+					src/tiled/make_map.c			\
 					src/inventory/init_my_text.c	\
 					src/inventory/create_link_bag.c	\
 					src/inventory/annex_inventory.c	\
@@ -65,7 +68,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/init_statistique_slot.c		\
 					src/inventory/init_bag_slot.c	\
 					src/inventory/disp_bag.c		\
-					src/inventory/draw_state.c
+					src/inventory/draw_state.c		\
+					src/tiled/collision.c			\
+					src/tiled/get_way.c
 
 MAIN		=			src/main.c
 
@@ -79,7 +84,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -lm
+CFLAGS		=		-I./include -g -lm -g3 -g -ggdb
 
 LIB		=		-L./lib -lmy
 

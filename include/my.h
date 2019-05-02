@@ -35,6 +35,11 @@ char *my_strcat(char *, char *, int, int);
 char *my_strdup(char *, int);
 int my_strlen(char *);
 int    my_strcmp(char *s1, char *s2);
+char **word_array(char *, char);
+int array_len(char **);
+int getnbr(char *);
+int isnum(char *);
+void free_array(char **);
 
 char    *my_itoa(int nb);
 void    save_game(game_t *gm);
@@ -145,5 +150,23 @@ void disp_player(sfRenderWindow *wind, game_t *gm);
 void elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
 void disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f);
 void dis_elem(sfRenderWindow *wind, game_t *gm);
+
+void draw_map(sfRenderWindow *wind, tiled_t tiles, char *asset_path);
+sfRenderStates *init_states(tiles_t *tiles);
+int load_map(tiles_t *tiles, char *filename);
+sfVertex *set_up_quad_tex(tiles_t *tiles, int tv, int tu, sfVertex *quad);
+sfVertex *set_up_quad_pos(tiles_t *tiles, int i, int j, sfVertex *quad);
+void my_map(sfRenderWindow *wind, game_t *gm);
+void init_layer(tiles_t *tiles, char *tiles_path);
+void init_my_map(tiled_t *tiles);
+sfVector2f set_2f(int x, int y);
+int *get_tiles(char *filepath);
+
+void collision(game_t *gm);
+void init_collision(colli_t *colli);
+int get_north(int, int);
+int get_south(int, int);
+int get_est(int, int);
+int get_west(int, int);
 
 #endif

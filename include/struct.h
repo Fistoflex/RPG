@@ -88,6 +88,27 @@ typedef struct view_s {
     sfView *inv;
 } view_t;
 
+typedef struct s_info_tiles {
+    sfVector2u tileSize;
+    int *tiles;
+    sfTexture *tileset;
+    int width;
+    int height;
+    sfVertexArray *vertices;
+    sfRenderStates *states;
+}tiles_t;
+
+typedef struct s_tiled_map {
+    tiles_t *layer1;
+}tiled_t;
+
+typedef struct s_collision {
+    int north;
+    int south;
+    int est;
+    int west;
+}colli_t;
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -109,6 +130,8 @@ typedef struct game_s {
     mouse_t mouse;
     view_t view;
     sfMusic *sound;
+    tiled_t tiles;
+    colli_t colli;
 }game_t;
 
 #endif
