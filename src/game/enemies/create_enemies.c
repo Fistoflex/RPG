@@ -21,7 +21,31 @@ rect_shape_t init_shape(sfVector2f size, sfVector2f pos, sfColor color)
     return (shape);
 }
 
+circle_shape_t init_circle(float raduis, sfVector2f pos, sfColor color)
+{
+    circle_shape_t circle;
+
+    circle.c = sfCircleShape_create();
+    sfCircleShape_setRadius(circle.c, raduis);
+    circle.raduis = raduis;
+    sfCircleShape_setPosition(circle.c, pos);
+    circle.pos = pos;
+    sfCircleShape_setFillColor(circle.c, color);
+    circle.color = color;
+    return (circle);
+}
+
+sfVector2f get_center(rect_shape_t shape, float raduis)
+{
+    sfVector2f pos;
+
+    pos.x = shape.pos.x + shape.size.x / 2 - (int)raduis;
+    pos.y = shape.pos.y + shape.size.y / 2 - (int)raduis;
+    return (pos);
+}
+
 void init_enemies(emi_t *emi)
 {
-    emi->shape = init_shape(set_2f(50, 50), set_2f(1000, 200), sfRed);
+    emi->shape = init_shape(set_2f(25, 25), set_2f(1000, 200), sfRed);
+    emi->circle = init_circle(200, get_center(emi->shape, 200), sfBlack);
 }

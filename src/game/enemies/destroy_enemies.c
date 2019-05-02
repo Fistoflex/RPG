@@ -9,5 +9,6 @@
 
 void destroy_enemies(emi_t emi)
 {
+    sfCircleShape_destroy(emi.circle.c);
     sfRectangleShape_destroy(emi.shape.s);
 }

@@ -1,5 +1,5 @@
 ABDILLAH
-926 330
+1896 390
 picture/Character_assets/MALE/Male - Body/dark2.png
 picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none

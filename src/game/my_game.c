@@ -27,13 +27,17 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         gm->clock.anim = sfClock_create();
         init_my_map(&gm->tiles);
         init_collision(&gm->colli);
+        init_player_shape(&gm->hitbox, gm->chara.pos);
         init_enemies(&gm->emi);
+        gm->clock.emi_clk = sfClock_create();
     }
     if (gm->state == GAME) {
         my_map(wind, gm);
         collision(gm);
-        move_player(wind, gm);
+        attack_player(&gm->emi, &gm->hitbox, gm->clock.emi_clk);
         draw_enemies(wind, &gm->emi);
+        move_player(wind, gm);
+        draw_player_shape(wind, &gm->hitbox, gm->chara.pos);
         if (gm->key.i == PUSHED) {
             gm->state = INV;
             gm->key.i = NOT_PUSHED;
@@ -44,8 +48,10 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     }
     if (gm->state != GAME && destroy == 1) {
         sfClock_destroy(gm->clock.anim);
+        destroy_player_shape(gm->hitbox);
         destroy_enemies(gm->emi);
         gm->clock.anim = NULL;
+        sfClock_destroy(gm->clock.emi_clk);
         destroy = 0;
     }
 }

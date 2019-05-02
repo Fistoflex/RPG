@@ -73,7 +73,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/inventory/draw_state.c		\
 					src/game/enemies/create_enemies.c	\
 					src/game/enemies/draw_enemies.c	\
-					src/game/enemies/destroy_enemies.c
+					src/game/enemies/destroy_enemies.c	\
+					src/game/player/player_shape.c	\
+					src/game/enemies/find_player.c
 
 MAIN		=			src/main.c
 
@@ -87,7 +89,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -lm -g3 -g -ggdb
+CFLAGS		=		-I./include -g -lm
 
 LIB		=		-L./lib -lmy
 

@@ -172,5 +172,13 @@ int get_west(int, int);
 void init_enemies(emi_t *emi);
 void draw_enemies(sfRenderWindow *wind, emi_t *emi);
 void destroy_enemies(emi_t emi);
+rect_shape_t init_shape(sfVector2f size, sfVector2f pos, sfColor color);
+circle_shape_t init_circle(float raduis, sfVector2f pos, sfColor color);
+sfVector2f get_center(rect_shape_t shape, float raduis);
+
+void init_player_shape(player_t *player, sfVector2f p_pos);
+void draw_player_shape(sfRenderWindow *wind, player_t *player, sfVector2f);
+void destroy_player_shape(player_t player);
+void attack_player(emi_t *emi, player_t *player, sfClock *);
 
 #endif

@@ -67,6 +67,7 @@ typedef struct clck_s {
     sfClock *esc;
     sfClock *anim;
     sfClock *enter;
+    sfClock *emi_clk;
 } clck_t;
 
 typedef struct guide {
@@ -116,9 +117,21 @@ typedef struct s_rectangle_shape {
     sfColor color;
 }rect_shape_t;
 
+typedef struct s_circle_shape {
+    sfCircleShape *c;
+    sfVector2f pos;
+    float raduis;
+    sfColor color;
+}circle_shape_t;
+
 typedef struct s_emi {
     rect_shape_t shape;
+    circle_shape_t circle;
 }emi_t;
+
+typedef struct s_player_shape {
+    rect_shape_t shape;
+}player_t;
 
 typedef struct game_s {
     int custom_step;
@@ -144,6 +157,7 @@ typedef struct game_s {
     tiled_t tiles;
     colli_t colli;
     emi_t emi;
+    player_t hitbox;
 }game_t;
 
 #endif
