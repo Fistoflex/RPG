@@ -11,8 +11,8 @@ tiles_t *set_up_layer(void)
 {
     tiles_t *layer = malloc(sizeof(tiles_t));
 
-    layer->width = 300;
-    layer->height = 300;
+    layer->width = 350;
+    layer->height = 350;
     layer->tiles = NULL;
     layer->tileset = NULL;
     layer->vertices = NULL;
@@ -30,7 +30,7 @@ void init_my_map(tiled_t *tiles)
     if (load_map(tiles->layer1, "picture/env/all.png") == FALSE)
         my_putstr_error("Failed to load map.\n");
     tiles->layer2 = set_up_layer();
-    init_layer(tiles->layer2, "src/tiled/map/colision");
+    init_layer(tiles->layer2, "src/tiled/map/layer2");
     if (load_map(tiles->layer2, "picture/env/all.png") == FALSE)
         my_putstr_error("Failed to load map.\n");
 }
@@ -46,6 +46,8 @@ void init_layer(tiles_t *tiles, char *tiles_path)
 
 void draw_map(sfRenderWindow *wind, tiled_t tiles)
 {
+    // sfRenderWindow_drawVertexArray(wind, tiles.collision->vertices,
+    //                             init_states(tiles.collision));
     sfRenderWindow_drawVertexArray(wind, tiles.layer1->vertices,
                                 init_states(tiles.layer1));
     sfRenderWindow_drawVertexArray(wind, tiles.layer2->vertices,

@@ -31,12 +31,14 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         gm->enemies = NULL;
         init_enemies(&gm->enemies);
         gm->clock.emi_clk = sfClock_create();
+        gm->chara.pos.x = 2500;
+        gm->chara.pos.y = 2500;
     }
     if (gm->state == GAME) {
         my_map(wind, gm);
-        collision(gm);
-        attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
-        draw_enemies(wind, gm->enemies);
+        // collision(gm);
+        // attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
+        // draw_enemies(wind, gm->enemies);
         move_player(wind, gm);
         draw_player_shape(wind, &gm->hitbox, gm->chara.pos);
         if (gm->key.i == PUSHED) {
