@@ -51,6 +51,7 @@ void rect_wp(sfRenderWindow *wind, game_t *gm, int top_a)
     int height_s = 200;
     sfIntRect wp;
 
+    sfRenderWindow_drawShape(wind, &gm->hitbox.wp, sfFalse);
     wp = my_create_rect(height_s, width_s, top_s, left_s);
     if (my_clock(gm->clock.enter) > 0.1) {
         left_s += 200;
