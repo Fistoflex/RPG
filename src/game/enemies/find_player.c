@@ -50,6 +50,6 @@ void attack_player(list_emi_t *enemies, player_t *player, sfClock *clk)
             attack(&(enemies->enemie), player, clk);
             enemies = enemies->next;
         }
-    sfClock_restart(clk);
+        sfClock_restart(clk);
     }
 }

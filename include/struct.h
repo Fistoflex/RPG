@@ -100,7 +100,9 @@ typedef struct s_info_tiles {
 }tiles_t;
 
 typedef struct s_tiled_map {
+    tiles_t *collision;
     tiles_t *layer1;
+    tiles_t *layer2;
 }tiled_t;
 
 typedef struct s_collision {
