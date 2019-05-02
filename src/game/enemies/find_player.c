@@ -31,17 +31,25 @@ int is_in_contact(sfRectangleShape *rect, rect_shape_t shape)
     return (FALSE);
 }
 
-void attack_player(emi_t *emi, player_t *player, sfClock *clk)
+void attack(emi_t *emi, player_t *player, sfClock *clk)
 {
     sfVector2f move = set_2f((player->shape.pos.x - emi->shape.pos.x) / 8,
                             (player->shape.pos.y - emi->shape.pos.y)/ 8);
 
     if (has_sight(emi->circle.c, player->shape) == TRUE &&
         is_in_contact(emi->shape.s, player->shape) == FALSE) {
-        if (my_clock(clk) > 0.1) {
-            sfRectangleShape_move(emi->shape.s, move);
-            emi->shape.pos = sfRectangleShape_getPosition(emi->shape.s);
-            sfClock_restart(clk);
+        sfRectangleShape_move(emi->shape.s, move);
+        emi->shape.pos = sfRectangleShape_getPosition(emi->shape.s);
+    }
+}
+
+void attack_player(list_emi_t *enemies, player_t *player, sfClock *clk)
+{
+    if (my_clock(clk) > 0.1) {
+        while (enemies != NULL) {
+            attack(&(enemies->enemie), player, clk);
+            enemies = enemies->next;
         }
+    sfClock_restart(clk);
     }
 }

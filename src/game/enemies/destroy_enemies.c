@@ -7,8 +7,11 @@
 
 #include "my.h"
 
-void destroy_enemies(emi_t emi)
+void destroy_enemies(list_emi_t *enemie)
 {
-    sfCircleShape_destroy(emi.circle.c);
-    sfRectangleShape_destroy(emi.shape.s);
+    while (enemie != NULL) {
+        sfCircleShape_destroy(enemie->enemie.circle.c);
+        sfRectangleShape_destroy(enemie->enemie.shape.s);
+        enemie = enemie->next;
+    }
 }

@@ -75,7 +75,8 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/game/enemies/draw_enemies.c	\
 					src/game/enemies/destroy_enemies.c	\
 					src/game/player/player_shape.c	\
-					src/game/enemies/find_player.c
+					src/game/enemies/find_player.c	\
+					src/game/enemies/list_enemies.c
 
 MAIN		=			src/main.c
 
@@ -89,7 +90,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -lm
+CFLAGS		=		-I./include -g -lm -W -Wall -Wextra
 
 LIB		=		-L./lib -lmy
 
@@ -97,9 +98,9 @@ GRAPH		=		-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio
 
 LDFLAGS		=		-lcriterion --coverage
 
-all:				run
+all:				$(NAME)
 
-run:			$(OBJ)
+$(NAME):			$(OBJ)
 				make -sC lib/my
 				$(CC) -o $(NAME) $(OBJ) $(LIB) $(GRAPH)
 
@@ -119,3 +120,5 @@ fclean:			clean
 			rm -f $(BIN)
 
 re:			fclean all
+
+.PHONY: all re fclean clean tests_run

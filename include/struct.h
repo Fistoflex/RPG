@@ -133,6 +133,11 @@ typedef struct s_player_shape {
     rect_shape_t shape;
 }player_t;
 
+typedef struct s_list_emi {
+    emi_t enemie;
+    struct s_list_emi *next;
+}list_emi_t;
+
 typedef struct game_s {
     int custom_step;
     int state;
@@ -156,7 +161,7 @@ typedef struct game_s {
     sfMusic *sound;
     tiled_t tiles;
     colli_t colli;
-    emi_t emi;
+    list_emi_t *enemies;
     player_t hitbox;
 }game_t;
 

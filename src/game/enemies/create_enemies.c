@@ -44,8 +44,17 @@ sfVector2f get_center(rect_shape_t shape, float raduis)
     return (pos);
 }
 
-void init_enemies(emi_t *emi)
+emi_t set_up_enemie(int x, int y)
 {
-    emi->shape = init_shape(set_2f(25, 25), set_2f(1000, 200), sfRed);
-    emi->circle = init_circle(200, get_center(emi->shape, 200), sfBlack);
+    emi_t emi;
+
+    emi.shape = init_shape(set_2f(25, 25), set_2f(x, y), sfRed);
+    emi.circle = init_circle(200, get_center(emi.shape, 200), sfBlack);
+    return (emi);
+}
+
+void init_enemies(list_emi_t **enemies)
+{
+    put_in_enemies(enemies, set_up_enemie(1000, 200));
+    put_in_enemies(enemies, set_up_enemie(1000, 300));
 }

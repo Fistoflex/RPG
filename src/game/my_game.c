@@ -20,7 +20,7 @@ sfView *set_view(sfView *view, float zoom)
 
 void    my_game(sfRenderWindow *wind, game_t *gm)
 {
-    sfFloatRect rect = {0, 0, 1920, 1080};
+//    sfFloatRect rect = {0, 0, 1920, 1080};
     static int destroy = 0;
 
     if (gm->state == GAME && destroy == 0) {
@@ -28,14 +28,15 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         init_my_map(&gm->tiles);
         init_collision(&gm->colli);
         init_player_shape(&gm->hitbox, gm->chara.pos);
-        init_enemies(&gm->emi);
+        gm->enemies = NULL;
+        init_enemies(&gm->enemies);
         gm->clock.emi_clk = sfClock_create();
     }
     if (gm->state == GAME) {
         my_map(wind, gm);
         collision(gm);
-        attack_player(&gm->emi, &gm->hitbox, gm->clock.emi_clk);
-        draw_enemies(wind, &gm->emi);
+        attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
+        draw_enemies(wind, gm->enemies);
         move_player(wind, gm);
         draw_player_shape(wind, &gm->hitbox, gm->chara.pos);
         if (gm->key.i == PUSHED) {
@@ -49,7 +50,7 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     if (gm->state != GAME && destroy == 1) {
         sfClock_destroy(gm->clock.anim);
         destroy_player_shape(gm->hitbox);
-        destroy_enemies(gm->emi);
+        destroy_enemies(gm->enemies);
         gm->clock.anim = NULL;
         sfClock_destroy(gm->clock.emi_clk);
         destroy = 0;
