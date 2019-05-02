@@ -36,7 +36,7 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     }
     if (gm->state == GAME) {
         my_map(wind, gm);
-        // collision(gm);
+        collision(gm);
         // attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
         // draw_enemies(wind, gm->enemies);
         move_player(wind, gm);
