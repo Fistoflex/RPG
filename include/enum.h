@@ -59,7 +59,8 @@ enum item_s {
     WP,
     HAND,
     SUPP,
-    NONE
+    NONE,
+    IMN
 };
 
 enum exit_t {

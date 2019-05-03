@@ -104,6 +104,11 @@ void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
     int width = 64;
     int height = 50;
 
+    if (sfRectangleShape_getRotation(gm->hitbox.wp.s) != 90)
+        sfRectangleShape_setRotation(gm->hitbox.wp.s, 90);
+    sfRectangleShape_setPosition(gm->hitbox.wp.s,
+    set_2f(gm->chara.pos.x + 50, gm->chara.pos.y));
+    sfRenderWindow_drawShape(wind, gm->hitbox.wp.s, NULL);
     top = give_top_dash(gm, top_a, top);
     (*rect) = my_create_rect(height, width, top, left);
     set_rect_stuff(wind, gm, (*rect));

@@ -20,7 +20,7 @@ sfView *set_view(sfView *view, float zoom)
 
 void    my_game(sfRenderWindow *wind, game_t *gm)
 {
-//    sfFloatRect rect = {0, 0, 1920, 1080};
+    //sfFloatRect rect = {0, 0, 1920, 1080};
     static int destroy = 0;
 
     if (gm->state == GAME && destroy == 0) {
@@ -35,10 +35,11 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         gm->chara.pos.y = 2500;
     }
     if (gm->state == GAME) {
+        draw_hp(wind, gm->chara.stat->hp);
         my_map(wind, gm);
         collision(gm);
-        // attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
-        // draw_enemies(wind, gm->enemies);
+        attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
+        draw_enemies(wind, gm->enemies);
         move_player(wind, gm);
         draw_player_shape(wind, &gm->hitbox, gm->chara.pos);
         if (gm->key.i == PUSHED) {

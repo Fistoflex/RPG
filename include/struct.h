@@ -134,6 +134,7 @@ typedef struct s_emi {
 typedef struct s_player_shape {
     rect_shape_t shape;
     rect_shape_t wp;
+    int state;
 }player_t;
 
 typedef struct s_list_emi {
