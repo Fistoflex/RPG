@@ -31,5 +31,15 @@ typedef struct bt_menu_s {
     void (*fct)(game_t *);
 }bt_menu_t;
 
+typedef struct point_bag_s {
+    int state;
+    void (*fct)(game_t *, itm_t *, int);
+}point_bag_t;
+
+void head(game_t *gm, itm_t *item, int);
+void torso(game_t *gm, itm_t *item, int);
+void pants(game_t *gm, itm_t *item, int);
+void feet(game_t *gm, itm_t *item, int);
+void hand(game_t *gm, itm_t *item, int);
 
 #endif

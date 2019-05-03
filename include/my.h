@@ -143,5 +143,11 @@ void    disp_player(sfRenderWindow *wind, game_t *gm);
 void    elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
 void    disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos);
 void    dis_elem(sfRenderWindow *wind, game_t *gm);
+void copy_struct(bag_t **bag, game_t *gm);
+void drag_and_drop(sfRenderWindow *wind, game_t *gm);
+text_t copy_txt(text_t txt);
+sfRectangleShape *shape_copy(sfRectangleShape *shape);
+sfText *text_copy(sfText *text);
+sfSprite *sprite_copy(char *path, sfVector2f pos);
 
 #endif

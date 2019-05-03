@@ -64,7 +64,11 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/init_statistique_slot.c		\
 					src/inventory/init_bag_slot.c	\
 					src/inventory/disp_bag.c		\
-					src/inventory/draw_state.c
+					src/inventory/draw_state.c		\
+					src/inventory/copy_struct.c		\
+					src/inventory/drag_and_drop.c	\
+					src/inventory/pointer_function.c\
+					src/inventory/copy_object.c
 
 MAIN		=			src/main.c
 

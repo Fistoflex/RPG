@@ -30,7 +30,7 @@ itm_t init_struct(char *str, bag_t **bag, int i, char *path)
     item.pos = right_pos(atoi(tab[3]), i, path);
     item.tab = my_str_to_word_array(tab[2], ',');
     item.txt = init_text(tmp);
-    sfRectangleShape_setFillColor((*bag)->shape, color);
+     sfRectangleShape_setFillColor((*bag)->shape, color);
     item.sp = my_create_sprite(tab[1], sfFalse);
     return (item);
 }

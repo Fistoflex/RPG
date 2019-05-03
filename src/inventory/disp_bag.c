@@ -42,10 +42,15 @@ void    disp_bag_elem(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *g
 
     if (sp != NULL) {
         rec = sfRectangleShape_getGlobalBounds((*bag)->shape);
+        rec.top -= 40;
         disp_elm(wind, sp, rect, (*bag)->itm.pos);
-        if (sp != NULL && sfFloatRect_contains(&rec, gm->mouse.moved.x, gm->mouse.moved.y)) {
-            printf("rec:%f %f\n", rec.left, rec.top);
+        if (sp != NULL && sfFloatRect_contains(&rec, gm->mouse.moved.x, gm->mouse.moved.y))
             draw_txt(wind, (*bag)->itm.txt);
+        if (gm->clik != PUSHED && sfFloatRect_contains(&rec, gm->mouse.button.x, gm->mouse.button.y)) {
+            copy_struct(bag, gm);
+            gm->clik = PUSHED;
+            gm->mouse.button.x = -10;
+            gm->mouse.button.y = -10;
         }
     }
     (*bag) = (*bag)->next;

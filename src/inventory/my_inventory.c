@@ -5,6 +5,7 @@
 ** game
 */
 
+#include "pointer.h"
 #include "my.h"
 
 void    draw_shape(bag_t *bag, sfRenderWindow *wind)
@@ -52,6 +53,7 @@ sfVector2f position(char *str)
 void    my_inventory(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
+    sfFloatRect rect = {0, 0, 1920, 1080};
 
     if (gm->state == INV && destroy == 0) {
         init_inventory(gm);
@@ -62,10 +64,12 @@ void    my_inventory(sfRenderWindow *wind, game_t *gm)
         disp_player(wind, gm);
         dis_elem(wind, gm);
         disp_bag(wind, gm);
+        drag_and_drop(wind, gm);
         if (gm->key.i == PUSHED) {
             gm->state = GAME;
             gm->key.i = NOT_PUSHED;
         }
+        sfView_reset(gm->view.inv, rect);
         sfRenderWindow_setView(wind, gm->view.inv);
         destroy = 1;
     }
