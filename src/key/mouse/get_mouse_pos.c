@@ -18,6 +18,7 @@ void    get_mouse_pos(game_t *gm, sfEvent evt)
             gm->mouse.button.x = evt.mouseButton.x;
             gm->mouse.button.y = evt.mouseButton.y;
         } else if (evt.type == sfEvtMouseButtonReleased) {
+            gm->clik = NOT_PUSHED;
             gm->mouse.release.x = evt.mouseButton.x;
             gm->mouse.release.y = evt.mouseButton.y;
         } else {

@@ -11,12 +11,18 @@ text_t copy_txt(text_t txt)
 {
     text_t text;
 
-    text.name = txt.name;
-    text.hp = txt.hp;
-    text.rank = txt.rank;
-    text.dmg = txt.dmg;
-    text.dfs = txt.dfs;
-    text.shape = txt.shape;
+    text.name = text_copy(txt.name);
+    sfText_destroy(txt.name);
+    text.hp = text_copy(txt.hp);
+    sfText_destroy(txt.hp);
+    text.rank = text_copy(txt.rank);
+    sfText_destroy(txt.rank);
+    text.dmg = text_copy(txt.dmg);
+    sfText_destroy(txt.dmg);
+    text.dfs = text_copy(txt.dfs);
+    sfText_destroy(txt.dfs);
+    text.shape = shape_copy(txt.shape);
+    sfRectangleShape_destroy(txt.shape);
     return (text);
 }
 
@@ -27,7 +33,8 @@ itm_t copy_itm(itm_t itm)
     item.pos.x = 0;
     item.pos.y = 0;
     item.path = my_strdup(itm.path, KEEP);
-    item.sp = item.sp;
+    sfSprite_destroy(itm.sp);
+    item.sp = sprite_copy(item.path, item.pos);
     item.tab = NULL;
     item.txt = copy_txt(itm.txt);
     return (item);
@@ -44,6 +51,6 @@ void copy_struct(bag_t **bag, game_t *gm)
     gm->tmp->ps.y = 0;
     gm->tmp->itm = copy_itm((*bag)->itm);
     (*bag)->itm.sp = NULL;
-    gm->tmp->shape = (*bag)->shape;
-    //sfRectangleShape_setFillColor((*bag)->shape, color);
+    gm->tmp->shape = shape_copy((*bag)->shape);
+    sfRectangleShape_setFillColor((*bag)->shape, color);
 }

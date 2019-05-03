@@ -1,10 +1,10 @@
 ABDILLAH
-362 536
+362 560
 picture/Character_assets/MALE/Male - Body/dark2.png
 picture/red.png
 none
 picture/torso.png
 none
-none
+picture/hands.png
 picture/legs.png
 picture/feet.png

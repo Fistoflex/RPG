@@ -23,6 +23,7 @@ itm_t set_itm(game_t *gm, text_t txt, int state)
     }
     item.tab = NULL;
     item.txt = copy_txt(txt);
+    return (item);
 }
 
 bag_t *copy_strct(bag_t *bag, game_t *gm)
@@ -75,11 +76,13 @@ void drag_and_drop(sfRenderWindow *wind, game_t *gm)
         sfSprite_setPosition(gm->tmp->itm.sp, gm->mouse.moved);
         sfRenderWindow_drawSprite(wind, gm->tmp->itm.sp, NULL);
     }
-    while (i != 15) {
+    while (i != 15 && gm->clik != PUSHED && state != 1) {
         rec = sfRectangleShape_getGlobalBounds(bag->shape);
         if (gm->tmp->state == bag->state && sfFloatRect_contains(&rec, gm->mouse.release.x, gm->mouse.release.y)) {
             gm->tmp = swap_elem(&bag, gm->tmp, gm);
             gm->clik = NOT_PUSHED;
+            gm->mouse.release.x = -10;
+            gm->mouse.release.y = -10;
             state = 1;
         }
         bag = bag->next;
@@ -88,6 +91,7 @@ void drag_and_drop(sfRenderWindow *wind, game_t *gm)
     while (bag != NULL && state == 1) {
         if (bag->state == gm->tmp->state && bag->itm.sp == NULL) {
             copy_this(gm->tmp, &bag);
+            state = 0;
         }
         bag = bag->next;
     }
