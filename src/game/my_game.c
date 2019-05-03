@@ -35,7 +35,7 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         gm->chara.pos.y = 2500;
     }
     if (gm->state == GAME) {
-        draw_hp(wind, gm->chara.stat->hp);
+        //draw_hp(wind, gm->chara.stat->hp);
         my_map(wind, gm);
         collision(gm);
         attack_player(gm->enemies, &gm->hitbox, gm->clock.emi_clk);
