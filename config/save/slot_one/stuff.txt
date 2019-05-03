@@ -1,5 +1,5 @@
 ABDILLAH
-928 412
+4260 2236
 picture/Character_assets/MALE/Male - Body/dark2.png
 picture/Character_assets/MALE/Male - Hair/blue2-pixie.png
 none
@@ -8,4 +8,3 @@ none
 none
 picture/Character_assets/MALE/Male - Pants/red.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
-picture/item/weapon/longsword_male.png
