@@ -35,6 +35,7 @@ char *my_strcat(char *, char *, int, int);
 char *my_strdup(char *, int);
 int my_strlen(char *);
 int    my_strcmp(char *s1, char *s2);
+int my_getnbr(char *);
 
 char    *my_itoa(int nb);
 void    save_game(game_t *gm);
@@ -138,10 +139,13 @@ void init_bag(game_t *gm);
 void disp_bag(sfRenderWindow *wind, game_t *gm);
 sfVector2f position(char *str);
 void draw_txt(sfRenderWindow *wind, text_t txt);
-int    disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos);
+int    disp_elm(sfRenderWindow *wind,
+                sfSprite *sp, sfIntRect rect, sfVector2f pos);
 void    disp_player(sfRenderWindow *wind, game_t *gm);
-void    elem_to_disp(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm);
-void    disp_pl(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos);
+void    elem_to_disp(sfRenderWindow *wind,
+                    bag_t **bag, sfSprite *sp, game_t *gm);
+void    disp_pl(sfRenderWindow *wind,
+                sfSprite *sp, sfIntRect rect, sfVector2f pos);
 void    dis_elem(sfRenderWindow *wind, game_t *gm);
 void copy_struct(bag_t **bag, game_t *gm);
 void drag_and_drop(sfRenderWindow *wind, game_t *gm);
@@ -149,5 +153,17 @@ text_t copy_txt(text_t txt);
 sfRectangleShape *shape_copy(sfRectangleShape *shape);
 sfText *text_copy(sfText *text);
 sfSprite *sprite_copy(char *path, sfVector2f pos);
+chara_t set_chara_elem(char *tmp);
+void    disp(sfRenderWindow *wind,
+            sfSprite *sp, sfIntRect rect, sfVector2f pos);
+int my_over_slot(sfSprite *sp1, sfSprite *sp2, game_t *gm);
+void    display_slots(sfRenderWindow *wind, slot_t slot);
+int slot_is_select(sfSprite *sp1, game_t *gm);
+char    *slot_select(slot_t one, int *select, char *path, game_t *gm);
+void set_slot_game(game_t *gm, int destroy);
+void	loop_one(game_t *gm, bag_t **bag, int *state);
+bag_t *swap_elem(bag_t **bag, bag_t *tmp, game_t *gm);
+void display_inventory(sfRenderWindow *wind, game_t *gm);
+void    draw_shape(bag_t *bag, sfRenderWindow *wind);
 
 #endif

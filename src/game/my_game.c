@@ -23,9 +23,8 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
     sfFloatRect rect = {0, 0, 1920, 1080};
     static int destroy = 0;
 
-    if (gm->state == GAME && destroy == 0) {
+    if (gm->state == GAME && destroy == 0)
         gm->clock.anim = sfClock_create();
-    }
     if (gm->state == GAME) {
         sfRenderWindow_drawSprite(wind, gm->game, NULL);
         move_player(wind, gm);

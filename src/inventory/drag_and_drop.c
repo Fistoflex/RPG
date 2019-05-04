@@ -12,7 +12,9 @@ itm_t set_itm(game_t *gm, text_t txt, int state)
 {
     itm_t item;
     int i = 0;
-    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso}, {PANTS, &pants}, {FEET, &feet}, {HAND, &hand}, {-1, NULL}};
+    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso},
+                        {PANTS, &pants}, {FEET, &feet},
+                        {HAND, &hand}, {-1, NULL}};
 
     item.pos.x = 0;
     item.pos.y = 0;
@@ -42,7 +44,9 @@ bag_t *swap_elem(bag_t **bag, bag_t *tmp, game_t *gm)
 {
     bag_t *new = copy_strct((*bag), gm);
     int i = 0;
-    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso}, {PANTS, &pants}, {FEET, &feet}, {HAND, &hand}, {-1, NULL}};
+    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso},
+                        {PANTS, &pants}, {FEET, &feet},
+                        {HAND, &hand}, {-1, NULL}};
 
     (*bag)->state = tmp->state;
     while (fct[i].state != -1) {
@@ -69,25 +73,13 @@ void drag_and_drop(sfRenderWindow *wind, game_t *gm)
 {
     sfFloatRect rec;
     bag_t *bag = gm->chara.bag.bag;
-    int i = 0;
     int state = 0;
 
     if (gm->clik == PUSHED) {
         sfSprite_setPosition(gm->tmp->itm.sp, gm->mouse.moved);
         sfRenderWindow_drawSprite(wind, gm->tmp->itm.sp, NULL);
     }
-    while (i != 15 && gm->clik != PUSHED && state != 1) {
-        rec = sfRectangleShape_getGlobalBounds(bag->shape);
-        if (gm->tmp->state == bag->state && sfFloatRect_contains(&rec, gm->mouse.release.x, gm->mouse.release.y)) {
-            gm->tmp = swap_elem(&bag, gm->tmp, gm);
-            gm->clik = NOT_PUSHED;
-            gm->mouse.release.x = -10;
-            gm->mouse.release.y = -10;
-            state = 1;
-        }
-        bag = bag->next;
-        i++;
-    }
+    loop_one(gm, &bag, &state);
     while (bag != NULL && state == 1) {
         if (bag->state == gm->tmp->state && bag->itm.sp == NULL) {
             copy_this(gm->tmp, &bag);

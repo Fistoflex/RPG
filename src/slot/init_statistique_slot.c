@@ -40,10 +40,10 @@ statistics_t *init_statistique(char *file)
     statistics_t *stat = malloc(sizeof(* stat));
 
     stat->name = tab[0];
-    stat->hp = init_normal_hp(atoi(tab[1]));
-    stat->lvl = atoi(tab[2]);
-    stat->dmg = atoi(tab[3]);
-    stat->shield = atoi(tab[4]);
+    stat->hp = init_normal_hp(my_getnbr(tab[1]));
+    stat->lvl = my_getnbr(tab[2]);
+    stat->dmg = my_getnbr(tab[3]);
+    stat->shield = my_getnbr(tab[4]);
     free_array(tab);
     return (stat);
 }

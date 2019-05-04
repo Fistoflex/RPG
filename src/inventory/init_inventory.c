@@ -53,7 +53,7 @@ void init_inventory(game_t *gm)
         gm->chara.bag.bag = set_enum(gm->chara.bag.bag);
         i++;
     }
-    gm->chara.bag.inv = my_create_sprite("picture/item/MicrosoftTeams-image.png", sfFalse);
+    gm->chara.bag.inv = my_create_sprite("picture/item/inv.png", sfFalse);
     sfSprite_setPosition(gm->chara.bag.inv, pos);
     sfSprite_scale(gm->chara.bag.inv, size);
 }

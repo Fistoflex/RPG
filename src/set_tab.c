@@ -18,7 +18,7 @@ char **set_tab(char *path)
     size_t len = 0;
     int size = 0;
     char **tab = NULL;
-    
+
     while (get_next_line(fd) != NULL)
         size++;
     close(fd);

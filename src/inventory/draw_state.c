@@ -22,7 +22,8 @@ void    disp_player(sfRenderWindow *wind, game_t *gm)
     disp_pl(wind, gm->chara.feet, rect, pos);
 }
 
-int    disp_elm(sfRenderWindow *wind, sfSprite *sp, sfIntRect rect, sfVector2f pos)
+int    disp_elm(sfRenderWindow *wind, sfSprite *sp,
+                sfIntRect rect, sfVector2f pos)
 {
     sfVector2f scale = {3, 3};
 

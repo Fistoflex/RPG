@@ -7,13 +7,13 @@
 
 #include "../../include/my.h"
 
-void malloc_my_link_choice(choice_t **env, sfSprite *iteme, char *str, char *path)
+void malloc_my_link_choice(choice_t **env, sfSprite *iteme,
+                           char *str, char *path)
 {
     choice_t *tmp = (*env);
-    choice_t *new = NULL;
+    choice_t *new = malloc(sizeof(*new));
     choice_t *first = (*env);
 
-    new = malloc(sizeof(*new));
     new->iteme_sprite = iteme == NULL ? NULL: iteme;
     new->str = str == NULL ? NULL: str;
     new->state_iteme = FALSE;

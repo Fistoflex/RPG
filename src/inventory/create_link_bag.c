@@ -10,8 +10,8 @@
 sfVector2f set_coord(char *str)
 {
     char **tab = my_str_to_word_array(str, ',');
-    int x = atoi(tab[0]);
-    int y = atoi(tab[1]);
+    int x = my_getnbr(tab[0]);
+    int y = my_getnbr(tab[1]);
     sfVector2f pos = {x, y};
 
     the_free(tab);
@@ -45,7 +45,7 @@ sfColor set_color(char **tab)
 
     if (tab == NULL)
         return (sfColor_fromRGBA(154, 104, 25, 1));
-    i = atoi(tab[2]);
+    i = my_getnbr(tab[2]);
     if (i == 0)
         return (sfColor_fromRGB(154, 104, 25));
     if (i == 1)

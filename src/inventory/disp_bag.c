@@ -36,7 +36,8 @@ bag_t *jump_list(bag_t *bag, int n)
     return (bag);
 }
 
-void    disp_bag_elem(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *gm)
+void    disp_bag_elem(sfRenderWindow *wind, bag_t **bag,
+                    sfSprite *sp, game_t *gm)
 {
     sfIntRect rect = {0, 654, 64, 50};
     sfFloatRect rec;
@@ -45,9 +46,11 @@ void    disp_bag_elem(sfRenderWindow *wind, bag_t **bag, sfSprite *sp, game_t *g
         rec = sfRectangleShape_getGlobalBounds((*bag)->shape);
         rec.top -= 40;
         disp_elm(wind, sp, rect, (*bag)->itm.pos);
-        if (sp != NULL && sfFloatRect_contains(&rec, gm->mouse.moved.x, gm->mouse.moved.y))
+        if (sp != NULL && sfFloatRect_contains(&rec,
+            gm->mouse.moved.x, gm->mouse.moved.y))
             draw_txt(wind, (*bag)->itm.txt);
-        if (gm->clik != PUSHED && sfFloatRect_contains(&rec, gm->mouse.button.x, gm->mouse.button.y)) {
+        if (gm->clik != PUSHED && sfFloatRect_contains(&rec,
+            gm->mouse.button.x, gm->mouse.button.y)) {
             copy_struct(bag, gm);
             gm->clik = PUSHED;
             gm->mouse.button.x = -10;

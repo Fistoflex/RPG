@@ -50,6 +50,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/my_slot.c			\
 					src/slot/init_slot.c			\
 					src/slot/save_game.c			\
+					src/slot/under_fct_init_slot.c		\
+					src/slot/under_fct_my_slot.c		\
+					src/slot/under_fct_my_slot_two.c	\
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
 					src/inventory/my_inventory.c	\
@@ -68,7 +71,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/inventory/copy_struct.c		\
 					src/inventory/drag_and_drop.c	\
 					src/inventory/pointer_function.c\
-					src/inventory/copy_object.c
+					src/inventory/copy_object.c		\
+					src/inventory/under_fct_drag_and_drop.c	\
+					src/inventory/under_fct_my_inventory.c
 
 MAIN		=			src/main.c
 

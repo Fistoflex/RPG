@@ -11,7 +11,8 @@ SRC		=		create_link_list.c	\
 				my_strlen.c		\
 				rb_epurstr.c		\
 				my_strcat.c		\
-				my_strcmp.c
+				my_strcmp.c		\
+				my_getnbr.c
 
 OBJ		=		$(SRC:.c=.o)
 

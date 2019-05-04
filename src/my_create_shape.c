@@ -7,7 +7,8 @@
 
 #include "my.h"
 
-sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f pos, sfColor color)
+sfRectangleShape *my_create_shape(sfVector2f size,
+                                sfVector2f pos, sfColor color)
 {
         sfRectangleShape *shape;
 
