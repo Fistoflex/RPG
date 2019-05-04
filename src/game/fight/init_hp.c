@@ -13,12 +13,12 @@ void init_my_link_hp(heal_t **hp, sfVector2f pos)
     heal_t *new = NULL;
     sfVector2f old = {-1, -1};
 
-    new = malloc(sizeof(*new));
+    new = malloc(sizeof((*new)));
     new->old_pos = old;
     new->pos = pos;
     new->state = TRUE;
     new->next = NULL;
-    if (tmp == NULL)
+    if ((*hp) == NULL)
         (*hp) = new;
     else {
         while (tmp->next != NULL)

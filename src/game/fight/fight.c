@@ -23,7 +23,7 @@ int check_hit(int shield)
     return (FALSE);
 }
 
-/*int my_base(statistics_t *play, player_t hitbox, statistics_t *en)
+int my_base(statistics_t *play, player_t hitbox, statistics_t *en)
 {
     int ret = FALSE;
     sfFloatRect play_r = sfCircleShape_getGlobalBounds(&hitbox.shape);
@@ -34,15 +34,13 @@ int check_hit(int shield)
     sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue)
         if (check_hit(play->shield) == FALSE)
             receive_dmg(play, en->dmg);
-        //else
-            //write BLOCK
     if (hitbox.state == IMN &&
     sfFloatRect_intersects(&en_r, &wap_r, NULL) == sfTrue) {
         en->hp -= play->dmg;
         ret = TRUE;
     }
     return (ret);
-}*/
+}
 
 void my_fight(statistics_t *play, statistics_t *en)
 {

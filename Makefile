@@ -65,7 +65,6 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/game/fight/fight.c			\
 					src/game/move_player/do_spell.c	\
 					src/my_create_shape.c			\
-					src/init_statistique_slot.c		\
 					src/tiled/collision.c			\
 					src/tiled/get_way.c				\
 					src/inventory/init_bag_slot.c	\
@@ -76,7 +75,12 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/game/enemies/destroy_enemies.c	\
 					src/game/player/player_shape.c	\
 					src/game/enemies/find_player.c	\
-					src/game/enemies/list_enemies.c
+					src/game/enemies/list_enemies.c	\
+					src/inventory/copy_struct.c		\
+					src/inventory/drag_and_drop.c	\
+					src/inventory/pointer_function.c\
+					src/inventory/copy_object.c		\
+					src/slot/init_perso_stat.c
 
 MAIN		=			src/main.c
 

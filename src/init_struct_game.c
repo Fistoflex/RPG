@@ -11,11 +11,16 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
 {
     game_t gm;
 
+    gm.tmp = malloc(sizeof((*gm.tmp)));
+    gm.tmp->state = NONE;
+    gm.clik = NOT_PUSHED;
     gm.state = SLOT;
     gm.sound = sfMusic_createFromFile("audio/sound.wav");
     gm.effect = FALSE;
     gm.mouse.moved.x = 0;
     gm.mouse.moved.y = 0;
+    gm.mouse.release.x = 0;
+    gm.mouse.release.y = 0;
     gm.chara.name = NULL;
     gm.key.esc = NOT_PUSHED;
     gm.key.left = NOT_PUSHED;

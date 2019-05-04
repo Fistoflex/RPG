@@ -123,8 +123,8 @@ void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 
 void init_inventory(game_t *gm);
-heal_t *init_normal_hp(int);
-void draw_hp(sfRenderWindow *win, heal_t *hp);
+heal_t *init_normal_hp(int, game_t *);
+void draw_hp(sfRenderWindow *win, heal_t *hp, game_t *gm);
 void    redirec_out(char **tab, char *path);
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
@@ -137,9 +137,9 @@ void create_link_bag(bag_t **bag, char *str, char **tp);
 sfColor set_color(char **tab);
 sfVector2f set_coord(char *str);
 void init_inv_elem(game_t *gm);
-char **all_path(void);
 void draw_shape(bag_t *bag, sfRenderWindow *wind);
 void disp_my_wp(sfSprite *, sfVector2f, sfIntRect, sfRenderWindow *);
+char **all_path(game_t *gm);
 bag_t *set_enum(bag_t *tmp);
 void init_bag(game_t *gm);
 void disp_bag(sfRenderWindow *wind, game_t *gm);
@@ -181,5 +181,13 @@ void draw_player_shape(sfRenderWindow *wind, player_t *player, sfVector2f);
 void destroy_player_shape(player_t player);
 void attack_player(list_emi_t *, player_t *player, sfClock *);
 void put_in_enemies(list_emi_t **list, emi_t emi);
+void copy_struct(bag_t **bag, game_t *gm);
+void drag_and_drop(sfRenderWindow *wind, game_t *gm);
+text_t copy_txt(text_t txt);
+sfRectangleShape *shape_copy(sfRectangleShape *shape);
+sfText *text_copy(sfText *text);
+sfSprite *sprite_copy(char *path, sfVector2f pos);
+
+statistics_t *init_stat(game_t *gm, char *file);
 
 #endif

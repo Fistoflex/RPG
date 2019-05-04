@@ -22,7 +22,7 @@ void init_inv_elem(game_t *gm)
 {
     char **tab = read_file("config/inventory");
     int i = 0;
-    char **tb = all_path();
+    char **tb = all_path(gm);
     char **tmp = NULL;
     bag_t *bag = NULL;
     int x = 0;

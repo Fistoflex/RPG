@@ -5,24 +5,90 @@
 ** drag_and_drop
 */
 
+#include "pointer.h"
 #include "my.h"
 
-void change_state()
+itm_t set_itm(game_t *gm, text_t txt, int state)
 {
+    itm_t item;
+    int i = 0;
+    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso}, {PANTS, &pants}, {FEET, &feet}, {HAND, &hand}, {-1, NULL}};
+
+    item.pos.x = 0;
+    item.pos.y = 0;
+    while (fct[i].state != -1) {
+        if (fct[i].state == state)
+            fct[i].fct(gm, &item, 0);
+        i++;
+    }
+    item.tab = NULL;
+    item.txt = copy_txt(txt);
 }
 
-void drag_mode()
+bag_t *copy_strct(bag_t *bag, game_t *gm)
 {
+    bag_t *new = malloc(sizeof((*new)));
+
+    new->state = bag->state;
+    new->ps.x = 0;
+    new->ps.y = 0;
+    new->itm = set_itm(gm, bag->txt, new->state);
+    new->shape = shape_copy(bag->shape);
+    return (new);
 }
 
-int move_item_in_square()
+bag_t *swap_elem(bag_t **bag, bag_t *tmp, game_t *gm)
 {
-    /*
-    ! move le sprite dans l'amplacement préçie, check si impact les states
-    ? si il ne detect pas de slot pas dans la range ->move vers pos d'origine
-    */
+    bag_t *new = copy_strct((*bag), gm);
+    int i = 0;
+    point_bag_t fct[] = {{HEAD, &head}, {TORSO, &torso}, {PANTS, &pants}, {FEET, &feet}, {HAND, &hand}, {-1, NULL}};
+
+    (*bag)->state = tmp->state;
+    while (fct[i].state != -1) {
+        if (fct[i].state == tmp->state)
+            fct[i].fct(gm, &tmp->itm, 1);
+        i++;
+    }
+    (*bag)->txt = copy_txt(tmp->itm.txt);
+    sfRectangleShape_destroy((*bag)->shape);
+    (*bag)->shape = shape_copy(tmp->shape);
+    return (new);
 }
 
-void drag_and_drop(game_t *gm)
+void copy_this(bag_t *tmp, bag_t **bag)
 {
+    (*bag)->state = tmp->state;
+    (*bag)->itm.sp = sprite_copy(tmp->itm.path, (*bag)->itm.pos);
+    (*bag)->itm.path = my_strdup(tmp->itm.path, KEEP);
+    (*bag)->itm.txt = copy_txt(tmp->itm.txt);
+    (*bag)->shape = shape_copy(tmp->shape);
+}
+
+void drag_and_drop(sfRenderWindow *wind, game_t *gm)
+{
+    sfFloatRect rec;
+    bag_t *bag = gm->chara.bag.bag;
+    int i = 0;
+    int state = 0;
+
+    if (gm->clik == PUSHED) {
+        sfSprite_setPosition(gm->tmp->itm.sp, gm->mouse.moved);
+        sfRenderWindow_drawSprite(wind, gm->tmp->itm.sp, NULL);
+    }
+    while (i != 15) {
+        rec = sfRectangleShape_getGlobalBounds(bag->shape);
+        if (gm->tmp->state == bag->state && sfFloatRect_contains(&rec, gm->mouse.release.x, gm->mouse.release.y)) {
+            gm->tmp = swap_elem(&bag, gm->tmp, gm);
+            gm->clik = NOT_PUSHED;
+            state = 1;
+        }
+        bag = bag->next;
+        i++;
+    }
+    while (bag != NULL && state == 1) {
+        if (bag->state == gm->tmp->state && bag->itm.sp == NULL) {
+            copy_this(gm->tmp, &bag);
+        }
+        bag = bag->next;
+    }
 }

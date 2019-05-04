@@ -61,6 +61,7 @@ typedef struct settings_s
 typedef struct mouse_s {
     sfVector2f moved;
     sfVector2i button;
+    sfVector2i release;
 } mouse_t;
 
 typedef struct clck_s {
@@ -145,6 +146,7 @@ typedef struct s_list_emi {
 typedef struct game_s {
     int custom_step;
     int state;
+    int clik;
     int effect;
     char *stuff;
     slot_t one;
@@ -153,6 +155,7 @@ typedef struct game_s {
     sfSprite *game;
     sfSprite *setting;
     clck_t clock;
+    bag_t *tmp;
     key_board_t key;
     menu_t menu;
     chara_t chara;
