@@ -35,19 +35,36 @@ void    init_the_struct_chara(elem_char_t *ch, game_t *gm,
     gm->chara.path.legs = my_strdup(tab[8], FREE);
     gm->chara.feet = ch[7].sp;
     gm->chara.path.feet = my_strdup(tab[9], FREE);
+    gm->chara.wp = ch[8].sp;
+    gm->chara.path.wp = my_strdup(tab[10], FREE);
     gm->chara.path.slot = my_strdup(path, FREE);
     gm->state = GAME;
 }
 
-void    init_stuff(game_t *gm, char *path, char **file)
+chara_t init_null(void)
+{
+    chara_t ch;
+
+    ch.body = NULL;
+    ch.hair = NULL;
+    ch.hat = NULL;
+    ch.torso = NULL;
+    ch.shoulder = NULL;
+    ch.hands = NULL;
+    ch.legs = NULL;
+    ch.feet = NULL;
+    return (ch);
+}
+
+void init_stuff(game_t *gm, char *path, char **file)
 {
     char *comp = my_strcat(path, file[1], KEEP, KEEP);
     char **tab = read_file(comp);
     char **tmp = my_str_to_word_array(tab[1], ' ');
     sfVector2f pos = {my_getnbr(tmp[0]), my_getnbr(tmp[1])};
-    chara_t chara;
-    elem_char_t ch[] = {chara.body, chara.hair, chara.hat, chara.torso,
-                chara.shoulder, chara.hands, chara.legs, chara.feet, NULL};
+    chara_t chara = init_null();
+    elem_char_t ch[] = {{chara.body}, {chara.hair}, {chara.hat}, {chara.torso},
+                {chara.shoulder}, {chara.hands}, {chara.legs}, {chara.feet}, {NULL}};
     int i = 2;
     int x = 0;
 
@@ -78,7 +95,7 @@ void    set_slot_elem(char *path, game_t *gm)
     the_free(tab);
 }
 
-void    my_slot(sfRenderWindow *wind, game_t *gm)
+void my_slot(sfRenderWindow *wind, game_t *gm)
 {
     static int destroy = 0;
     char *path = NULL;

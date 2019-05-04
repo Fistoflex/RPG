@@ -71,7 +71,6 @@ void copy_this(bag_t *tmp, bag_t **bag)
 
 void drag_and_drop(sfRenderWindow *wind, game_t *gm)
 {
-    sfFloatRect rec;
     bag_t *bag = gm->chara.bag.bag;
     int state = 0;
 

@@ -1,5 +1,5 @@
 AH
-518 392
+52 434
 picture/Character_assets/MALE/Male - Body/dark2.png
 picture/Character_assets/MALE/Male - Hair/black-messy.png
 none

@@ -31,6 +31,11 @@ typedef struct bt_menu_s {
     void (*fct)(game_t *);
 }bt_menu_t;
 
+typedef struct s_way_ptr {
+    int way;
+    int (*ptr)(int, int);
+}way_ptr_t;
+
 typedef struct point_bag_s {
     int state;
     void (*fct)(game_t *, itm_t *, int);

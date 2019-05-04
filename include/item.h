@@ -17,8 +17,6 @@ typedef struct s_heal {
 
 typedef struct s_stat
 {
-    sfShape *range;
-    sfShape *wap_range;
     char *name;
     heal_t *hp;
     int lvl;

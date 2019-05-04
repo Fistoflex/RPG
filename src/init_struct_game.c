@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
+game_t init_struct_game(void)
 {
     game_t gm;
 
@@ -32,6 +32,10 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
     gm.key.s_s = NOT_PUSHED;
     gm.key.s_d = NOT_PUSHED;
     gm.key.i = NOT_PUSHED;
+    gm.view.menu = NULL;
+    gm.view.pause = NULL;
+    gm.view.game = NULL;
+    gm.view.inv = NULL;
     gm.view.menu = set_view(gm.view.menu, 1.05);
     gm.view.game = set_view(gm.view.game, 0.6);
     gm.view.pause = set_view(gm.view.pause, 0.989);

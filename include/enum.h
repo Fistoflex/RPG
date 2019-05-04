@@ -59,7 +59,8 @@ enum item_s {
     WP,
     HAND,
     SUPP,
-    NONE
+    NONE,
+    IMN
 };
 
 enum exit_t {
@@ -70,6 +71,13 @@ enum clean_s {
     REPLACE = 200,
     SKIP,
     SPACE
+};
+
+enum ways {
+    NORTH = 1,
+    SOUTH,
+    EST,
+    WEST
 };
 
 #endif

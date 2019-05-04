@@ -56,6 +56,7 @@ sfColor set_color(char **tab)
         return (sfColor_fromRGB(63, 2.8, 69.8));
     if (i == 4)
         return (sfYellow);
+    return (sfColor_fromRGBA(154, 104, 25, 1));    
 }
 
 void create_link_bag(bag_t **bag, char *str, char **tp)

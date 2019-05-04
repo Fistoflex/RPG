@@ -16,7 +16,7 @@ int main(int ac, char **av)
 
     list = init_my_custome();
     srand(time(NULL));
-    gm = init_struct_game(window, video_mode);
+    gm = init_struct_game();
     gm.custom_step = CHOICE;
     window = sfRenderWindow_create(video_mode, "My RPG",
                                     sfDefaultStyle, NULL);

@@ -10,9 +10,7 @@
 void    redirec_out(char **tab, char *path)
 {
     int fd;
-    pid_t pid;
     int i = 0;
-    int tmp = 0;
 
     fd = open(path, O_WRONLY | O_TRUNC);
     while (tab[i] != NULL) {

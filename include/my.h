@@ -36,6 +36,11 @@ char *my_strdup(char *, int);
 int my_strlen(char *);
 int    my_strcmp(char *s1, char *s2);
 int my_getnbr(char *);
+char **word_array(char *, char);
+int array_len(char **);
+int getnbr(char *);
+int isnum(char *);
+void free_array(char **);
 
 char    *my_itoa(int nb);
 void    save_game(game_t *gm);
@@ -60,7 +65,7 @@ void home_effect(game_t *gm);
 void exit_effect(game_t *gm);
 void restart_effect(game_t *gm);
 int my_set_song(int sound, game_t *gm);
-game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode);
+game_t init_struct_game(void);
 int my_set_the_new_scene(int push, game_t *gm, int stat);
 sfVideoMode set_videomode(void);
 void is_open(sfRenderWindow *, game_t, list_t *);
@@ -119,8 +124,8 @@ void keyboard_guide(sfRenderWindow *wind, game_t *gm);
 int contain(sfRenderWindow *win, int pressed, game_t *gm, settings_t set);
 
 void init_inventory(game_t *gm);
-heal_t *init_normal_hp(int);
-void draw_hp(sfRenderWindow *win, heal_t *hp);
+heal_t *init_normal_hp(int, game_t *);
+void draw_hp(sfRenderWindow *win, heal_t *hp, game_t *gm);
 void    redirec_out(char **tab, char *path);
 void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
@@ -133,6 +138,8 @@ void create_link_bag(bag_t **bag, char *str, char **tp);
 sfColor set_color(char **tab);
 sfVector2f set_coord(char *str);
 void init_inv_elem(game_t *gm);
+void draw_shape(bag_t *bag, sfRenderWindow *wind);
+void disp_my_wp(sfSprite *, sfVector2f, sfIntRect, sfRenderWindow *);
 char **all_path(game_t *gm);
 bag_t *set_enum(bag_t *tmp);
 void init_bag(game_t *gm);
@@ -147,6 +154,37 @@ void    elem_to_disp(sfRenderWindow *wind,
 void    disp_pl(sfRenderWindow *wind,
                 sfSprite *sp, sfIntRect rect, sfVector2f pos);
 void    dis_elem(sfRenderWindow *wind, game_t *gm);
+
+void draw_map(sfRenderWindow *wind, tiled_t tiles);
+sfRenderStates *init_states(tiles_t *tiles);
+int load_map(tiles_t *tiles, char *filename);
+sfVertex *set_up_quad_tex(tiles_t *tiles, int tv, int tu, sfVertex *quad);
+sfVertex *set_up_quad_pos(tiles_t *tiles, int i, int j, sfVertex *quad);
+void my_map(sfRenderWindow *wind, game_t *gm);
+void init_layer(tiles_t *tiles, char *tiles_path);
+void init_my_map(tiled_t *tiles);
+sfVector2f set_2f(int x, int y);
+int *get_tiles(char *filepath);
+
+void collision(game_t *gm);
+void init_collision(colli_t *colli);
+int get_north(int, int);
+int get_south(int, int);
+int get_est(int, int);
+int get_west(int, int);
+
+void init_enemies(list_emi_t **);
+void draw_enemies(sfRenderWindow *wind, list_emi_t *);
+void destroy_enemies(list_emi_t *);
+rect_shape_t init_shape(sfVector2f size, sfVector2f pos, sfColor color);
+circle_shape_t init_circle(float raduis, sfVector2f pos, sfColor color);
+sfVector2f get_center(rect_shape_t shape, float raduis);
+
+void init_player_shape(player_t *player, sfVector2f p_pos);
+void draw_player_shape(sfRenderWindow *wind, player_t *player, sfVector2f);
+void destroy_player_shape(player_t player);
+void attack_player(list_emi_t *, player_t *player, sfClock *);
+void put_in_enemies(list_emi_t **list, emi_t emi);
 void copy_struct(bag_t **bag, game_t *gm);
 void drag_and_drop(sfRenderWindow *wind, game_t *gm);
 text_t copy_txt(text_t txt);
@@ -165,5 +203,8 @@ void	loop_one(game_t *gm, bag_t **bag, int *state);
 bag_t *swap_elem(bag_t **bag, bag_t *tmp, game_t *gm);
 void display_inventory(sfRenderWindow *wind, game_t *gm);
 void    draw_shape(bag_t *bag, sfRenderWindow *wind);
+
+statistics_t *init_stat(game_t *gm, char *file);
+chara_t init_null(void);
 
 #endif

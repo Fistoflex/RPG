@@ -13,7 +13,7 @@ chara_t set_chara_elem(char *tmp)
     char **tab = read_file(path);
     sfVector2f pos = {800, 900};
     sfFont  *font = my_font("font/a.ttf");
-    chara_t chara;
+    chara_t chara = init_null();
 
     chara.nm = create_txt(tab[0], font, 33, pos);
     chara.body = insert_stuff(chara.body, tab[2]);

@@ -1,10 +1,10 @@
 ABDILLAH
-662 740
+3138 2144
 picture/Character_assets/MALE/Male - Body/light.png
-picture/red.png
+picture/hair.png
 none
 picture/torso.png
 none
-picture/hands.png
+none
 picture/Character_assets/MALE/Male - Pants/red.png
-picture/feet.png
+picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

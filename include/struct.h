@@ -68,6 +68,7 @@ typedef struct clck_s {
     sfClock *esc;
     sfClock *anim;
     sfClock *enter;
+    sfClock *emi_clk;
 } clck_t;
 
 typedef struct guide {
@@ -87,7 +88,60 @@ typedef struct view_s {
     sfView *pause;
     sfView *menu;
     sfView *inv;
-}view_t;
+} view_t;
+
+typedef struct s_info_tiles {
+    sfVector2u tileSize;
+    int *tiles;
+    sfTexture *tileset;
+    int width;
+    int height;
+    sfVertexArray *vertices;
+    sfRenderStates *states;
+}tiles_t;
+
+typedef struct s_tiled_map {
+    tiles_t *collision;
+    tiles_t *layer1;
+    tiles_t *layer2;
+}tiled_t;
+
+typedef struct s_collision {
+    int north;
+    int south;
+    int est;
+    int west;
+}colli_t;
+
+typedef struct s_rectangle_shape {
+    sfRectangleShape *s;
+    sfVector2f pos;
+    sfVector2f size;
+    sfColor color;
+}rect_shape_t;
+
+typedef struct s_circle_shape {
+    sfCircleShape *c;
+    sfVector2f pos;
+    float raduis;
+    sfColor color;
+}circle_shape_t;
+
+typedef struct s_emi {
+    rect_shape_t shape;
+    circle_shape_t circle;
+}emi_t;
+
+typedef struct s_player_shape {
+    rect_shape_t shape;
+    rect_shape_t wp;
+    int state;
+}player_t;
+
+typedef struct s_list_emi {
+    emi_t enemie;
+    struct s_list_emi *next;
+}list_emi_t;
 
 typedef struct game_s {
     int custom_step;
@@ -112,6 +166,10 @@ typedef struct game_s {
     mouse_t mouse;
     view_t view;
     sfMusic *sound;
+    tiled_t tiles;
+    colli_t colli;
+    list_emi_t *enemies;
+    player_t hitbox;
 }game_t;
 
 #endif

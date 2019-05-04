@@ -56,6 +56,9 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
 					src/inventory/my_inventory.c	\
+					src/tiled/get_tiles.c			\
+					src/tiled/load_map.c			\
+					src/tiled/make_map.c			\
 					src/inventory/init_my_text.c	\
 					src/inventory/create_link_bag.c	\
 					src/my_random.c					\
@@ -64,16 +67,24 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/game/fight/fight.c			\
 					src/game/move_player/do_spell.c	\
 					src/my_create_shape.c			\
-					src/init_statistique_slot.c		\
+					src/tiled/collision.c			\
+					src/tiled/get_way.c				\
 					src/inventory/init_bag_slot.c	\
 					src/inventory/disp_bag.c		\
 					src/inventory/draw_state.c		\
+					src/game/enemies/create_enemies.c	\
+					src/game/enemies/draw_enemies.c	\
+					src/game/enemies/destroy_enemies.c	\
+					src/game/player/player_shape.c	\
+					src/game/enemies/find_player.c	\
+					src/game/enemies/list_enemies.c	\
 					src/inventory/copy_struct.c		\
 					src/inventory/drag_and_drop.c	\
 					src/inventory/pointer_function.c\
 					src/inventory/copy_object.c		\
 					src/inventory/under_fct_drag_and_drop.c	\
-					src/inventory/under_fct_my_inventory.c
+					src/inventory/under_fct_my_inventory.c	\
+					src/slot/init_perso_stat.c
 
 MAIN		=			src/main.c
 
@@ -87,7 +98,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -lm
+CFLAGS		=		-I./include -g -lm -W -Wall -Wextra
 
 LIB		=		-L./lib -lmy
 
@@ -95,9 +106,9 @@ GRAPH		=		-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio
 
 LDFLAGS		=		-lcriterion --coverage
 
-all:				run
+all:				$(NAME)
 
-run:			$(OBJ)
+$(NAME):			$(OBJ)
 				make -sC lib/my
 				$(CC) -o $(NAME) $(OBJ) $(LIB) $(GRAPH)
 
@@ -117,3 +128,5 @@ fclean:			clean
 			rm -f $(BIN)
 
 re:			fclean all
+
+.PHONY: all re fclean clean tests_run

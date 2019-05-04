@@ -15,8 +15,6 @@ button_t set_button(char *str, int x, int y, int size)
     tmp.pos.x = x;
     tmp.pos.y = y;
     tmp.size = size;
-    if (font == NULL)
-        exit(84);
     tmp.txt = create_txt(str, font, size, tmp.pos);
     return (tmp);
 }

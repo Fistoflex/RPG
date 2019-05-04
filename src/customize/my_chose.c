@@ -14,6 +14,7 @@ choice_t *press_left(sfRenderWindow *wind, game_t *gm, choice_t *choice)
     sfVector2f pos_m = {-100, 0};
     sfVector2f pos_r = {100, 0};
 
+    (void)gm;
     choice = choice->prev;
     sfSprite_setScale(choice->iteme_sprite, principal);
     sfSprite_setScale(choice->next->iteme_sprite, second);
@@ -34,6 +35,8 @@ choice_t *press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice)
     sfVector2f pos_m = {300, 0};
     sfVector2f pos_r = {-600, 0};
 
+
+    (void)gm;
     choice = choice->next;
     sfSprite_setScale(choice->iteme_sprite, principal);
     sfSprite_setScale(choice->next->iteme_sprite, second);
@@ -49,6 +52,8 @@ choice_t *press_right(sfRenderWindow *wind, game_t *gm, choice_t *choice)
 
 list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
+    (void)gm;
+    (void)wind;
     list->iteme->state_iteme = FALSE;
     list = list->prev;
     return (list);
@@ -56,6 +61,8 @@ list_t *press_up(sfRenderWindow *wind, game_t *gm, list_t *list)
 
 list_t *press_down(sfRenderWindow *wind, game_t *gm, list_t *list)
 {
+    (void)gm;
+    (void)wind;
     list->iteme->state_iteme = TRUE;
     list = list->next;
     return (list);

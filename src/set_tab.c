@@ -15,7 +15,6 @@ char **set_tab(char *path)
 {
     int fd = open(path, O_RDONLY);
     char *line = NULL;
-    size_t len = 0;
     int size = 0;
     char **tab = NULL;
 
