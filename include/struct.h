@@ -130,6 +130,7 @@ typedef struct s_circle_shape {
 
 typedef struct s_emi {
     int state;
+    sfSprite *sprite;
     statistics_t *st;
     rect_shape_t shape;
     circle_shape_t circle;

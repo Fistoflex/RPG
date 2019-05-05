@@ -11,18 +11,18 @@ void receive_dmg(statistics_t *play, int dmg)
 {
     (void)play;
     (void)dmg;
-    /*heal_t *tmp = play->hp;
+    heal_t *tmp = play->hp;
 
     while (tmp->next != NULL && tmp->next->state != FALSE)
         tmp = tmp->next;
-    tmp->state = FALSE;*/
+    tmp->state = FALSE;
 }
 
 int check_hit(int shield)
 {
     (void)shield;
-    /*if (my_random(shield) == 1)
-        return (TRUE);*/
+    if (my_random(shield) == 1)
+        return (TRUE);
     return (FALSE);
 }
 

@@ -12,6 +12,7 @@ void draw_one_enemie(sfRenderWindow *wind, emi_t emi)
     sfCircleShape_setPosition(emi.circle.c, get_center(emi.shape, 200));
     emi.circle.pos = get_center(emi.shape, 200);
     sfRenderWindow_drawRectangleShape(wind, emi.shape.s, NULL);
+    sfRenderWindow_drawSprite(wind, emi.sprite, NULL);
 }
 
 void draw_enemies(sfRenderWindow *wind, list_emi_t *enemies)
