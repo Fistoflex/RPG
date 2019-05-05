@@ -34,6 +34,7 @@ void color_txt_start(game_t *gm)
         }
         push = TRUE;
     } else {
+        //printf("lol\n");
         push = my_set_the_new_scene(push, gm, SLOT);
         sfText_setColor(gm->menu.start.txt, sfRed);
         sound = FALSE;
