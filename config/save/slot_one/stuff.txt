@@ -1,5 +1,5 @@
 ABDILLAH
-2500 2382
+2226 2406
 picture/Character_assets/MALE/Male-Body/dark2.png
 picture/red.png
 none

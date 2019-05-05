@@ -211,5 +211,7 @@ void save_bag(game_t *gm);
 chara_t init_null(void);
 void my_fight(statistics_t *play, list_emi_t *en, game_t *gm);
 void reset_pos(game_t *gm);
+void next_init(list_emi_t **enemies, game_t *gm);
+emi_t set_up_enemie(int x, int y, game_t *gm, char *sprite);
 
 #endif

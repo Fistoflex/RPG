@@ -54,6 +54,7 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/save_bag.c			\
 					src/slot/under_fct_init_slot.c		\
 					src/slot/under_fct_my_slot.c		\
+					src/game/enemies/under_fct_create_en.c	\
 					src/slot/under_fct_my_slot_two.c	\
 					src/my_itoa.c					\
 					src/inventory/init_inventory.c	\
