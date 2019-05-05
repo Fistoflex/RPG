@@ -27,6 +27,7 @@ void init_player_shape(player_t *player, sfVector2f p_pos)
 
 void draw_player_shape(sfRenderWindow *wind, player_t *player, sfVector2f p_pos)
 {
+    (void)wind;
     sfRectangleShape_setPosition(player->shape.s, get_center_player(p_pos,
                                 set_2f(32, 32)));
     player->shape.pos = get_center_player(p_pos, set_2f(32, 32));

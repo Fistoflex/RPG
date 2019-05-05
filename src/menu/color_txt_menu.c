@@ -16,6 +16,12 @@ int my_set_the_new_scene(int push, game_t *gm, int stat)
     return (push);
 }
 
+void reset_pos(game_t *gm)
+{
+    gm->mouse.button.x = -10;
+    gm->mouse.button.y = -10;
+}
+
 void color_txt_start(game_t *gm)
 {
     static int sound = FALSE;
@@ -32,9 +38,9 @@ void color_txt_start(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
-        //printf("lol\n");
         push = my_set_the_new_scene(push, gm, SLOT);
         sfText_setColor(gm->menu.start.txt, sfRed);
         sound = FALSE;
@@ -57,6 +63,7 @@ void color_txt_exit(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, EXIT);
@@ -74,13 +81,14 @@ void color_txt_setg(game_t *gm)
     float y = gm->menu.setg.pos.y - 10;
 
     biggest_txt(&gm->menu.setg, x, y);
-        rect = sfText_getGlobalBounds(gm->menu.setg.txt);
+    rect = sfText_getGlobalBounds(gm->menu.setg.txt);
     if (sfFloatRect_contains(&rect, gm->mouse.button.x, gm->mouse.button.y)) {
         sfText_setColor(gm->menu.setg.txt, sfYellow);
         if (sound == FALSE) {
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, SETG);

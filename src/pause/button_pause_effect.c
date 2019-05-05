@@ -23,6 +23,7 @@ void resume_effect(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, GAME);
@@ -47,6 +48,7 @@ void home_effect(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, MENU);
@@ -71,6 +73,7 @@ void exit_effect(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, EXIT);
@@ -95,6 +98,7 @@ void restart_effect(game_t *gm)
             sfMusic_play(gm->sound);
             sound = TRUE;
         }
+        reset_pos(gm);
         push = TRUE;
     } else {
         push = my_set_the_new_scene(push, gm, GAME);

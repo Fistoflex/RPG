@@ -210,5 +210,6 @@ char *set_text_to_save(text_t text);
 void save_bag(game_t *gm);
 chara_t init_null(void);
 void my_fight(statistics_t *play, list_emi_t *en, game_t *gm);
+void reset_pos(game_t *gm);
 
 #endif

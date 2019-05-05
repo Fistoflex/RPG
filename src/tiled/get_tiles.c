@@ -22,7 +22,7 @@ char **get_file(char *filepath)
         tmp = my_strcat(tmp, line, KEEP, KEEP);
     }
     fclose(fd);
-    return(word_array(tmp, ','));
+    return (word_array(tmp, ','));
 }
 
 int *get_tiles(char *filepath)

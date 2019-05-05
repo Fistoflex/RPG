@@ -40,6 +40,8 @@ char *cat_path(char *str, game_t *gm)
     str = my_strcat(str, path.legs, FREE, FREE);
     str = my_strcat(str, ";", FREE, KEEP);
     str = my_strcat(str, path.feet, FREE, FREE);
+    str = my_strcat(str, ";", FREE, KEEP);
+    str = my_strcat(str, path.wp, FREE, FREE);
     return (str);
 }
 
@@ -82,7 +84,11 @@ void    save_stuff(game_t *gm)
 
 void    save_game(game_t *gm)
 {
-    save_inventory(gm);
-    save_bag(gm);
-    save_stuff(gm);
+    if (gm->state == GAME || gm->state == PAUSE) {
+        if (gm->chara.bag.bag != NULL) {
+            save_inventory(gm);
+            save_bag(gm);
+        }
+        save_stuff(gm);
+    }
 }

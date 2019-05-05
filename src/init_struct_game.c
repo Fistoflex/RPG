@@ -42,6 +42,7 @@ game_t init_struct_game(void)
     gm.view.pause = NULL;
     gm.view.game = NULL;
     gm.view.inv = NULL;
+    gm.chara.bag.bag = NULL;
     gm.view.menu = set_view(gm.view.menu, 1.05);
     gm.view.game = set_view(gm.view.game, 0.6);
     gm.view.pause = set_view(gm.view.pause, 0.989);

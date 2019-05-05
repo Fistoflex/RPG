@@ -22,7 +22,7 @@ typedef struct s_stat
     int hpi;
     int lvl;
     int dmg;
-    int shield;//le shield doit etre un int, plus il est grand moins il est efficace
+    int shield;
 } statistics_t;
 
 typedef struct s_item {
