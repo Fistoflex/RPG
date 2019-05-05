@@ -130,7 +130,6 @@ void do_slash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int);
 void    my_inventory(sfRenderWindow *wind, game_t *gm);
 sfRectangleShape *my_create_shape(sfVector2f size, sfVector2f, sfColor color);
-statistics_t init_statistique(char *file);
 
 text_t init_text(char **tab);
 void create_link_bag(bag_t **bag, char *str, char **tp);
@@ -169,7 +168,7 @@ int get_south(int, int);
 int get_est(int, int);
 int get_west(int, int);
 
-void init_enemies(list_emi_t **);
+void init_enemies(list_emi_t **, game_t *);
 void draw_enemies(sfRenderWindow *wind, list_emi_t *);
 void destroy_enemies(list_emi_t *);
 rect_shape_t init_shape(sfVector2f size, sfVector2f pos, sfColor color);
@@ -189,5 +188,6 @@ sfText *text_copy(sfText *text);
 sfSprite *sprite_copy(char *path, sfVector2f pos);
 
 statistics_t *init_stat(game_t *gm, char *file);
+void my_fight(statistics_t *play, list_emi_t *en, game_t *gm);
 
 #endif

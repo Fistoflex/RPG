@@ -11,6 +11,7 @@
 void    draw_shape(bag_t *bag, sfRenderWindow *wind)
 {
     while (bag != NULL) {
+        sfRectangleShape_setPosition(bag->shape, bag->pos);
         sfRenderWindow_drawRectangleShape(wind, bag->shape, NULL);
         bag = bag->next;
     }

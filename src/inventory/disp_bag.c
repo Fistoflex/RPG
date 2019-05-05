@@ -20,6 +20,7 @@ void    dis_elem(sfRenderWindow *wind, game_t *gm)
     elem_to_disp(wind, &bag, gm->chara.legs, gm);
     bag->ps = position(gm->chara.bag.coord[3]);
     elem_to_disp(wind, &bag, gm->chara.feet, gm);
+    bag = bag->next;
     bag->ps = position(gm->chara.bag.coord[4]);
     elem_to_disp(wind, &bag, gm->chara.hands, gm);
 }

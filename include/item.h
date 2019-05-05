@@ -19,6 +19,7 @@ typedef struct s_stat
 {
     char *name;
     heal_t *hp;
+    int hpi;
     int lvl;
     int dmg;
     int shield;//le shield doit etre un int, plus il est grand moins il est efficace
@@ -50,6 +51,7 @@ typedef struct itm_s {
 typedef struct s_bag {
     int state;
     sfVector2f ps;
+    sfVector2f pos;
     item_t item;
     text_t txt;
     itm_t itm;

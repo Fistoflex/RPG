@@ -9,13 +9,15 @@
 
 char **all_path(game_t *gm)
 {
-    char **tab = malloc(sizeof(char *) * 5);
+    char **tab = malloc(sizeof(char *) * 7);
 
     tab[0] = my_strcat(gm->chara.path.slot, "hair.txt", KEEP, KEEP);
     tab[1] = my_strcat(gm->chara.path.slot, "torso.txt", KEEP, KEEP);
     tab[2] = my_strcat(gm->chara.path.slot, "legs.txt", KEEP, KEEP);
     tab[3] = my_strcat(gm->chara.path.slot, "feet.txt", KEEP, KEEP);
-    tab[4] = NULL;
+    tab[4] = my_strcat(gm->chara.path.slot, "wp.txt", KEEP, KEEP);
+    tab[5] = my_strcat(gm->chara.path.slot, "hands.txt", KEEP, KEEP);
+    tab[6] = NULL;
     return (tab);
 }
 

@@ -38,6 +38,7 @@ game_t init_struct_game(sfRenderWindow *window, sfVideoMode video_mode)
     gm.view.inv = set_view(gm.view.inv, 1.05);
     gm.clock.esc = sfClock_create();
     gm.clock.enter = sfClock_create();
+    gm.clock.spell = sfClock_create();
     gm.game = my_create_sprite("picture/game.png", sfFalse);
     gm.setting = my_create_sprite("picture/setting.png", sfFalse);
     return (gm);

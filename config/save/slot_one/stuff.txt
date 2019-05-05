@@ -1,5 +1,5 @@
 ABDILLAH
-362 536
+2500 2940
 picture/Character_assets/MALE/Male - Body/dark2.png
 picture/red.png
 none
@@ -9,5 +9,3 @@ none
 picture/Character_assets/MALE/Male - Pants/red.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
 picture/item/weapon/longsword_male.png
-picture/legs.png
-picture/feet.png

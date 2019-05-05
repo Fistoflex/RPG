@@ -23,30 +23,39 @@ int check_hit(int shield)
     return (FALSE);
 }
 
-int my_base(statistics_t *play, player_t hitbox, statistics_t *en)
+int my_base(statistics_t *play, player_t hitbox, emi_t en, sfClock *coold)
 {
     int ret = FALSE;
-    sfFloatRect play_r = sfCircleShape_getGlobalBounds(&hitbox.shape);
-    sfFloatRect wap_r = sfCircleShape_getGlobalBounds(&hitbox.wp);
-    sfFloatRect en_r = sfCircleShape_getGlobalBounds();
+    sfFloatRect en_r = sfRectangleShape_getGlobalBounds(en.shape.s);
+    sfFloatRect play_r = sfRectangleShape_getGlobalBounds(hitbox.shape.s);
+    sfFloatRect wap_r = sfRectangleShape_getGlobalBounds(hitbox.wp.s);
 
     if (hitbox.state != IMN &&
-    sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue)
-        if (check_hit(play->shield) == FALSE)
-            receive_dmg(play, en->dmg);
-    if (hitbox.state == IMN &&
-    sfFloatRect_intersects(&en_r, &wap_r, NULL) == sfTrue) {
-        en->hp -= play->dmg;
-        ret = TRUE;
+    sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue) {
+        if (check_hit(play->shield) == FALSE) {
+            receive_dmg(play, en.st->dmg);
+            sfClock_restart(coold);
+        }
     }
+    if (hitbox.state == ATT &&
+    sfFloatRect_intersects(&wap_r, &en_r, NULL) == sfTrue) {
+        ret = TRUE;
+        en.st->hpi -= (*play).dmg;
+    }
+    //printf("%i-> %i; ret = %i\n", en.st->hpi, play->dmg, ret);
     return (ret);
 }
 
-void my_fight(statistics_t *play, statistics_t *en)
+void my_fight(statistics_t *play, list_emi_t *en, game_t *gm)
 {
-    /*faire un clock pour timé des attacks (si le play att,
-    l'en doit attendre la clock, une case du tableau doit attendre une clock), faire l'animation de l'attack */
-    /*weapon, shape en collision = auto attack*/
-    /*les ennemies sont en tableau de structure*/
-    /*si la fonction my_base renvoie TRUE, L'ENNEMI DOIT ETRE REPONSSER*/
+    if (my_clock(gm->clock.spell) < 1)
+        gm->hitbox.state = IMN;
+    while (en != NULL) {
+        if (my_base(play, gm->hitbox, en->enemie, gm->clock.spell) == TRUE) {
+            en->enemie.shape.pos.x += 200;
+            sfRectangleShape_setPosition(en->enemie.shape.s,
+            en->enemie.shape.pos);
+        }
+        en = en->next;
+    }
 }
