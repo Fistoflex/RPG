@@ -9,7 +9,6 @@
 
 void receive_dmg(statistics_t *play, int dmg)
 {
-    (void)play;
     (void)dmg;
     heal_t *tmp = play->hp;
 
@@ -37,6 +36,7 @@ int my_base(statistics_t *play, player_t hitbox, emi_t en, sfClock *coold)
     sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue) {
         if (check_hit(play->shield) == FALSE) {
             receive_dmg(play, en.st->dmg);
+            play->hpi--;
             sfClock_restart(coold);
         }
     }
@@ -54,7 +54,7 @@ void my_fight(statistics_t *play, list_emi_t *en, game_t *gm)
         gm->hitbox.state = IMN;
     while (en != NULL) {
         if (my_base(play, gm->hitbox, en->enemie, gm->clock.spell) == TRUE) {
-            en->enemie.shape.pos.x += 200;
+            en->enemie.shape.pos.x += 100;
             sfRectangleShape_setPosition(en->enemie.shape.s,
             en->enemie.shape.pos);
         }
