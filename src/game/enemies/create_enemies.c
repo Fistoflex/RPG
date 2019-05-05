@@ -44,7 +44,7 @@ sfVector2f get_center(rect_shape_t shape, float raduis)
     return (pos);
 }
 
-emi_t set_up_enemie(int x, int y, game_t *gm)
+emi_t set_up_enemie(int x, int y, game_t *gm, char *sprite)
 {
     emi_t emi;
 
@@ -52,11 +52,21 @@ emi_t set_up_enemie(int x, int y, game_t *gm)
     emi.circle = init_circle(500, get_center(emi.shape, 500), sfBlack);
     emi.st = init_stat(gm, "wolf");
     emi.state = NONE;
+    emi.sprite = my_create_sprite(sprite, sfFalse);
     return (emi);
 }
 
 void init_enemies(list_emi_t **enemies, game_t *gm)
 {
-    put_in_enemies(enemies, set_up_enemie(3000, 3000, gm));
-    put_in_enemies(enemies, set_up_enemie(3500, 3500, gm));
+    put_in_enemies(enemies, set_up_enemie(3000, 3000, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(3100, 3100, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(3000, 5000, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(7000, 3200, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(7000, 3300, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(7000, 2900, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(7000, 3100, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(4000, 4100, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(4000, 4200, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(4000, 4000, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(3500, 3500, gm, "picture/goblinsword.png"));
 }
