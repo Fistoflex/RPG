@@ -17,7 +17,8 @@ void draw_one_enemie(sfRenderWindow *wind, emi_t emi)
 void draw_enemies(sfRenderWindow *wind, list_emi_t *enemies)
 {
     while (enemies != NULL) {
-        draw_one_enemie(wind, enemies->enemie);
+        if (enemies->enemie.state != DEF)
+            draw_one_enemie(wind, enemies->enemie);
         enemies = enemies->next;
     }
 }

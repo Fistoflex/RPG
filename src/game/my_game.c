@@ -27,7 +27,7 @@ void init_the_game(game_t *gm, int destroy)
         init_player_shape(&gm->hitbox, gm->chara.pos);
         gm->chara.stat = init_stat(gm, "perso_stat");
         gm->enemies = NULL;
-        init_enemies(&gm->enemies);
+        init_enemies(&gm->enemies, gm);
         gm->clock.emi_clk = sfClock_create();
         gm->chara.pos.x = 2500;
         gm->chara.pos.y = 2500;
@@ -59,6 +59,7 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         draw_enemies(wind, gm->enemies);
         move_player(wind, gm);
         draw_player_shape(wind, &gm->hitbox, gm->chara.pos);
+        my_fight(gm->chara.stat, gm->enemies, gm);
         draw_hp(wind, gm->chara.stat->hp, gm);
         if (gm->key.i == PUSHED) {
             gm->state = INV;

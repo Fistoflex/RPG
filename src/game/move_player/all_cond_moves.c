@@ -52,11 +52,11 @@ void spell_player(sfRenderWindow *wind, game_t *gm, sfIntRect rect, int old)
 {
     if (gm->key.s_s == PUSHED) {
         do_slash(wind, gm, &rect, old);
-        gm->hitbox.state = IMN;
+        gm->hitbox.state = ATT;
     }
     if (gm->key.s_d == PUSHED) {
         do_dash(wind, gm, &rect, old);
-        gm->hitbox.state = IMN;
+        gm->hitbox.state = ATT;
     }
     if (gm->key.down == PUSHED || gm->key.up == PUSHED ||
         gm->key.right == PUSHED || gm->key.left == PUSHED ||
@@ -76,6 +76,7 @@ void move_player(sfRenderWindow *wind, game_t *gm)
     static int old = 654;
     static sfIntRect rect;
 
+    gm->hitbox.state = NONE;
     if (gm->key.left == PUSHED && gm->colli.west == FALSE)
         old = to_the_left(wind, gm, &rect);
     if (gm->key.right == PUSHED && gm->colli.est == FALSE)
@@ -87,7 +88,6 @@ void move_player(sfRenderWindow *wind, game_t *gm)
     if (gm->key.s_s != PUSHED && gm->key.s_d != PUSHED)
         set_rect_stuff(wind, gm, rect);
     spell_player(wind, gm, rect, old);
-    gm->hitbox.state = NONE;
     gm->key.down = NOT_PUSHED;
     gm->key.up = NOT_PUSHED;
     gm->key.right = NOT_PUSHED;

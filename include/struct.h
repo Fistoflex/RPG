@@ -69,6 +69,7 @@ typedef struct clck_s {
     sfClock *anim;
     sfClock *enter;
     sfClock *emi_clk;
+    sfClock *spell;
 } clck_t;
 
 typedef struct guide {
@@ -128,6 +129,8 @@ typedef struct s_circle_shape {
 }circle_shape_t;
 
 typedef struct s_emi {
+    int state;
+    statistics_t *st;
     rect_shape_t shape;
     circle_shape_t circle;
 }emi_t;

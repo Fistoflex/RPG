@@ -44,17 +44,19 @@ sfVector2f get_center(rect_shape_t shape, float raduis)
     return (pos);
 }
 
-emi_t set_up_enemie(int x, int y)
+emi_t set_up_enemie(int x, int y, game_t *gm)
 {
     emi_t emi;
 
     emi.shape = init_shape(set_2f(25, 25), set_2f(x, y), sfRed);
     emi.circle = init_circle(500, get_center(emi.shape, 500), sfBlack);
+    emi.st = init_stat(gm, "wolf");
+    emi.state = NONE;
     return (emi);
 }
 
-void init_enemies(list_emi_t **enemies)
+void init_enemies(list_emi_t **enemies, game_t *gm)
 {
-    put_in_enemies(enemies, set_up_enemie(3000, 3000));
-    put_in_enemies(enemies, set_up_enemie(3500, 3500));
+    put_in_enemies(enemies, set_up_enemie(3000, 3000, gm));
+    put_in_enemies(enemies, set_up_enemie(3500, 3500, gm));
 }

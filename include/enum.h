@@ -60,7 +60,9 @@ enum item_s {
     HAND,
     SUPP,
     NONE,
-    IMN
+    IMN,
+    ATT,
+    DEF
 };
 
 enum exit_t {
