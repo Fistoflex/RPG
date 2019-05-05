@@ -41,7 +41,8 @@ char *cat_path(char *str, game_t *gm)
     str = my_strcat(str, ";", FREE, KEEP);
     str = my_strcat(str, path.feet, FREE, FREE);
     str = my_strcat(str, ";", FREE, KEEP);
-    str = my_strcat(str, path.wp, FREE, FREE);
+    str = my_strcat(str, "picture/item/weapon/longsword_male.png",
+                    FREE, KEEP);
     return (str);
 }
 

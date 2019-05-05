@@ -1,11 +1,11 @@
-OUI
-1738 40
-picture/Character_assets/MALE/Male-Body/dark.png
-picture/Character_assets/MALE/Male-Hair/black-bangs.png
 none
-picture/Character_assets/MALE/Male-T-Shirts/brown_longsleeve.png
+0 0
 none
 none
-picture/Character_assets/MALE/Male-Pants/magenta.png
-picture/Character_assets/MALE/Male-Feet/black_shoes_male.png
-picture/item/weapon/rapier_male.png
+none
+none
+none
+none
+none
+none
+none
