@@ -12,7 +12,7 @@ game_t set_other(game_t gm)
     gm.tmp = malloc(sizeof((*gm.tmp)));
     gm.tmp->state = NONE;
     gm.clik = NOT_PUSHED;
-    gm.state = SLOT;
+    gm.state = INTRO;
     gm.sound = sfMusic_createFromFile("audio/sound.wav");
     gm.effect = FALSE;
     gm.mouse.moved.x = 0;
