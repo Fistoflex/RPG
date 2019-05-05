@@ -58,12 +58,12 @@ void collision(game_t *gm)
 {
     int p_pos = get_pos_in_tiles(gm->chara.pos, gm->tiles.collision);
 
-    gm->colli.north = (is_in_collision(gm->tiles.collision, p_pos, NORTH) == TRUE) ?
-                        TRUE : FALSE;
-    gm->colli.south = (is_in_collision(gm->tiles.collision, p_pos, SOUTH) == TRUE) ?
-                        TRUE : FALSE;
-    gm->colli.est = (is_in_collision(gm->tiles.collision, p_pos, EST) == TRUE) ?
-                        TRUE : FALSE;
-    gm->colli.west = (is_in_collision(gm->tiles.collision, p_pos, WEST) == TRUE) ?
-                        TRUE : FALSE;
+    gm->colli.north = (is_in_collision(gm->tiles.collision,
+    p_pos, NORTH) == TRUE) ? TRUE : FALSE;
+    gm->colli.south = (is_in_collision(gm->tiles.collision,
+    p_pos, SOUTH) == TRUE) ? TRUE : FALSE;
+    gm->colli.est = (is_in_collision(gm->tiles.collision,
+    p_pos, EST) == TRUE) ? TRUE : FALSE;
+    gm->colli.west = (is_in_collision(gm->tiles.collision,
+    p_pos, WEST) == TRUE) ? TRUE : FALSE;
 }

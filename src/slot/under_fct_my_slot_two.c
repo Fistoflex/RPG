@@ -7,6 +7,21 @@
 
 #include "my.h"
 
+chara_t init_null(void)
+{
+    chara_t ch;
+
+    ch.body = NULL;
+    ch.hair = NULL;
+    ch.hat = NULL;
+    ch.torso = NULL;
+    ch.shoulder = NULL;
+    ch.hands = NULL;
+    ch.legs = NULL;
+    ch.feet = NULL;
+    return (ch);
+}
+
 void set_slot_game(game_t *gm, int destroy)
 {
     if (gm->state == SLOT && destroy == 0) {

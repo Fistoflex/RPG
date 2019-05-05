@@ -8,7 +8,7 @@
 #include "../../include/my.h"
 
 void malloc_my_link_choice(choice_t **env, sfSprite *iteme,
-                           char *str, char *path)
+                            char *str, char *path)
 {
     choice_t *tmp = (*env);
     choice_t *new = malloc(sizeof(*new));

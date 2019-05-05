@@ -7,4 +7,4 @@ picture/torso.png
 none
 picture/hands.png
 picture/Character_assets/MALE/Male - Pants/red.png
-picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
+picture/feet.png

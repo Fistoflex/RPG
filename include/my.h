@@ -209,5 +209,6 @@ chara_t init_null(void);
 void save_inventory(game_t *gm);
 char *set_text_to_save(text_t text);
 void save_bag(game_t *gm);
+chara_t init_null(void);
 
 #endif

@@ -7,10 +7,8 @@
 
 #include "my.h"
 
-game_t init_struct_game(void)
+game_t set_other(game_t gm)
 {
-    game_t gm;
-
     gm.tmp = malloc(sizeof((*gm.tmp)));
     gm.tmp->state = NONE;
     gm.clik = NOT_PUSHED;
@@ -31,6 +29,14 @@ game_t init_struct_game(void)
     gm.key.back = NOT_PUSHED;
     gm.key.s_s = NOT_PUSHED;
     gm.key.s_d = NOT_PUSHED;
+    return (gm);
+}
+
+game_t init_struct_game(void)
+{
+    game_t gm;
+
+    gm = set_other(gm);
     gm.key.i = NOT_PUSHED;
     gm.view.menu = NULL;
     gm.view.pause = NULL;

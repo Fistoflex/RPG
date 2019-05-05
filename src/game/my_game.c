@@ -18,10 +18,8 @@ sfView *set_view(sfView *view, float zoom)
     return (view);
 }
 
-void    my_game(sfRenderWindow *wind, game_t *gm)
+void init_the_game(game_t *gm, int destroy)
 {
-    static int destroy = 0;
-
     if (gm->state == GAME && destroy == 0) {
         gm->clock.anim = sfClock_create();
         init_my_map(&gm->tiles);
@@ -34,6 +32,26 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         gm->chara.pos.x = 2500;
         gm->chara.pos.y = 2500;
     }
+}
+
+void destroy_the_game(game_t *gm, int destroy)
+{
+    if (gm->state != GAME && destroy == 1 &&
+        gm->state != INV && gm->state != PAUSE) {
+        sfClock_destroy(gm->clock.anim);
+        destroy_player_shape(gm->hitbox);
+        destroy_enemies(gm->enemies);
+        gm->clock.anim = NULL;
+        sfClock_destroy(gm->clock.emi_clk);
+        destroy = 0;
+    }
+}
+
+void    my_game(sfRenderWindow *wind, game_t *gm)
+{
+    static int destroy = 0;
+
+    init_the_game(gm, destroy);
     if (gm->state == GAME) {
         my_map(wind, gm);
         collision(gm);
@@ -50,12 +68,5 @@ void    my_game(sfRenderWindow *wind, game_t *gm)
         sfRenderWindow_setView(wind, gm->view.game);
         destroy = 1;
     }
-    if (gm->state != GAME && destroy == 1 && gm->state != INV && gm->state != PAUSE) {
-        sfClock_destroy(gm->clock.anim);
-        destroy_player_shape(gm->hitbox);
-        destroy_enemies(gm->enemies);
-        gm->clock.anim = NULL;
-        sfClock_destroy(gm->clock.emi_clk);
-        destroy = 0;
-    }
+    destroy_the_game(gm, destroy);
 }

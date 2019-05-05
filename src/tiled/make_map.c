@@ -46,8 +46,6 @@ void init_layer(tiles_t *tiles, char *tiles_path)
 
 void draw_map(sfRenderWindow *wind, tiled_t tiles)
 {
-    // sfRenderWindow_drawVertexArray(wind, tiles.collision->vertices,
-    //                             init_states(tiles.collision));
     sfRenderWindow_drawVertexArray(wind, tiles.layer1->vertices,
                                 init_states(tiles.layer1));
     sfRenderWindow_drawVertexArray(wind, tiles.layer2->vertices,

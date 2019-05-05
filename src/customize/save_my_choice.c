@@ -26,6 +26,21 @@ void free_my_list(list_t *list)
     }
 }
 
+void display_my_choice(sfRenderWindow *wind, game_t *gm)
+{
+    sfRenderWindow_drawSprite(wind, gm->chara.body, NULL);
+    sfRenderWindow_drawSprite(wind, gm->chara.hair, NULL);
+    sfRenderWindow_drawSprite(wind, gm->chara.torso, NULL);
+    gm->chara.hat = NULL;
+    gm->chara.path.hat = my_strdup("none", KEEP);
+    gm->chara.shoulder = NULL;
+    gm->chara.path.shoulder = my_strdup("none", KEEP);
+    gm->chara.hands = NULL;
+    gm->chara.path.hands = my_strdup("none", KEEP);
+    sfRenderWindow_drawSprite(wind, gm->chara.feet, NULL);
+    sfRenderWindow_drawSprite(wind, gm->chara.legs, NULL);
+}
+
 void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *gm)
 {
     while (list->state_link != TRUE)
@@ -45,16 +60,6 @@ void save_my_choice(sfRenderWindow *wind, list_t *list, game_t *gm)
     list = list->next;
     gm->chara.feet = list->iteme->iteme_sprite;
     gm->chara.path.feet = my_strdup(list->iteme->path, KEEP);
-    sfRenderWindow_drawSprite(wind, gm->chara.body, NULL);
-    sfRenderWindow_drawSprite(wind, gm->chara.hair, NULL);
-    sfRenderWindow_drawSprite(wind, gm->chara.torso, NULL);
-    gm->chara.hat = NULL;
-    gm->chara.path.hat = my_strdup("none", KEEP);
-    gm->chara.shoulder = NULL;
-    gm->chara.path.shoulder = my_strdup("none", KEEP);
-    gm->chara.hands = NULL;
-    gm->chara.path.hands = my_strdup("none", KEEP);
-    sfRenderWindow_drawSprite(wind, gm->chara.feet, NULL);
-    sfRenderWindow_drawSprite(wind, gm->chara.legs, NULL);
+    display_my_choice(wind, gm);
     free_my_list(list);
 }

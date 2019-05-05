@@ -19,9 +19,9 @@ sfVector2f get_center_player(sfVector2f p_pos, sfVector2f p_size)
 
 void init_player_shape(player_t *player, sfVector2f p_pos)
 {
-    player->shape = init_shape(set_2f(32, 32), 
+    player->shape = init_shape(set_2f(32, 32),
     get_center_player(p_pos, set_2f(32, 32)), sfBlue);
-    player->wp = init_shape(set_2f(70, 40), 
+    player->wp = init_shape(set_2f(70, 40),
     get_center_player(p_pos, set_2f(70, 40)), sfBlue);
 }
 

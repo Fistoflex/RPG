@@ -41,21 +41,6 @@ void    init_the_struct_chara(elem_char_t *ch, game_t *gm,
     gm->state = GAME;
 }
 
-chara_t init_null(void)
-{
-    chara_t ch;
-
-    ch.body = NULL;
-    ch.hair = NULL;
-    ch.hat = NULL;
-    ch.torso = NULL;
-    ch.shoulder = NULL;
-    ch.hands = NULL;
-    ch.legs = NULL;
-    ch.feet = NULL;
-    return (ch);
-}
-
 void init_stuff(game_t *gm, char *path, char **file)
 {
     char *comp = my_strcat(path, file[1], KEEP, KEEP);
@@ -64,7 +49,8 @@ void init_stuff(game_t *gm, char *path, char **file)
     sfVector2f pos = {my_getnbr(tmp[0]), my_getnbr(tmp[1])};
     chara_t chara = init_null();
     elem_char_t ch[] = {{chara.body}, {chara.hair}, {chara.hat}, {chara.torso},
-                {chara.shoulder}, {chara.hands}, {chara.legs}, {chara.feet}, {NULL}};
+                {chara.shoulder}, {chara.hands}, {chara.legs},
+                {chara.feet}, {NULL}};
     int i = 2;
     int x = 0;
 
