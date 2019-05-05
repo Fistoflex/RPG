@@ -58,6 +58,6 @@ emi_t set_up_enemie(int x, int y, game_t *gm, char *sprite)
 
 void init_enemies(list_emi_t **enemies, game_t *gm)
 {
-    put_in_enemies(enemies, set_up_enemie(3000, 3000, gm));
-    put_in_enemies(enemies, set_up_enemie(3500, 3500, gm));
+    put_in_enemies(enemies, set_up_enemie(3000, 3000, gm, "picture/goblinsword.png"));
+    put_in_enemies(enemies, set_up_enemie(3500, 3500, gm, "picture/goblinsword.png"));
 }

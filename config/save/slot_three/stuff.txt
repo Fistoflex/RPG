@@ -1,10 +1,11 @@
 AH
 52 434
-picture/Character_assets/MALE/Male - Body/dark2.png
-picture/Character_assets/MALE/Male - Hair/black-messy.png
+picture/Character_assets/MALE/Male-Body/dark2.png
+picture/Character_assets/MALE/Male-Hair/black-messy.png
 none
-picture/Character_assets/MALE/Male T-Shirts/maroon_longsleeve.png
+picture/Character_assets/MALE/Male-T-Shirts/maroon_longsleeve.png
 none
 none
-picture/Character_assets/MALE/Male - Pants/red.png
-picture/Character_assets/MALE/Male - Feet/black_shoes_male.png
+picture/Character_assets/MALE/Male-Pants/red.png
+picture/Character_assets/MALE/Male-Feet/black_shoes_male.png
+picture/item/weapon/longsword_male.png
