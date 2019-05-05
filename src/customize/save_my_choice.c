@@ -28,6 +28,9 @@ void free_my_list(list_t *list)
 
 void display_my_choice(sfRenderWindow *wind, game_t *gm)
 {
+    gm->chara.path.wp = my_strdup
+        ("picture/item/weapon/longsword_male.png", KEEP);
+    gm->chara.wp = my_create_sprite(gm->chara.path.wp, sfFalse);
     sfRenderWindow_drawSprite(wind, gm->chara.body, NULL);
     sfRenderWindow_drawSprite(wind, gm->chara.hair, NULL);
     sfRenderWindow_drawSprite(wind, gm->chara.torso, NULL);

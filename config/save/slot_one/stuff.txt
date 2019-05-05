@@ -1,5 +1,5 @@
 NANO
-2500 2206
+3478 2240
 picture/Character_assets/MALE/Male-Body/dark.png
 picture/Character_assets/MALE/Male-Hair/black-bangs.png
 none
