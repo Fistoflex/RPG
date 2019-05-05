@@ -51,6 +51,7 @@ emi_t set_up_enemie(int x, int y, game_t *gm)
     emi.shape = init_shape(set_2f(25, 25), set_2f(x, y), sfRed);
     emi.circle = init_circle(500, get_center(emi.shape, 500), sfBlack);
     emi.st = init_stat(gm, "wolf");
+    emi.state = NONE;
     return (emi);
 }
 

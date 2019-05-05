@@ -65,7 +65,6 @@ void rect_wp(sfRenderWindow *wind, game_t *gm, int top_a)
     int height_s = 200;
     sfIntRect wp;
 
-    sfRenderWindow_drawShape(wind, gm->hitbox.wp.s, NULL);
     wp = my_create_rect(height_s, width_s, top_s, left_s);
     if (my_clock(gm->clock.enter) > 0.1) {
         left_s += 200;
@@ -108,7 +107,6 @@ void do_dash(sfRenderWindow *wind, game_t *gm, sfIntRect *rect, int top_a)
         sfRectangleShape_setRotation(gm->hitbox.wp.s, 90);
     sfRectangleShape_setPosition(gm->hitbox.wp.s,
     set_2f(gm->chara.pos.x + 50, gm->chara.pos.y));
-    sfRenderWindow_drawShape(wind, gm->hitbox.wp.s, NULL);
     top = give_top_dash(gm, top_a, top);
     (*rect) = my_create_rect(height, width, top, left);
     set_rect_stuff(wind, gm, (*rect));

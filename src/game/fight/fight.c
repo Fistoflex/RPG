@@ -30,7 +30,7 @@ int my_base(statistics_t *play, player_t hitbox, emi_t en, sfClock *coold)
     sfFloatRect play_r = sfRectangleShape_getGlobalBounds(hitbox.shape.s);
     sfFloatRect wap_r = sfRectangleShape_getGlobalBounds(hitbox.wp.s);
 
-    if (hitbox.state != IMN &&
+    if (hitbox.state != IMN && en.state != DEF &&
     sfFloatRect_intersects(&play_r, &en_r, NULL) == sfTrue) {
         if (check_hit(play->shield) == FALSE) {
             receive_dmg(play, en.st->dmg);
@@ -40,9 +40,8 @@ int my_base(statistics_t *play, player_t hitbox, emi_t en, sfClock *coold)
     if (hitbox.state == ATT &&
     sfFloatRect_intersects(&wap_r, &en_r, NULL) == sfTrue) {
         ret = TRUE;
-        en.st->hpi -= (*play).dmg;
+        en.st->hpi -= play->dmg;
     }
-    //printf("%i-> %i; ret = %i\n", en.st->hpi, play->dmg, ret);
     return (ret);
 }
 
@@ -56,6 +55,8 @@ void my_fight(statistics_t *play, list_emi_t *en, game_t *gm)
             sfRectangleShape_setPosition(en->enemie.shape.s,
             en->enemie.shape.pos);
         }
+        if (en->enemie.st->hpi < 0)
+            en->enemie.state = DEF;
         en = en->next;
     }
 }

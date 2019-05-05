@@ -129,6 +129,7 @@ typedef struct s_circle_shape {
 }circle_shape_t;
 
 typedef struct s_emi {
+    int state;
     statistics_t *st;
     rect_shape_t shape;
     circle_shape_t circle;

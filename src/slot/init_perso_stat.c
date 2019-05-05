@@ -17,6 +17,7 @@ statistics_t *init_stat(game_t *gm, char *file)
     stat->hpi = atoi(tab[1]);
     stat->hp = init_normal_hp(atoi(tab[1]), gm);
     stat->lvl = atoi(tab[2]);
-    stat->shield = atoi(tab[3]);
+    stat->dmg = atoi(tab[3]);
+    stat->shield = atoi(tab[4]);
     return (stat);
 }
