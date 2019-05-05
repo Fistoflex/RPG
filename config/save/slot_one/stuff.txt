@@ -1,10 +1,10 @@
 ABDILLAH
-3138 2144
+2500 2500
 picture/Character_assets/MALE/Male - Body/light.png
-picture/hair.png
+picture/red.png
 none
 picture/torso.png
 none
-none
+picture/hands.png
 picture/Character_assets/MALE/Male - Pants/red.png
 picture/Character_assets/MALE/Male - Feet/black_shoes_male.png

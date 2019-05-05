@@ -70,6 +70,7 @@ void create_link_bag(bag_t **bag, char *str, char **tp)
 
     new->shape = my_create_shape(size, pos, color);
     new->ps = pos;
+    new->state = FALSE;
     new->pos = pos;
     new->txt = init_text(tp);
     new->next = NULL;

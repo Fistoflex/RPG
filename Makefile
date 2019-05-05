@@ -50,6 +50,8 @@ SRC		=			src/key/key/bt_esc_redirect.c   \
 					src/slot/my_slot.c			\
 					src/slot/init_slot.c			\
 					src/slot/save_game.c			\
+					src/slot/save_inventory.c			\
+					src/slot/save_bag.c			\
 					src/slot/under_fct_init_slot.c		\
 					src/slot/under_fct_my_slot.c		\
 					src/slot/under_fct_my_slot_two.c	\

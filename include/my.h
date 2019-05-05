@@ -206,5 +206,8 @@ void    draw_shape(bag_t *bag, sfRenderWindow *wind);
 
 statistics_t *init_stat(game_t *gm, char *file);
 chara_t init_null(void);
+void save_inventory(game_t *gm);
+char *set_text_to_save(text_t text);
+void save_bag(game_t *gm);
 
 #endif

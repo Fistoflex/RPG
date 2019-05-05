@@ -82,5 +82,7 @@ void    save_stuff(game_t *gm)
 
 void    save_game(game_t *gm)
 {
+    save_inventory(gm);
+    save_bag(gm);
     save_stuff(gm);
 }
