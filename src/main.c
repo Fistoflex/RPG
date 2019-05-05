@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-int main(int ac, char **av)
+int main(void)
 {
     sfRenderWindow *window;
     sfVideoMode video_mode = set_videomode();
